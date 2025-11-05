@@ -4,14 +4,23 @@ package types;
 
 option go_package = "github.com/CTU-SematX/SmartCity/types";
 
-// AirQualityRequest represents the request parameters for air quality queries
-message AirQualityRequest {
+message AirQualityLocationRequest {
     double parameters_id = 1 [json_name = "parameters_id"];
     int32 limit = 2 [json_name = "limit"];
 }
 
+message AirQualityCountryRequest {
+    int64 country = 1 [json_name = "country"];
+}
+
+// AirQualityCountryResponse represents the country endpoint response
+message AirQualityCountryResponse {
+  Meta meta = 1;
+  repeated CountryInfo results = 2;
+}
+
 // AirQualityResponse represents the OpenAQ API response
-message AirQualityResponse {
+message AirQualityLocationResponse {
   Meta meta = 1;
   repeated Location results = 2;
 }
@@ -22,7 +31,6 @@ message Meta {
   string website = 2;
   int32 page = 3;
   int32 limit = 4;
-  string found = 5;  // Can be ">1", exact number as string, etc.
 }
 
 // Location represents an air quality monitoring location
@@ -125,4 +133,14 @@ message Entity {
 message MeasurementsResponse {
   Meta meta = 1;
   repeated Measurement results = 2;
+}
+
+// CountryInfo represents detailed country information
+message CountryInfo {
+  int64 id = 1;
+  string code = 2;
+  string name = 3;
+  string datetime_first = 4;
+  string datetime_last = 5;
+  repeated Parameter parameters = 6;
 }

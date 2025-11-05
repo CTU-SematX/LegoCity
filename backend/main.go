@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 
 	"github.com/CTU-SematX/SmartCity/client"
@@ -12,8 +11,6 @@ import (
 
 func main() {
 	cfg := config.Load()
-
-	fmt.Println(cfg.AirAPIKey)
 
 	// Client
 	weatherClient := client.NewWeatherClient(cfg.WeatherAPIKey)

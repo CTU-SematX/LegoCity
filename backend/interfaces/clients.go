@@ -9,5 +9,6 @@ type WeatherClient interface {
 }
 
 type AirQualityClient interface {
-	GetAirQuality(query *types.AirQualityRequest) (*types.AirQualityResponse, error)
+	GetAirQualityLocation(query *types.AirQualityLocationRequest) (*types.AirQualityLocationResponse, error)
+	GetAirQualityCountry(query *types.AirQualityCountryRequest) (*types.AirQualityCountryResponse, error)
 }

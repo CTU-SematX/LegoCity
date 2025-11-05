@@ -58,8 +58,8 @@ func (h *Handler) GetWeather(c *gin.Context) {
 	c.JSON(http.StatusOK, weatherData)
 }
 
-func (h *Handler) GetAirQuality(c *gin.Context) {
-	var req types.AirQualityRequest
+func (h *Handler) GetAirQualityLocation(c *gin.Context) {
+	var req types.AirQualityLocationRequest
 
 	if parametersIdStr := c.Query("parameters_id"); parametersIdStr != "" {
 		if parametersId, err := strconv.ParseFloat(parametersIdStr, 64); err == nil {
@@ -77,7 +77,27 @@ func (h *Handler) GetAirQuality(c *gin.Context) {
 		req.Limit = MAX_LIMIT
 	}
 
-	airData, err := h.airClient.GetAirQuality(&req)
+	airData, err := h.airClient.GetAirQualityLocation(&req)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Failed to fetch air quality data: " + err.Error(),
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, airData)
+}
+
+func (h *Handler) GetAirQualityCountry(c *gin.Context) {
+	var req types.AirQualityCountryRequest
+
+	if countryStr := c.Query("country"); countryStr != "" {
+		if country, err := strconv.ParseInt(countryStr, 10, 32); err == nil {
+			req.Country = int64(country)
+		}
+	}
+
+	airData, err := h.airClient.GetAirQualityCountry(&req)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": "Failed to fetch air quality data: " + err.Error(),
