@@ -1,4 +1,4 @@
-module dbpedia-server
+module github.com/CTU-SematX/SmartCity
 
 go 1.21
 

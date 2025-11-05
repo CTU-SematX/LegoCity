@@ -1,0 +1,112 @@
+syntax = "proto3";
+
+package weather;
+
+option go_package = "github.com/smartcity/backend/types/weather";
+
+message WeatherResponse {
+  double lat = 1;
+  double lon = 2;
+  string timezone = 3;
+  int32 timezone_offset = 4;
+  Current current = 5;
+  repeated Minutely minutely = 6;
+  repeated Hourly hourly = 7;
+  repeated Daily daily = 8;
+  repeated Alert alerts = 9;
+}
+
+message Current {
+  int64 dt = 1;
+  int64 sunrise = 2;
+  int64 sunset = 3;
+  double temp = 4;
+  double feels_like = 5;
+  int32 pressure = 6;
+  int32 humidity = 7;
+  double dew_point = 8;
+  double uvi = 9;
+  int32 clouds = 10;
+  int32 visibility = 11;
+  double wind_speed = 12;
+  int32 wind_deg = 13;
+  double wind_gust = 14;
+  repeated WeatherCondition weather = 15;
+}
+
+message Minutely {
+  int64 dt = 1;
+  double precipitation = 2;
+}
+
+message Hourly {
+  int64 dt = 1;
+  double temp = 2;
+  double feels_like = 3;
+  int32 pressure = 4;
+  int32 humidity = 5;
+  double dew_point = 6;
+  double uvi = 7;
+  int32 clouds = 8;
+  int32 visibility = 9;
+  double wind_speed = 10;
+  int32 wind_deg = 11;
+  double wind_gust = 12;
+  repeated WeatherCondition weather = 13;
+  double pop = 14; // Probability of precipitation
+}
+
+message Daily {
+  int64 dt = 1;
+  int64 sunrise = 2;
+  int64 sunset = 3;
+  int64 moonrise = 4;
+  int64 moonset = 5;
+  double moon_phase = 6;
+  string summary = 7;
+  Temperature temp = 8;
+  FeelsLike feels_like = 9;
+  int32 pressure = 10;
+  int32 humidity = 11;
+  double dew_point = 12;
+  double wind_speed = 13;
+  int32 wind_deg = 14;
+  double wind_gust = 15;
+  repeated WeatherCondition weather = 16;
+  int32 clouds = 17;
+  double pop = 18; // Probability of precipitation
+  double rain = 19;
+  double uvi = 20;
+}
+
+message Temperature {
+  double day = 1;
+  double min = 2;
+  double max = 3;
+  double night = 4;
+  double eve = 5;
+  double morn = 6;
+}
+
+message FeelsLike {
+  double day = 1;
+  double night = 2;
+  double eve = 3;
+  double morn = 4;
+}
+
+message WeatherCondition {
+  int32 id = 1;
+  string main = 2;
+  string description = 3;
+  string icon = 4;
+}
+
+message Alert {
+  string sender_name = 1;
+  string event = 2;
+  int64 start = 3;
+  int64 end = 4;
+  string description = 5;
+  repeated string tags = 6;
+}

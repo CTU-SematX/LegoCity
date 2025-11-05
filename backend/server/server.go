@@ -49,14 +49,7 @@ func (s *Server) SetupRoutes() {
 	// API v1 group
 	v1 := s.router.Group("/api/v1")
 	{
-		// SPARQL query endpoint
-		v1.POST("/sparql", s.handler.ExecuteSPARQLQuery)
 
-		// Validate SPARQL query endpoint
-		v1.POST("/validate", s.handler.ValidateSPARQLQuery)
-
-		// Example queries endpoint
-		v1.GET("/examples", s.handler.GetExampleQueries)
 	}
 }
 
@@ -65,9 +58,6 @@ func (s *Server) Start() error {
 	fmt.Printf("Server starting on http://localhost%s\n", s.port)
 	fmt.Printf("API endpoints:\n")
 	fmt.Printf("  - GET  /health\n")
-	fmt.Printf("  - POST /api/v1/sparql\n")
-	fmt.Printf("  - POST /api/v1/validate\n")
-	fmt.Printf("  - GET  /api/v1/examples\n")
 
 	return s.router.Run(s.port)
 }
