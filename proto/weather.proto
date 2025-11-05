@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package weather;
+package types;
 
-option go_package = "github.com/CTU-SematX/SmartCity/types/weather";
+option go_package = "github.com/CTU-SematX/SmartCity/types";
 
 // WeatherRequest represents the request parameters for weather queries
 message WeatherRequest {

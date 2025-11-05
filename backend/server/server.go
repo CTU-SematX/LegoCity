@@ -13,15 +13,12 @@ type Server struct {
 	port    string
 }
 
-// Config holds server configuration
 type Config struct {
 	Port        string
 	ReleaseMode bool
 }
 
-// NewServer creates a new server instance
 func NewServer(handler *handlers.Handler, config Config) *Server {
-	// Set Gin mode
 	if config.ReleaseMode {
 		gin.SetMode(gin.ReleaseMode)
 	} else {
@@ -30,7 +27,6 @@ func NewServer(handler *handlers.Handler, config Config) *Server {
 
 	router := gin.Default()
 
-	// Setup CORS middleware
 	router.Use(corsMiddleware())
 
 	return &Server{
@@ -40,28 +36,31 @@ func NewServer(handler *handlers.Handler, config Config) *Server {
 	}
 }
 
-// SetupRoutes configures all the routes
 func (s *Server) SetupRoutes() {
-	// Health check endpoint
+
 	s.router.GET("/health", s.handler.HealthCheck)
 
-	// API v1 group
-	// v1 := s.router.Group("/api/v1")
-	// {
+	weather := s.router.Group("/api/weather")
+	{
+		weather.POST("/get", s.handler.GetWeather)
+	}
 
-	// }
+	air := s.router.Group("/api/air")
+	{
+		air.GET("/get", s.handler.GetAirQuality)
+	}
 }
 
-// Start starts the HTTP server
 func (s *Server) Start() error {
 	fmt.Printf("Server starting on http://localhost%s\n", s.port)
 	fmt.Printf("API endpoints:\n")
 	fmt.Printf("  - GET  /health\n")
+	fmt.Printf("  - POST /api/weather/get\n")
+	fmt.Printf("  - GET  /api/air/get\n")
 
 	return s.router.Run(s.port)
 }
 
-// corsMiddleware adds CORS headers to responses
 func corsMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")

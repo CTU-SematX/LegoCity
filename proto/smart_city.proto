@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package api;
+package types;
 
-option go_package = "github.com/CTU-SematX/SmartCity/types/api";
+option go_package = "github.com/CTU-SematX/SmartCity/types";
 
 // HealthResponse represents the health check response
 message HealthResponse {

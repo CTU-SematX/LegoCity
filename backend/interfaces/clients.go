@@ -1,17 +1,13 @@
 package interfaces
 
 import (
-	"github.com/CTU-SematX/SmartCity/types/weather"
+	"github.com/CTU-SematX/SmartCity/types"
 )
 
-type WeatherQuery struct {
-	Lat     float64
-	Lon     float64
-	Exclude []string
-	Units   string
-	Lang    string
+type WeatherClient interface {
+	GetWeather(query *types.WeatherRequest) (*types.WeatherResponse, error)
 }
 
-type WeatherClient interface {
-	GetWeather(query WeatherQuery) (*weather.WeatherResponse, error)
+type AirQualityClient interface {
+	GetAirQuality(query *types.AirQualityRequest) (*types.AirQualityResponse, error)
 }

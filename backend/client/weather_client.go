@@ -8,13 +8,12 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/CTU-SematX/SmartCity/interfaces"
-	"github.com/CTU-SematX/SmartCity/types/weather"
+	"github.com/CTU-SematX/SmartCity/types"
 )
 
 const (
-	DefaultEndpoint = "https://api.openweathermap.org/data/3.0/onecall"
-	DefaultTimeout  = 30 * time.Second
+	DefaultWeatherEndpoint = "https://api.openweathermap.org/data/3.0/onecall"
+	DefaultTimeout         = 30 * time.Second
 )
 
 type WeatherClient struct {
@@ -23,13 +22,9 @@ type WeatherClient struct {
 	httpClient *http.Client
 }
 
-func NewWeatherClient(endpoint, apiKey string) *WeatherClient {
-	if endpoint == "" {
-		endpoint = DefaultEndpoint
-	}
-
+func NewWeatherClient(apiKey string) *WeatherClient {
 	return &WeatherClient{
-		endpoint: endpoint,
+		endpoint: DefaultWeatherEndpoint,
 		apiKey:   apiKey,
 		httpClient: &http.Client{
 			Timeout: DefaultTimeout,
@@ -37,7 +32,7 @@ func NewWeatherClient(endpoint, apiKey string) *WeatherClient {
 	}
 }
 
-func (c *WeatherClient) GetWeather(query interfaces.WeatherQuery) (*weather.WeatherResponse, error) {
+func (c *WeatherClient) GetWeather(query *types.WeatherRequest) (*types.WeatherResponse, error) {
 	if c.apiKey == "" {
 		return nil, fmt.Errorf("API key is required")
 	}
@@ -89,7 +84,7 @@ func (c *WeatherClient) GetWeather(query interfaces.WeatherQuery) (*weather.Weat
 		return nil, fmt.Errorf("failed to read response: %w", err)
 	}
 
-	var weatherResp weather.WeatherResponse
+	var weatherResp types.WeatherResponse
 	if err := json.Unmarshal(body, &weatherResp); err != nil {
 		return nil, fmt.Errorf("failed to parse response: %w", err)
 	}

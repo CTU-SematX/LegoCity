@@ -2,36 +2,40 @@ package handlers
 
 import (
 	"net/http"
+	"strconv"
 	"time"
 
 	"github.com/CTU-SematX/SmartCity/interfaces"
-	"github.com/CTU-SematX/SmartCity/types/api"
-	"github.com/CTU-SematX/SmartCity/types/weather"
+	"github.com/CTU-SematX/SmartCity/types"
 	"github.com/gin-gonic/gin"
 )
 
-// Handler contains all HTTP handlers
+const (
+	MAX_LIMIT = 1
+)
+
 type Handler struct {
 	weatherClient interfaces.WeatherClient
+	airClient     interfaces.AirQualityClient
 }
 
-// NewHandler creates a new handler instance
-func NewHandler(weatherClient interfaces.WeatherClient) *Handler {
+func NewHandler(weatherClient interfaces.WeatherClient, airClient interfaces.AirQualityClient) *Handler {
 	return &Handler{
 		weatherClient: weatherClient,
+		airClient:     airClient,
 	}
 }
 
 // HealthCheck returns the server status
 func (h *Handler) HealthCheck(c *gin.Context) {
-	c.JSON(http.StatusOK, &api.HealthResponse{
+	c.JSON(http.StatusOK, &types.HealthResponse{
 		Status: "healthy",
 		Time:   time.Now().Format(time.RFC3339),
 	})
 }
 
 func (h *Handler) GetWeather(c *gin.Context) {
-	var req weather.WeatherRequest
+	var req types.WeatherRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": "Invalid request: " + err.Error(),
@@ -43,15 +47,7 @@ func (h *Handler) GetWeather(c *gin.Context) {
 		req.Units = "metric"
 	}
 
-	query := interfaces.WeatherQuery{
-		Lat:     req.Lat,
-		Lon:     req.Lon,
-		Exclude: req.Exclude,
-		Units:   req.Units,
-		Lang:    req.Lang,
-	}
-
-	weatherData, err := h.weatherClient.GetWeather(query)
+	weatherData, err := h.weatherClient.GetWeather(&req)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": "Failed to fetch weather data: " + err.Error(),
@@ -60,4 +56,34 @@ func (h *Handler) GetWeather(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, weatherData)
+}
+
+func (h *Handler) GetAirQuality(c *gin.Context) {
+	var req types.AirQualityRequest
+
+	if parametersIdStr := c.Query("parameters_id"); parametersIdStr != "" {
+		if parametersId, err := strconv.ParseFloat(parametersIdStr, 64); err == nil {
+			req.ParametersId = parametersId
+		}
+	}
+
+	if limitStr := c.Query("limit"); limitStr != "" {
+		if limit, err := strconv.ParseInt(limitStr, 10, 32); err == nil {
+			req.Limit = int32(limit)
+		}
+	}
+
+	if req.Limit == 0 {
+		req.Limit = MAX_LIMIT
+	}
+
+	airData, err := h.airClient.GetAirQuality(&req)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Failed to fetch air quality data: " + err.Error(),
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, airData)
 }
