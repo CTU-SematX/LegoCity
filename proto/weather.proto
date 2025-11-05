@@ -4,6 +4,14 @@ package weather;
 
 option go_package = "github.com/smartcity/backend/types/weather";
 
+message WeatherRequest {
+  double lat = 1;
+  double lon = 2;
+  repeated string exclude = 3;
+  string units = 4;
+  string lang = 5;
+}
+
 message WeatherResponse {
   double lat = 1;
   double lon = 2;

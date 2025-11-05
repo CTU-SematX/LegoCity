@@ -10,19 +10,11 @@ import (
 )
 
 func main() {
-	// Load configuration
 	cfg := config.Load()
 
-	// Initialize DBpedia client
-	dbpediaClient := client.NewDBpediaClient(cfg.DBpediaEndpoint)
-
-	// Initialize Weather client
 	weatherClient := client.NewWeatherClient(cfg.WeatherAPIEndpoint, cfg.WeatherAPIKey)
+	handler := handlers.NewHandler(weatherClient)
 
-	// Initialize handlers
-	handler := handlers.NewHandler(dbpediaClient, weatherClient)
-
-	// Initialize server
 	srv := server.NewServer(handler, server.Config{
 		Port:        cfg.ServerPort,
 		ReleaseMode: cfg.ReleaseMode,

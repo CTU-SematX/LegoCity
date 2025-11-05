@@ -1,13 +1,12 @@
 package server
 
 import (
-	"dbpedia-server/handlers"
 	"fmt"
 
+	"github.com/CTU-SematX/SmartCity/handlers"
 	"github.com/gin-gonic/gin"
 )
 
-// Server represents the HTTP server
 type Server struct {
 	router  *gin.Engine
 	handler *handlers.Handler
@@ -47,10 +46,10 @@ func (s *Server) SetupRoutes() {
 	s.router.GET("/health", s.handler.HealthCheck)
 
 	// API v1 group
-	v1 := s.router.Group("/api/v1")
-	{
+	// v1 := s.router.Group("/api/v1")
+	// {
 
-	}
+	// }
 }
 
 // Start starts the HTTP server

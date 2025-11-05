@@ -5,15 +5,14 @@ import (
 	"time"
 
 	"github.com/CTU-SematX/SmartCity/interfaces"
+	weather "github.com/CTU-SematX/SmartCity/types"
 	"github.com/gin-gonic/gin"
 )
 
-// Handler contains all HTTP handlers
 type Handler struct {
 	weatherClient interfaces.WeatherClient
 }
 
-// NewHandler creates a new handler instance
 func NewHandler(weatherClient interfaces.WeatherClient) *Handler {
 	return &Handler{
 		weatherClient: weatherClient,
@@ -32,16 +31,8 @@ func (h *Handler) HealthCheck(c *gin.Context) {
 	})
 }
 
-type WeatherRequest struct {
-	Lat     float64  `json:"lat" binding:"required"`
-	Lon     float64  `json:"lon" binding:"required"`
-	Exclude []string `json:"exclude,omitempty"`
-	Units   string   `json:"units,omitempty"`
-	Lang    string   `json:"lang,omitempty"`
-}
-
 func (h *Handler) GetWeather(c *gin.Context) {
-	var req WeatherRequest
+	var req weather.WeatherRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": "Invalid request: " + err.Error(),
