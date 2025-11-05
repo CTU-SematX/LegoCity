@@ -2,8 +2,9 @@ syntax = "proto3";
 
 package weather;
 
-option go_package = "github.com/smartcity/backend/types/weather";
+option go_package = "github.com/CTU-SematX/SmartCity/types/weather";
 
+// WeatherRequest represents the request parameters for weather queries
 message WeatherRequest {
   double lat = 1;
   double lon = 2;

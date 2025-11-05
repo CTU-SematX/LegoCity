@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "github.com/CTU-SematX/SmartCity/types/api";
+
+// HealthResponse represents the health check response
+message HealthResponse {
+  string status = 1;
+  string time = 2;
+}
+
+// ErrorResponse represents an error response
+message ErrorResponse {
+  string error = 1;
+  string message = 2;
+  int32 code = 3;
+}

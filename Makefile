@@ -9,7 +9,7 @@ proto-go:
 	protoc --go_out=backend/types --go_opt=paths=source_relative \
 		--go-grpc_out=backend/types --go-grpc_opt=paths=source_relative \
 		--proto_path=proto \
-		proto/weather.proto
+		proto/*.proto
 	@echo "Go types generated in backend/types"
 
 proto-ts:
@@ -20,7 +20,7 @@ proto-ts:
 		--ts_proto_opt=esModuleInterop=true \
 		--ts_proto_opt=outputJsonMethods=true \
 		--proto_path=proto \
-		proto/weather.proto
+		proto/*.proto
 	@echo "TypeScript types generated in frontend/types"
 
 # Run tests

@@ -5,27 +5,26 @@ import (
 	"time"
 
 	"github.com/CTU-SematX/SmartCity/interfaces"
-	weather "github.com/CTU-SematX/SmartCity/types"
+	"github.com/CTU-SematX/SmartCity/types/api"
+	"github.com/CTU-SematX/SmartCity/types/weather"
 	"github.com/gin-gonic/gin"
 )
 
+// Handler contains all HTTP handlers
 type Handler struct {
 	weatherClient interfaces.WeatherClient
 }
 
+// NewHandler creates a new handler instance
 func NewHandler(weatherClient interfaces.WeatherClient) *Handler {
 	return &Handler{
 		weatherClient: weatherClient,
 	}
 }
 
-type HealthResponse struct {
-	Status string `json:"status"`
-	Time   string `json:"time"`
-}
-
+// HealthCheck returns the server status
 func (h *Handler) HealthCheck(c *gin.Context) {
-	c.JSON(http.StatusOK, HealthResponse{
+	c.JSON(http.StatusOK, &api.HealthResponse{
 		Status: "healthy",
 		Time:   time.Now().Format(time.RFC3339),
 	})

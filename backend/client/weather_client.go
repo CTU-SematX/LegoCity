@@ -9,7 +9,7 @@ import (
 	"time"
 
 	"github.com/CTU-SematX/SmartCity/interfaces"
-	weather "github.com/CTU-SematX/SmartCity/types"
+	"github.com/CTU-SematX/SmartCity/types/weather"
 )
 
 const (

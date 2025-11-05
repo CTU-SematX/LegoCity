@@ -1,7 +1,7 @@
 package interfaces
 
 import (
-	weather "github.com/CTU-SematX/SmartCity/types"
+	"github.com/CTU-SematX/SmartCity/types/weather"
 )
 
 type WeatherQuery struct {
