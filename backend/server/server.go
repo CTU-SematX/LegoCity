@@ -1,28 +1,24 @@
 package server
 
 import (
-	"dbpedia-server/handlers"
 	"fmt"
 
+	"github.com/CTU-SematX/SmartCity/handlers"
 	"github.com/gin-gonic/gin"
 )
 
-// Server represents the HTTP server
 type Server struct {
 	router  *gin.Engine
 	handler *handlers.Handler
 	port    string
 }
 
-// Config holds server configuration
 type Config struct {
 	Port        string
 	ReleaseMode bool
 }
 
-// NewServer creates a new server instance
 func NewServer(handler *handlers.Handler, config Config) *Server {
-	// Set Gin mode
 	if config.ReleaseMode {
 		gin.SetMode(gin.ReleaseMode)
 	} else {
@@ -31,7 +27,6 @@ func NewServer(handler *handlers.Handler, config Config) *Server {
 
 	router := gin.Default()
 
-	// Setup CORS middleware
 	router.Use(corsMiddleware())
 
 	return &Server{
@@ -41,38 +36,35 @@ func NewServer(handler *handlers.Handler, config Config) *Server {
 	}
 }
 
-// SetupRoutes configures all the routes
 func (s *Server) SetupRoutes() {
-	// Health check endpoint
+
 	s.router.GET("/health", s.handler.HealthCheck)
 
-	// API v1 group
-	v1 := s.router.Group("/api/v1")
+	weather := s.router.Group("/api/weather")
 	{
-		// SPARQL query endpoint
-		v1.POST("/sparql", s.handler.ExecuteSPARQLQuery)
+		weather.POST("/get", s.handler.GetWeather)
+		weather.GET("/city", s.handler.GetWeatherCity)
+	}
 
-		// Validate SPARQL query endpoint
-		v1.POST("/validate", s.handler.ValidateSPARQLQuery)
-
-		// Example queries endpoint
-		v1.GET("/examples", s.handler.GetExampleQueries)
+	air := s.router.Group("/api/air")
+	{
+		air.GET("/locations", s.handler.GetAirQualityLocation)
+		air.GET("/countries", s.handler.GetAirQualityCountry)
 	}
 }
 
-// Start starts the HTTP server
 func (s *Server) Start() error {
 	fmt.Printf("Server starting on http://localhost%s\n", s.port)
 	fmt.Printf("API endpoints:\n")
 	fmt.Printf("  - GET  /health\n")
-	fmt.Printf("  - POST /api/v1/sparql\n")
-	fmt.Printf("  - POST /api/v1/validate\n")
-	fmt.Printf("  - GET  /api/v1/examples\n")
+	fmt.Printf("  - POST /api/weather/get\n")
+	fmt.Printf("  - GET  /api/weather/city\n")
+	fmt.Printf("  - GET  /api/air/locations\n")
+	fmt.Printf("  - GET  /api/air/countries\n")
 
 	return s.router.Run(s.port)
 }
 
-// corsMiddleware adds CORS headers to responses
 func corsMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")

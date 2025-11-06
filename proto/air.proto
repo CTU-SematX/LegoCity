@@ -1,0 +1,146 @@
+syntax = "proto3";
+
+package types;
+
+option go_package = "github.com/CTU-SematX/SmartCity/types";
+
+message AirQualityLocationRequest {
+    double parameters_id = 1 [json_name = "parameters_id"];
+    int32 limit = 2 [json_name = "limit"];
+}
+
+message AirQualityCountryRequest {
+    int64 country = 1 [json_name = "country"];
+}
+
+// AirQualityCountryResponse represents the country endpoint response
+message AirQualityCountryResponse {
+  Meta meta = 1;
+  repeated CountryInfo results = 2;
+}
+
+// AirQualityResponse represents the OpenAQ API response
+message AirQualityLocationResponse {
+  Meta meta = 1;
+  repeated Location results = 2;
+}
+
+// Meta contains metadata about the API response
+message Meta {
+  string name = 1;
+  string website = 2;
+  int32 page = 3;
+  int32 limit = 4;
+}
+
+// Location represents an air quality monitoring location
+message Location {
+  int64 id = 1;
+  string name = 2;
+  string locality = 3;
+  string timezone = 4;
+  Country country = 5;
+  Owner owner = 6;
+  Provider provider = 7;
+  bool is_mobile = 8;
+  bool is_monitor = 9;
+  repeated Instrument instruments = 10;
+  repeated Sensor sensors = 11;
+  Coordinates coordinates = 12;
+  repeated License licenses = 13;
+  repeated double bounds = 14;  // [minLon, minLat, maxLon, maxLat]
+  double distance = 15;
+  string datetime_first = 16;
+  string datetime_last = 17;
+}
+
+// Country represents country information
+message Country {
+  int32 id = 1;
+  string code = 2;
+  string name = 3;
+}
+
+// Owner represents the organization that owns the monitoring station
+message Owner {
+  int32 id = 1;
+  string name = 2;
+}
+
+// Provider represents the data provider
+message Provider {
+  int32 id = 1;
+  string name = 2;
+}
+
+// Instrument represents a monitoring instrument
+message Instrument {
+  int32 id = 1;
+  string name = 2;
+}
+
+// Sensor represents a sensor at the monitoring location
+message Sensor {
+  int32 id = 1;
+  string name = 2;
+  Parameter parameter = 3;
+}
+
+// Parameter represents the measurement parameter
+message Parameter {
+  int32 id = 1;
+  string name = 2;
+  string units = 3;
+  string display_name = 4;
+}
+
+// Coordinates represents geographic coordinates
+message Coordinates {
+  double latitude = 1;
+  double longitude = 2;
+}
+
+// License represents licensing information
+message License {
+  string name = 1;
+  string url = 2;
+}
+
+// Measurement represents an air quality measurement
+message Measurement {
+  int64 location_id = 1;
+  string location = 2;
+  Parameter parameter = 3;
+  double value = 4;
+  string date = 5;
+  string unit = 6;
+  Coordinates coordinates = 7;
+  Country country = 8;
+  string city = 9;
+  bool is_mobile = 10;
+  bool is_analysis = 11;
+  Entity entity = 12;
+  Sensor sensor_type = 13;
+}
+
+// Entity represents the entity responsible for the measurement
+message Entity {
+  string name = 1;
+  string type = 2;
+}
+
+// MeasurementsResponse represents the response for measurements endpoint
+message MeasurementsResponse {
+  Meta meta = 1;
+  repeated Measurement results = 2;
+}
+
+// CountryInfo represents detailed country information
+message CountryInfo {
+  int64 id = 1;
+  string code = 2;
+  string name = 3;
+  string datetime_first = 4;
+  string datetime_last = 5;
+  repeated Parameter parameters = 6;
+}
