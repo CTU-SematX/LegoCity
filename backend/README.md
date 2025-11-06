@@ -12,9 +12,19 @@ API endpoints:
 ### Example
 
 ```
-http://localhost:8080/api/weather/city?q=Ho%20Chi%20Minh%20City
+http://localhost:8080/api/air/countries?country=56
+```
+
+example result
+``` 
+![alt text](example_image/country=56.png)
 ```
 
 ```
-http://localhost:8080/api/air/countries?country=56
+http://localhost:8080/api/weather/city?q=Ho%20Chi%20Minh%20City
+```
+
+example result
+```
+![alt text](example_image/HCMCity.png)
 ```
