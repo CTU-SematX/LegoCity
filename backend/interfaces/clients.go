@@ -6,6 +6,7 @@ import (
 
 type WeatherClient interface {
 	GetWeather(query *types.WeatherRequest) (*types.WeatherResponse, error)
+	GetWeatherCity(query *types.WeatherCityRequest) (*types.WeatherCityResponse, error)
 }
 
 type AirQualityClient interface {

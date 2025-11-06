@@ -13,6 +13,76 @@ message WeatherRequest {
   string lang = 5;
 }
 
+// WeatherCityRequest represents the request parameters for current weather by city
+message WeatherCityRequest {
+  string city = 1 [json_name = "q"];
+  string units = 2 [json_name = "units"];
+  string lang = 3 [json_name = "lang"];
+}
+
+// WeatherCityResponse represents the current weather response by city
+message WeatherCityResponse {
+  Coord coord = 1;
+  repeated WeatherCondition weather = 2;
+  string base = 3;
+  MainWeather main = 4;
+  int32 visibility = 5;
+  Wind wind = 6;
+  Rain rain = 7;
+  Clouds clouds = 8;
+  int64 dt = 9;
+  Sys sys = 10;
+  int32 timezone = 11;
+  int64 id = 12;
+  string name = 13;
+  int32 cod = 14;
+}
+
+// Coord represents geographical coordinates
+message Coord {
+  double lon = 1;
+  double lat = 2;
+}
+
+// MainWeather represents main weather parameters
+message MainWeather {
+  double temp = 1;
+  double feels_like = 2;
+  double temp_min = 3;
+  double temp_max = 4;
+  int32 pressure = 5;
+  int32 humidity = 6;
+  int32 sea_level = 7;
+  int32 grnd_level = 8;
+}
+
+// Wind represents wind information
+message Wind {
+  double speed = 1;
+  int32 deg = 2;
+  double gust = 3;
+}
+
+// Rain represents rain volume
+message Rain {
+  double one_h = 1 [json_name = "1h"];  // Rain volume for last 1 hour
+  double three_h = 2 [json_name = "3h"];  // Rain volume for last 3 hours
+}
+
+// Clouds represents cloudiness
+message Clouds {
+  int32 all = 1;  // Cloudiness percentage
+}
+
+// Sys represents system data
+message Sys {
+  int32 type = 1;
+  int64 id = 2;
+  string country = 3;
+  int64 sunrise = 4;
+  int64 sunset = 5;
+}
+
 message WeatherResponse {
   double lat = 1;
   double lon = 2;

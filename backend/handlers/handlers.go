@@ -58,6 +58,43 @@ func (h *Handler) GetWeather(c *gin.Context) {
 	c.JSON(http.StatusOK, weatherData)
 }
 
+func (h *Handler) GetWeatherCity(c *gin.Context) {
+	var req types.WeatherCityRequest
+
+	if city := c.Query("q"); city != "" {
+		req.City = city
+	}
+
+	if units := c.Query("units"); units != "" {
+		req.Units = units
+	}
+
+	if lang := c.Query("lang"); lang != "" {
+		req.Lang = lang
+	}
+
+	if req.Units == "" {
+		req.Units = "metric"
+	}
+
+	if req.City == "" {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": "City name (q) is required",
+		})
+		return
+	}
+
+	weatherData, err := h.weatherClient.GetWeatherCity(&req)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Failed to fetch weather data: " + err.Error(),
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, weatherData)
+}
+
 func (h *Handler) GetAirQualityLocation(c *gin.Context) {
 	var req types.AirQualityLocationRequest
 

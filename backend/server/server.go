@@ -43,6 +43,7 @@ func (s *Server) SetupRoutes() {
 	weather := s.router.Group("/api/weather")
 	{
 		weather.POST("/get", s.handler.GetWeather)
+		weather.GET("/city", s.handler.GetWeatherCity)
 	}
 
 	air := s.router.Group("/api/air")
@@ -57,6 +58,7 @@ func (s *Server) Start() error {
 	fmt.Printf("API endpoints:\n")
 	fmt.Printf("  - GET  /health\n")
 	fmt.Printf("  - POST /api/weather/get\n")
+	fmt.Printf("  - GET  /api/weather/city\n")
 	fmt.Printf("  - GET  /api/air/locations\n")
 	fmt.Printf("  - GET  /api/air/countries\n")
 
