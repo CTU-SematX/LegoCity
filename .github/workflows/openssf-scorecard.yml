@@ -17,4 +17,4 @@ jobs:
       id-token: write
     uses: ossf/scorecard-action@f49aabe0b5af0936a0987cfb85d86b75731b0186 # v2.4.1
     with:
-      publish-results: false
+      publish-results: true
