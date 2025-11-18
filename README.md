@@ -1,10 +1,10 @@
  
 
-# Project Title
+# Lego City
 
 Project logo and badges goes here.
 
-Examples: All pointing to this project
+
 [![Version](https://img.shields.io/github/v/tag/CTU-SematX/SmartCity?style=for-the-badge&color=green&label=Version)](https://github.com/CTU-SematX/SmartCity/tags])
 [![REUSE](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.reuse.software%2Fstatus%2Fgithub.com%2Fdiggsweden%2Fopen-source-project-template&query=status&style=for-the-badge&label=REUSE)](https://api.reuse.software/info/github.com/CTU-SematX/SmartCity)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/CTU-SematX/SmartCity/badge?style=for-the-badge)](https://scorecard.dev/viewer/?uri=github.com/CTU-SematX/SmartCity)
@@ -12,8 +12,7 @@ Examples: All pointing to this project
 
 Highly optional. Embed an image of the project logo and include links to relevant badges in the README.
 
-**Description**:  Put a meaningful, short, plain-language description of what the project is trying to accomplish and why it matters.
-Describe the problem(s) this project solves.
+**Description**:  Lego City is a Smart City Builder using Fiware Enablers and NGSI-LD under the hood and PayloadCMS as Wirecloud alternative with modern and fully customization UI. So you can build your Smart City platform the fastest and easiest way.
 
 **Screenshot**: If the software has visual components, place a screenshot after the description; e.g.,
 
