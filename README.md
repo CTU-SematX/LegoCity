@@ -1,4 +1,4 @@
- 
+![](./docs/assets/project_banner.png)
 
 # Lego City
 
