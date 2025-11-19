@@ -5,7 +5,7 @@
 Project logo and badges goes here.
 
 
-[![Version](https://img.shields.io/github/v/tag/CTU-SematX/SmartCity?style=for-the-badge&color=green&label=Version)](https://github.com/CTU-SematX/SmartCity/tags])
+[![Version](https://img.shields.io/github/v/release/CTU-SematX/SmartCity?style=for-the-badge&color=green&label=Version)](https://github.com/CTU-SematX/SmartCity/releases)
 [![REUSE](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.reuse.software%2Fstatus%2Fgithub.com%2Fdiggsweden%2Fopen-source-project-template&query=status&style=for-the-badge&label=REUSE)](https://api.reuse.software/info/github.com/CTU-SematX/SmartCity)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/CTU-SematX/SmartCity/badge?style=for-the-badge)](https://scorecard.dev/viewer/?uri=github.com/CTU-SematX/SmartCity)
 ![Standard for Public Code Commitment](https://img.shields.io/badge/Standard%20for%20Public%20Code%20Commitment-green?style=for-the-badge)
