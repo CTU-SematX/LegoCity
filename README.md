@@ -1,6 +1,6 @@
 ![](./docs/assets/project_banner.png)
 
-# Lego City
+# Lego City [![MkDocs](https://img.shields.io/badge/MkDocs-526CFE?logo=materialformkdocs&logoColor=fff)](https://ctu-sematx.github.io/LegoCity/)
 
 Project logo and badges goes here.
 
