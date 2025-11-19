@@ -5,16 +5,11 @@
 Project logo and badges goes here.
 
 
-
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/CTU-SematX/SmartCity/badge)](https://scorecard.dev/viewer/?uri=github.com/CTU-SematX/SmartCity)
 [![Version](https://img.shields.io/github/v/release/CTU-SematX/SmartCity?label=Version)](https://github.com/CTU-SematX/SmartCity/releases)
-[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/CTU-SematX/SmartCity)](https://scorecard.dev/viewer/?uri=github.com/CTU-SematX/SmartCity)
-[![Open issues](https://img.shields.io/github/issues/CTU-SematX/SmartCity.svg 'Open issues')](https://github.com/CTU-SematX/SmartCity/issues)
-[![Open Pull Requests](https://img.shields.io/github/issues-pr/CTU-SematX/SmartCity.svg 'Open Pull Requests')](https://github.com/CTU-SematX/SmartCity/pulls)
 [![Commit activity](https://img.shields.io/github/commit-activity/m/CTU-SematX/SmartCity.svg 'Commit activity')](https://github.com/CTU-SematX/SmartCity/graphs/commit-activity)
 [![GitHub contributors](https://img.shields.io/github/contributors/CTU-SematX/SmartCity.svg 'Github contributors')](https://github.com/CTU-SematX/SmartCity/graphs/contributors)
 ![](./docs/images/new_banner.png)
-[![Github license](https://img.shields.io/github/license/CTU-SematX/SmartCity.svg 'Github license')](https://github.com/CTU-SematX/SmartCity/blob/main/LICENSE)
-
 
 **Description**:  Lego City is a Smart City Builder using Fiware Enablers and NGSI-LD under the hood and PayloadCMS as Wirecloud alternative with modern and fully customization UI. So you can build your Smart City platform the fastest and easiest way.
 
