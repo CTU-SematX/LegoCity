@@ -268,28 +268,11 @@ func (h *Handler) SyncAirQualityToOrion(c *gin.Context) {
 		req.Limit = 100
 	}
 
-	// Fetch air quality data
-	airData, err := h.airClient.GetAirQualityLocation(&req)
+	// Fetch air quality data (already returns JSON-LD format)
+	entities, err := h.airClient.GetAirQualityLocation(&req)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": "Failed to fetch air quality data: " + err.Error(),
-		})
-		return
-	}
-
-	// Convert to JSON-LD
-	airClientImpl, ok := h.airClient.(*client.AirClient)
-	if !ok {
-		c.JSON(http.StatusInternalServerError, gin.H{
-			"error": "Invalid air client type",
-		})
-		return
-	}
-
-	entities, err := airClientImpl.ConvertLocationResponseToJSONLD(airData)
-	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{
-			"error": "Failed to convert to JSON-LD: " + err.Error(),
 		})
 		return
 	}
@@ -323,28 +306,11 @@ func (h *Handler) SyncCountryToOrion(c *gin.Context) {
 		return
 	}
 
-	// Fetch country data
-	countryData, err := h.airClient.GetAirQualityCountry(&req)
+	// Fetch country data (already returns JSON-LD format)
+	entities, err := h.airClient.GetAirQualityCountry(&req)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": "Failed to fetch country data: " + err.Error(),
-		})
-		return
-	}
-
-	// Convert to JSON-LD
-	airClientImpl, ok := h.airClient.(*client.AirClient)
-	if !ok {
-		c.JSON(http.StatusInternalServerError, gin.H{
-			"error": "Invalid air client type",
-		})
-		return
-	}
-
-	entities, err := airClientImpl.ConvertCountryResponseToJSONLD(countryData)
-	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{
-			"error": "Failed to convert to JSON-LD: " + err.Error(),
 		})
 		return
 	}
@@ -382,28 +348,11 @@ func (h *Handler) SyncWeatherToOrion(c *gin.Context) {
 		req.Units = "metric"
 	}
 
-	// Fetch weather data
-	weatherData, err := h.weatherClient.GetWeatherCity(&req)
+	// Fetch weather data (already returns JSON-LD format)
+	entity, err := h.weatherClient.GetWeatherCity(&req)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": "Failed to fetch weather data: " + err.Error(),
-		})
-		return
-	}
-
-	// Convert to JSON-LD
-	weatherClientImpl, ok := h.weatherClient.(*client.WeatherClient)
-	if !ok {
-		c.JSON(http.StatusInternalServerError, gin.H{
-			"error": "Invalid weather client type",
-		})
-		return
-	}
-
-	entity, err := weatherClientImpl.ConvertWeatherCityResponseToJSONLD(weatherData)
-	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{
-			"error": "Failed to convert to JSON-LD: " + err.Error(),
 		})
 		return
 	}

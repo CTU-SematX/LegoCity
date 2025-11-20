@@ -55,13 +55,9 @@ func NewRegistrationHandler(
 }
 
 func (h *RegistrationHandler) NGSILDQueryEntities(w http.ResponseWriter, r *http.Request) {
-	log.Println("[NGSI-LD] Query entities request received")
-
 	entityType := r.URL.Query().Get("type")
 	q := r.URL.Query().Get("q")
 	limit := r.URL.Query().Get("limit")
-
-	log.Printf("[NGSI-LD] Query params - type: %s, q: %s, limit: %s", entityType, q, limit)
 
 	cachedEntities, err := h.fetchFromOrionLD(entityType, q)
 	if err != nil {
@@ -73,8 +69,6 @@ func (h *RegistrationHandler) NGSILDQueryEntities(w http.ResponseWriter, r *http
 		h.respondWithEntities(w, cachedEntities)
 		return
 	}
-
-	log.Println("[NGSI-LD] Cache miss or stale, fetching fresh data")
 
 	var entities []client.JSONLD
 
@@ -91,7 +85,6 @@ func (h *RegistrationHandler) NGSILDQueryEntities(w http.ResponseWriter, r *http
 	}
 
 	if err != nil {
-		log.Printf("[NGSI-LD] Error fetching fresh data: %v", err)
 		http.Error(w, fmt.Sprintf("Failed to fetch data: %v", err), http.StatusInternalServerError)
 		return
 	}
@@ -103,24 +96,19 @@ func (h *RegistrationHandler) NGSILDQueryEntities(w http.ResponseWriter, r *http
 		}
 	}
 
-	log.Printf("[NGSI-LD] Returning %d fresh entities", len(entities))
 	h.respondWithEntities(w, entities)
 }
 
 func (h *RegistrationHandler) NGSILDGetEntity(w http.ResponseWriter, r *http.Request) {
 	entityID := strings.TrimPrefix(r.URL.Path, "/ngsi-ld/v1/entities/")
-	log.Printf("[NGSI-LD] Get entity request for ID: %s", entityID)
 
 	entity, err := h.orionClient.GetEntity(entityID)
 	if err == nil && h.isEntityFresh(entity) {
-		log.Println("[NGSI-LD] Returning fresh cached entity")
 		h.respondWithEntity(w, entity)
 		return
 	}
 
 	entityType := h.extractEntityType(entityID)
-
-	log.Printf("[NGSI-LD] Cache miss or stale for entity %s, fetching fresh data", entityID)
 
 	var entities []client.JSONLD
 
@@ -140,14 +128,12 @@ func (h *RegistrationHandler) NGSILDGetEntity(w http.ResponseWriter, r *http.Req
 	}
 
 	if err != nil {
-		log.Printf("[NGSI-LD] Error fetching fresh entity: %v", err)
 		http.Error(w, fmt.Sprintf("Failed to fetch entity: %v", err), http.StatusInternalServerError)
 		return
 	}
 
 	for _, e := range entities {
 		if id, ok := e["id"].(string); ok && id == entityID {
-			log.Println("[NGSI-LD] Found and returning fresh entity")
 			h.respondWithEntity(w, e)
 			return
 		}
@@ -157,14 +143,14 @@ func (h *RegistrationHandler) NGSILDGetEntity(w http.ResponseWriter, r *http.Req
 }
 
 func (h *RegistrationHandler) fetchAndCacheAirQuality(query string) ([]client.JSONLD, error) {
-	log.Println("[NGSI-LD] Fetching air quality data from external API")
 
 	locality := h.extractLocalityFromQuery(query)
 	if locality == "" {
 		locality = defaultCity
 	}
 
-	resp, err := h.airClient.GetAirQualityLocation(&types.AirQualityLocationRequest{
+	// GetAirQualityLocation now returns JSON-LD directly
+	entities, err := h.airClient.GetAirQualityLocation(&types.AirQualityLocationRequest{
 		ParametersId: defaultParametersID,
 		Limit:        defaultLimit,
 	})
@@ -172,36 +158,22 @@ func (h *RegistrationHandler) fetchAndCacheAirQuality(query string) ([]client.JS
 		return nil, fmt.Errorf("failed to fetch air quality: %w", err)
 	}
 
-	if len(resp.Results) == 0 {
+	if len(entities) == 0 {
+		log.Println("[NGSI-LD] No air quality data returned from API")
 		return []client.JSONLD{}, nil
 	}
 
-	entities := make([]client.JSONLD, 0)
-	for _, location := range resp.Results {
-		if locality != "" && !strings.EqualFold(location.Locality, locality) {
-			continue
-		}
-
-		jsonLD, err := client.ConvertLocationToJSONLD(location)
-		if err != nil {
-			log.Printf("[NGSI-LD] Warning: failed to convert location to JSON-LD: %v", err)
-			continue
-		}
-		entities = append(entities, jsonLD)
-	}
-
+	// Cache entities in Orion-LD
 	if len(entities) > 0 {
 		if err := h.orionClient.BatchUpsertEntities(entities); err != nil {
 			log.Printf("[NGSI-LD] Warning: failed to cache entities in Orion-LD: %v", err)
 		}
 	}
 
-	log.Printf("[NGSI-LD] Cached %d air quality entities in Orion-LD", len(entities))
 	return entities, nil
 }
 
 func (h *RegistrationHandler) fetchAndCacheCountry(query string) ([]client.JSONLD, error) {
-	log.Println("[NGSI-LD] Fetching country data from external API")
 
 	// Extract country code from query or use default
 	countryCode := h.extractCountryCodeFromQuery(query)
@@ -216,47 +188,38 @@ func (h *RegistrationHandler) fetchAndCacheCountry(query string) ([]client.JSONL
 		countryID = defaultCountryID
 	}
 
-	log.Printf("[NGSI-LD] Fetching country data for country ID: %d (code: %s)", countryID, countryCode)
-
-	resp, err := h.airClient.GetAirQualityCountry(&types.AirQualityCountryRequest{
+	// GetAirQualityCountry now returns JSON-LD directly
+	entities, err := h.airClient.GetAirQualityCountry(&types.AirQualityCountryRequest{
 		Country: countryID,
 	})
 	if err != nil {
 		return nil, fmt.Errorf("failed to fetch country data: %w", err)
 	}
 
-	if len(resp.Results) == 0 {
+	if len(entities) == 0 {
 		log.Println("[NGSI-LD] No country data returned from API")
 		return []client.JSONLD{}, nil
 	}
 
-	entities := make([]client.JSONLD, 0)
-	for _, countryInfo := range resp.Results {
-		jsonLD, err := client.ConvertCountryInfoToJSONLD(countryInfo)
-		if err != nil {
-			log.Printf("[NGSI-LD] Warning: failed to convert country to JSON-LD: %v", err)
-			continue
-		}
-		entities = append(entities, jsonLD)
-
+	// Cache entities in Orion-LD
+	for _, jsonLD := range entities {
 		if err := h.orionClient.UpsertEntity(jsonLD); err != nil {
 			log.Printf("[NGSI-LD] Warning: failed to cache country in Orion-LD: %v", err)
 		}
 	}
 
-	log.Printf("[NGSI-LD] Cached %d country entities in Orion-LD", len(entities))
 	return entities, nil
 }
 
 func (h *RegistrationHandler) fetchAndCacheWeather(query string) ([]client.JSONLD, error) {
-	log.Println("[NGSI-LD] Fetching weather data from external API")
 
 	city := h.extractLocalityFromQuery(query)
 	if city == "" {
 		city = defaultCity
 	}
 
-	resp, err := h.weatherClient.GetWeatherCity(&types.WeatherCityRequest{
+	// GetWeatherCity now returns JSON-LD directly
+	jsonLD, err := h.weatherClient.GetWeatherCity(&types.WeatherCityRequest{
 		City:  city,
 		Units: "metric",
 		Lang:  "en",
@@ -265,13 +228,11 @@ func (h *RegistrationHandler) fetchAndCacheWeather(query string) ([]client.JSONL
 		return nil, fmt.Errorf("failed to fetch weather: %w", err)
 	}
 
-	jsonLD := client.ConvertWeatherCityToJSONLD(resp)
-
+	// Cache entity in Orion-LD
 	if err := h.orionClient.UpsertEntity(jsonLD); err != nil {
 		log.Printf("[NGSI-LD] Warning: failed to cache weather in Orion-LD: %v", err)
 	}
 
-	log.Println("[NGSI-LD] Cached weather entity in Orion-LD")
 	return []client.JSONLD{jsonLD}, nil
 }
 

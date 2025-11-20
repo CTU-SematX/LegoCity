@@ -94,7 +94,7 @@ func (c *WeatherClient) GetWeather(query *types.WeatherRequest) (*types.WeatherR
 	return &weatherResp, nil
 }
 
-func (c *WeatherClient) GetWeatherCity(query *types.WeatherCityRequest) (*types.WeatherCityResponse, error) {
+func (c *WeatherClient) GetWeatherCity(query *types.WeatherCityRequest) (JSONLD, error) {
 	if c.apiKey == "" {
 		return nil, fmt.Errorf("API key is required")
 	}
@@ -132,7 +132,8 @@ func (c *WeatherClient) GetWeatherCity(query *types.WeatherCityRequest) (*types.
 		return nil, fmt.Errorf("failed to parse response: %w", err)
 	}
 
-	return &weatherResp, nil
+	// Convert to JSON-LD format before returning
+	return ConvertWeatherCityToJSONLD(&weatherResp), nil
 }
 
 // ConvertWeatherCityResponseToJSONLD converts a WeatherCityResponse to NGSI-LD JSON-LD format

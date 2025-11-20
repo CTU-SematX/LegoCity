@@ -41,7 +41,7 @@ func NewAirClient(apiKey string) *AirClient {
 	}
 }
 
-func (c *AirClient) GetAirQualityLocation(query *types.AirQualityLocationRequest) (*types.AirQualityLocationResponse, error) {
+func (c *AirClient) GetAirQualityLocation(query *types.AirQualityLocationRequest) ([]JSONLD, error) {
 	if c.apiKey == "" {
 		return nil, fmt.Errorf("API key is required")
 	}
@@ -118,7 +118,8 @@ func (c *AirClient) GetAirQualityLocation(query *types.AirQualityLocationRequest
 		airResp.Results[i] = loc
 	}
 
-	return airResp, nil
+	// Convert to JSON-LD format before returning
+	return c.ConvertLocationResponseToJSONLD(airResp)
 }
 
 // ConvertLocationResponseToJSONLD converts an AirQualityLocationResponse to a JSON-LD array
@@ -244,7 +245,7 @@ func ConvertLocationToJSONLD(location *types.Location) (JSONLD, error) {
 	return entity, nil
 }
 
-func (c *AirClient) GetAirQualityCountry(query *types.AirQualityCountryRequest) (*types.AirQualityCountryResponse, error) {
+func (c *AirClient) GetAirQualityCountry(query *types.AirQualityCountryRequest) ([]JSONLD, error) {
 	if c.apiKey == "" {
 		return nil, fmt.Errorf("API key is required")
 	}
@@ -280,7 +281,8 @@ func (c *AirClient) GetAirQualityCountry(query *types.AirQualityCountryRequest) 
 		return nil, fmt.Errorf("failed to parse response: %w", err)
 	}
 
-	return &airResp, nil
+	// Convert to JSON-LD format before returning
+	return c.ConvertCountryResponseToJSONLD(&airResp)
 }
 
 // ConvertCountryResponseToJSONLD converts an AirQualityCountryResponse to a JSON-LD array
