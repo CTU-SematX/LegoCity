@@ -19,7 +19,16 @@ To report a security vulnerability, please provide the following information:
    - Provide a detailed description of the security vulnerability.
    - Include as much information as possible to help us understand and address the issue.
 
-Send this information, along with any additional relevant details, to [INSERT_CONTACT_METHOD].
+Send this information, along with any additional relevant details, to the project maintainers via:
+
+**GitHub Security Advisories** (Preferred):
+- Navigate to the [Security tab](https://github.com/CTU-SematX/LegoCity/security/advisories/new) of this repository
+- Click "Report a vulnerability"
+- Fill in the details using the template above
+
+**Alternative Contact**:
+- Open a private security advisory on GitHub
+- For critical issues requiring immediate attention, contact the maintainers directly through GitHub's private vulnerability reporting feature
 
 ## Confidentiality
 

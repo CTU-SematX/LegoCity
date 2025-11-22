@@ -59,7 +59,7 @@ To contribute code, documentation, or other improvements:
 
 ## Issues and Pull Request Feedback
 
-Project maintainers aim to review and respond to issues within [INSERT_DAYS] business days.
+Project maintainers aim to review and respond to issues within 3-5 business days.
 
 The quality of information in your issue or pull request affects the speed of feedback.
 

@@ -1,5 +1,12 @@
-site_name: My Docs
-site_url: https://sitename.example
+site_name: Lego City Documentation
+site_url: https://ctu-sematx.github.io/LegoCity/
+site_description: Documentation for Lego City - A Smart City Builder using FIWARE and NGSI-LD
+site_author: CTU-SematX Team
+
+repo_url: https://github.com/CTU-SematX/LegoCity
+repo_name: CTU-SematX/LegoCity
+edit_uri: edit/main/docs/
+
 theme:
   name: material
   palette: 
@@ -7,7 +14,7 @@ theme:
     - scheme: default
       toggle:
         icon: material/weather-night
-        name: Light mode
+        name: Switch to dark mode
       primary: blue
       accent: deep orange
 
@@ -15,9 +22,64 @@ theme:
     - scheme: slate
       toggle:
         icon: material/weather-sunny
-        name: Dark mode
+        name: Switch to light mode
       primary: green
       accent: deep purple
   font:
     text: Merriweather Sans
     code: Red Hat Mono
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.action.edit
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Overview: getting-started/overview.md
+    - Installation: getting-started/installation.md
+    - Quick Start: getting-started/quickstart.md
+  - Architecture:
+    - System Overview: architecture/overview.md
+    - Backend API: architecture/backend.md
+    - Dashboard: architecture/dashboard.md
+  - Contributing:
+    - Contributing Guide: ../CONTRIBUTING.md
+    - Development Guide: ../DEVELOPMENT.md
+    - Open Source Checklist: Open_Source_Checklist.md
+  - Security: ../SECURITY.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      enable_creation_date: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/CTU-SematX/LegoCity
+  version:
+    provider: mike
