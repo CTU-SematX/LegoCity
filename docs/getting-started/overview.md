@@ -187,7 +187,7 @@ curl "http://localhost:8080/api/air/countries?country=56"
 Now that you have Lego City running, you can:
 
 - 📖 Read the [Architecture Overview](../architecture/overview.md)
-- 🔧 Follow the [Development Guide](../../DEVELOPMENT.md)
+- 🔧 Follow the [Development Guide](../DEVELOPMENT.md)
 - 🎨 Customize the dashboard theme and layout
 - 🔌 Integrate additional data sources
 - 📝 Contribute to the project
@@ -239,7 +239,7 @@ If you encounter issues:
 
 1. Check this documentation
 2. Search [GitHub Issues](https://github.com/CTU-SematX/LegoCity/issues)
-3. Review the [Development Guide](../../DEVELOPMENT.md)
+3. Review the [Development Guide](../DEVELOPMENT.md)
 4. Ask in [GitHub Discussions](https://github.com/CTU-SematX/LegoCity/discussions)
 
 ---

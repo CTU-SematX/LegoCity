@@ -558,5 +558,5 @@ history := db.Query("weather_history", filters)
 
 For more information, see:
 - [Architecture Overview](overview.md)
-- [Development Guide](../../DEVELOPMENT.md)
+- [Development Guide](../DEVELOPMENT.md)
 - [Backend README](../../backend/README.md)

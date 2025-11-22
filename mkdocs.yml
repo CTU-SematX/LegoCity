@@ -51,10 +51,10 @@ nav:
     - Backend API: architecture/backend.md
     - Dashboard: architecture/dashboard.md
   - Contributing:
-    - Contributing Guide: ../CONTRIBUTING.md
-    - Development Guide: ../DEVELOPMENT.md
+    - Contributing Guide: CONTRIBUTING.md
+    - Development Guide: DEVELOPMENT.md
     - Open Source Checklist: Open_Source_Checklist.md
-  - Security: ../SECURITY.md
+  - Security: SECURITY.md
 
 markdown_extensions:
   - admonition

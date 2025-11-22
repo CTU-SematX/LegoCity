@@ -118,7 +118,7 @@ Secure software practices and tooling from OpenSSF and OWASP:
 
 ## Workflows
 
-- May discuss your GitHub workflow - a brief summary and suggestion can be found in [CONTRIBUTING - Pull Request Lifecycle](../CONTRIBUTING.md)
+- May discuss your GitHub workflow - a brief summary and suggestion can be found in [CONTRIBUTING - Pull Request Lifecycle](CONTRIBUTING.md)
 
 ## Specifications and Standards to Follow
 

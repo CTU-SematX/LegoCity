@@ -31,8 +31,8 @@ Lego City is an open-source platform that simplifies the creation of smart city 
 - [Getting Started](getting-started/overview.md) - New to Lego City? Start here!
 - [Installation Guide](getting-started/installation.md) - Step-by-step setup instructions
 - [Architecture](architecture/overview.md) - Understand how it works
-- [Contributing](../CONTRIBUTING.md) - Join our community
-- [Security](../SECURITY.md) - Report security vulnerabilities
+- [Contributing](CONTRIBUTING.md) - Join our community
+- [Security](SECURITY.md) - Report security vulnerabilities
 
 ## Project Components
 
@@ -73,7 +73,7 @@ Need help? Here are your options:
 - Check our [documentation](getting-started/overview.md)
 - Search [existing issues](https://github.com/CTU-SematX/LegoCity/issues)
 - Ask questions in [GitHub Discussions](https://github.com/CTU-SematX/LegoCity/discussions)
-- Read the [Development Guide](../DEVELOPMENT.md)
+- Read the [Development Guide](DEVELOPMENT.md)
 
 ## Standards and Best Practices
 

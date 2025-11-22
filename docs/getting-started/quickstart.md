@@ -307,7 +307,7 @@ pnpm dev
 ### Learn More
 
 - 📖 [Architecture Overview](../architecture/overview.md) - Understand the system
-- 🔧 [Development Guide](../../DEVELOPMENT.md) - Deep dive into development
+- 🔧 [Development Guide](../DEVELOPMENT.md) - Deep dive into development
 - 🎨 [Payload Documentation](https://payloadcms.com/docs) - Learn PayloadCMS
 - 🌐 [FIWARE Documentation](https://www.fiware.org/developers/) - Explore FIWARE
 
@@ -316,7 +316,7 @@ pnpm dev
 - 🐛 [Report Bugs](https://github.com/CTU-SematX/LegoCity/issues/new?template=bug_report.yml)
 - 💡 [Suggest Features](https://github.com/CTU-SematX/LegoCity/issues/new?template=feature_suggestion.yml)
 - 📝 [Improve Docs](https://github.com/CTU-SematX/LegoCity/edit/main/docs/)
-- 🔧 [Submit PRs](../../CONTRIBUTING.md)
+- 🔧 [Submit PRs](../CONTRIBUTING.md)
 
 ### Deploy to Production
 

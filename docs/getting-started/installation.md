@@ -398,7 +398,7 @@ pnpm install
 
 - ✅ Installation complete? → [Quick Start Guide](quickstart.md)
 - 📚 Learn more → [Architecture Overview](../architecture/overview.md)
-- 🔧 Start developing → [Development Guide](../../DEVELOPMENT.md)
+- 🔧 Start developing → [Development Guide](../DEVELOPMENT.md)
 
 ## Getting Help
 

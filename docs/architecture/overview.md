@@ -452,8 +452,8 @@ Alerts & Dashboards
 
 We welcome architectural improvements! See:
 
-- [Development Guide](../../DEVELOPMENT.md)
-- [Contributing Guide](../../CONTRIBUTING.md)
+- [Development Guide](../DEVELOPMENT.md)
+- [Contributing Guide](../CONTRIBUTING.md)
 - [Open Source Checklist](../Open_Source_Checklist.md)
 
 ## Related Documentation

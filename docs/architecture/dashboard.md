@@ -689,5 +689,5 @@ CMD ["pnpm", "start"]
 
 For more information, see:
 - [Architecture Overview](overview.md)
-- [Development Guide](../../DEVELOPMENT.md)
+- [Development Guide](../DEVELOPMENT.md)
 - [Dashboard README](../../dashboard/README.md)
