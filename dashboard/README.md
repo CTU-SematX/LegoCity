@@ -1,3 +1,427 @@
+# Lego City Dashboard
+
+A modern web dashboard for the Lego City smart city platform, built with PayloadCMS and Next.js.
+
+## Overview
+
+The dashboard provides a powerful content management system and visualization interface for your smart city data. It features:
+
+- **PayloadCMS**: Enterprise-grade headless CMS
+- **Next.js 14+**: React framework with App Router
+- **TypeScript**: Type-safe development
+- **TailwindCSS**: Modern, responsive styling
+- **Layout Builder**: Create custom page layouts
+- **Live Preview**: Real-time content preview
+- **SEO Optimized**: Built-in SEO plugin
+- **Dark Mode**: Automatic dark mode support
+
+## Quick Start
+
+### Prerequisites
+
+- Node.js 18 or higher
+- pnpm package manager
+- MongoDB or PostgreSQL database
+
+### Installation
+
+1. Install pnpm (if not already installed):
+   ```bash
+   npm install -g pnpm
+   ```
+
+2. Copy environment variables:
+   ```bash
+   cp .env.example .env
+   ```
+
+3. Configure your `.env` file:
+   ```env
+   DATABASE_URI=mongodb://127.0.0.1/legocity
+   PAYLOAD_SECRET=your-secret-here
+   NEXT_PUBLIC_SERVER_URL=http://localhost:3000
+   CRON_SECRET=your-cron-secret-here
+   PREVIEW_SECRET=your-preview-secret-here
+   ```
+
+4. Install dependencies:
+   ```bash
+   pnpm install
+   ```
+
+5. Run in development mode:
+   ```bash
+   pnpm dev
+   ```
+
+6. Open your browser to `http://localhost:3000`
+
+### First-Time Setup
+
+After starting the development server:
+
+1. Visit `http://localhost:3000/admin`
+2. Create your first admin user
+3. (Optional) Click "Seed Database" to populate with sample data
+
+**Demo User** (if database is seeded):
+- Email: `demo-author@payloadcms.com`
+- Password: `password`
+
+⚠️ **Warning**: Seeding is destructive and will replace all existing data!
+
+## Development
+
+### Available Scripts
+
+```bash
+pnpm dev              # Start development server
+pnpm build            # Build for production
+pnpm start            # Start production server
+pnpm lint             # Run ESLint
+pnpm lint:fix         # Fix linting issues
+pnpm test             # Run all tests
+pnpm test:int         # Run integration tests
+pnpm test:e2e         # Run E2E tests
+```
+
+### Project Structure
+
+```
+dashboard/
+├── src/
+│   ├── app/                    # Next.js App Router pages
+│   ├── collections/            # PayloadCMS collections
+│   │   ├── Pages.ts           # Page collection
+│   │   ├── Posts.ts           # Blog posts
+│   │   ├── Users.ts           # User management
+│   │   └── Media.ts           # Media library
+│   ├── components/             # React components
+│   ├── payload.config.ts       # Payload configuration
+│   └── ...
+├── public/                     # Static assets
+├── .env.example               # Environment template
+└── package.json
+```
+
+## Features
+
+### Collections
+
+The dashboard includes these pre-configured collections:
+
+#### Users
+- Authentication-enabled
+- Access control for admin panel
+- Can manage all content
+
+#### Pages
+- Layout builder enabled
+- Draft preview support
+- SEO optimization
+- Version history
+
+#### Posts
+- Blog post management
+- Layout builder blocks
+- Category support
+- Draft and publish workflow
+
+#### Media
+- Image upload and management
+- Automatic image optimization
+- Focal point selection
+- Multiple size variants
+
+#### Categories
+- Nested taxonomy
+- Group posts and content
+- Hierarchical organization
+
+### Globals
+
+- **Header**: Navigation and branding configuration
+- **Footer**: Footer links and content
+
+### Layout Builder
+
+Create custom layouts using these blocks:
+
+- **Hero**: Eye-catching hero sections
+- **Content**: Rich text content blocks
+- **Media**: Image and video blocks
+- **Call to Action**: CTA buttons and sections
+- **Archive**: Dynamic content archives
+
+### Access Control
+
+- Public users can view published content
+- Authenticated users can create and edit content
+- Draft content is only visible to authenticated users
+
+## Database Options
+
+### MongoDB (Default)
+
+```env
+DATABASE_URI=mongodb://127.0.0.1/legocity
+```
+
+Start MongoDB:
+```bash
+# macOS
+brew services start mongodb-community
+
+# Docker
+docker run -d -p 27017:27017 --name mongodb mongo
+```
+
+### PostgreSQL
+
+```env
+DATABASE_URI=postgresql://127.0.0.1:5432/legocity
+```
+
+When using PostgreSQL, you need to run migrations:
+
+```bash
+# Create migration
+pnpm payload migrate:create
+
+# Run migrations
+pnpm payload migrate
+```
+
+⚠️ **Important**: Set `push: false` in production to avoid data loss!
+
+## Production Deployment
+
+### Build and Run
+
+```bash
+# Build the application
+pnpm build
+
+# Start production server
+pnpm start
+```
+
+The application runs on port 3000 by default.
+
+### Vercel Deployment
+
+This template is optimized for Vercel:
+
+1. Install Vercel database adapters:
+   ```bash
+   pnpm add @payloadcms/db-vercel-postgres
+   pnpm add @payloadcms/storage-vercel-blob
+   ```
+
+2. Configure `payload.config.ts` with Vercel adapters
+
+3. Deploy with one-click: [Deploy to Vercel](https://github.com/payloadcms/payload/tree/templates/with-vercel-postgres)
+
+### Self-Hosting
+
+Deploy to any Node.js-compatible platform:
+
+- VPS (Digital Ocean, Linode, AWS EC2)
+- Platform-as-a-Service (Render, Railway, Fly.io)
+- Container platforms (Docker, Kubernetes)
+
+See [PayloadCMS deployment docs](https://payloadcms.com/docs/production/deployment) for details.
+
+### Docker
+
+```bash
+# Build image
+docker build -t legocity-dashboard .
+
+# Run container
+docker run -p 3000:3000 --env-file .env legocity-dashboard
+```
+
+Or use docker-compose:
+
+```bash
+docker-compose up
+```
+
+## Features Deep Dive
+
+### Draft Preview
+
+All pages and posts support draft previews:
+
+1. Create content in draft mode
+2. Click "Preview" to see how it looks
+3. Publish when ready
+
+The preview system uses secure tokens and works with statically generated sites.
+
+### Live Preview
+
+Edit content and see changes in real-time with SSR support.
+
+### SEO Plugin
+
+Built-in SEO management:
+
+- Meta titles and descriptions
+- Open Graph tags
+- Twitter Card support
+- Automatic sitemap generation
+
+### Search Plugin
+
+Full-text search across your content with SSR support.
+
+### Redirects
+
+Manage URL redirects from the admin panel:
+
+- Proper HTTP status codes
+- SEO-friendly redirects
+- Migrate from old URLs
+
+### Scheduled Publishing
+
+Schedule content to publish or unpublish at specific times using the jobs queue.
+
+⚠️ **Note**: Vercel's free tier may limit cron to daily execution.
+
+### Caching Strategy
+
+For Payload Cloud:
+- Cloudflare caching is enabled
+- Next.js caching is disabled
+
+For self-hosting:
+- Remove `no-store` from fetch requests in `./src/app/_api`
+- Remove `export const dynamic = 'force-dynamic'` from page files
+- See [Next.js Caching Docs](https://nextjs.org/docs/app/building-your-application/caching)
+
+## Customization
+
+### Styling
+
+The dashboard uses TailwindCSS and shadcn/ui components:
+
+- Customize theme in `tailwind.config.js`
+- Modify components in `src/components/`
+- Override Payload styles in `src/styles/`
+
+### Collections
+
+Add new collections or modify existing ones:
+
+1. Create/edit files in `src/collections/`
+2. Import in `payload.config.ts`
+3. Restart dev server
+
+### Layout Blocks
+
+Create custom layout blocks:
+
+1. Define block schema in `src/blocks/`
+2. Create React component for rendering
+3. Register in collection config
+
+## Troubleshooting
+
+### Common Issues
+
+**Database connection failed**
+```bash
+# Check database is running
+# MongoDB:
+brew services list | grep mongodb
+# or start it:
+brew services start mongodb-community
+```
+
+**Module not found errors**
+```bash
+# Clear node_modules and reinstall
+rm -rf node_modules .next
+pnpm install
+```
+
+**Build errors after updates**
+```bash
+# Clear Next.js cache
+rm -rf .next
+pnpm build
+```
+
+**Port 3000 already in use**
+```bash
+# Find and kill the process
+lsof -ti:3000 | xargs kill
+# Or change port in package.json
+```
+
+### Debug Mode
+
+```bash
+# Enable debug logging
+DEBUG=* pnpm dev
+
+# Or use Next.js debug mode
+NODE_OPTIONS='--inspect' pnpm dev
+```
+
+## Testing
+
+### Integration Tests
+
+```bash
+pnpm test:int
+```
+
+### End-to-End Tests
+
+```bash
+# Run Playwright E2E tests
+pnpm test:e2e
+
+# Run in UI mode
+pnpm exec playwright test --ui
+```
+
+## API Reference
+
+PayloadCMS provides a REST API and GraphQL API:
+
+- **REST API**: `http://localhost:3000/api`
+- **GraphQL**: `http://localhost:3000/api/graphql`
+
+See [Payload API docs](https://payloadcms.com/docs/rest-api/overview) for details.
+
+## Contributing
+
+See the main [CONTRIBUTING.md](../CONTRIBUTING.md) and [DEVELOPMENT.md](../DEVELOPMENT.md) for guidelines.
+
+## Resources
+
+- [PayloadCMS Documentation](https://payloadcms.com/docs)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [TailwindCSS Documentation](https://tailwindcss.com/docs)
+- [shadcn/ui Components](https://ui.shadcn.com/)
+
+## License
+
+This dashboard is part of the Lego City project and is licensed under the Apache License 2.0 - see the [LICENSE](../LICENSE) file for details.
+
+---
+
+# Original Payload Website Template Documentation
+
+Below is the original documentation from the PayloadCMS website template:
+
+---
+
 # Payload Website Template
 
 This is the official [Payload Website Template](https://github.com/payloadcms/payload/blob/main/templates/website). Use it to power websites, blogs, or portfolios from small to enterprise. This repo includes a fully-working backend, enterprise-grade admin panel, and a beautifully designed, production-ready website.

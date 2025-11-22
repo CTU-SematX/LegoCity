@@ -14,4 +14,4 @@ mega-linter-reports
 __pycache__
 
 */node_modules
-venv
+venvsite/
