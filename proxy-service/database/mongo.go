@@ -20,7 +20,12 @@ type MongoDB struct {
 
 // NewMongoDB creates a new MongoDB connection
 func NewMongoDB(ctx context.Context, uri, dbName, collectionName string) (*MongoDB, error) {
-	client, err := mongo.Connect(ctx, options.Client().ApplyURI(uri))
+	// Configure client options with direct connection to avoid replica set discovery
+	clientOpts := options.Client().
+		ApplyURI(uri).
+		SetDirect(true)
+
+	client, err := mongo.Connect(ctx, clientOpts)
 	if err != nil {
 		return nil, fmt.Errorf("failed to connect to MongoDB: %w", err)
 	}

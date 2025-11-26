@@ -59,26 +59,26 @@ echo "===================="
 echo ""
 
 echo "1. POST with valid token:"
-curl -X POST "$PROXY_URL/v2/entities" \
+curl -X POST "$PROXY_URL/ngsi-ld/v1/entities" \
   -H "Authorization: Bearer $TOKEN" \
-  -H "Content-Type: application/json" \
-  -d "{\"id\":\"urn:ngsi-ld:Test:$(date +%s)\",\"type\":\"TestEntity\",\"value\":{\"type\":\"Number\",\"value\":42}}" \
+  -H "Content-Type: application/ld+json" \
+  -d "{\"id\":\"urn:ngsi-ld:Test:$(date +%s)\",\"type\":\"TestEntity\",\"value\":{\"type\":\"Property\",\"value\":42},\"@context\":[\"https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld\"]}" \
   -w "\nHTTP Status: %{http_code}\n" \
   -s
 echo ""
 echo ""
 
 echo "2. POST without token (should fail):"
-curl -X POST "$PROXY_URL/v2/entities" \
-  -H "Content-Type: application/json" \
-  -d "{\"id\":\"urn:ngsi-ld:Test:$(date +%s)\",\"type\":\"TestEntity\"}" \
+curl -X POST "$PROXY_URL/ngsi-ld/v1/entities" \
+  -H "Content-Type: application/ld+json" \
+  -d "{\"id\":\"urn:ngsi-ld:Test:$(date +%s)\",\"type\":\"TestEntity\",\"@context\":[\"https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld\"]}" \
   -w "\nHTTP Status: %{http_code}\n" \
   -s
 echo ""
 echo ""
 
 echo "3. GET without token (should work):"
-curl -X GET "$PROXY_URL/v2/entities?limit=1" \
+curl -X GET "$PROXY_URL/version" \
   -H "Accept: application/json" \
   -w "\nHTTP Status: %{http_code}\n" \
   -s

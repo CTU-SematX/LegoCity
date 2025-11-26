@@ -145,7 +145,7 @@ echo ""
 echo -e "${YELLOW}Test 1: POST request WITH valid authentication${NC}"
 echo -e "Expected: ${GREEN}Success (200-201)${NC}"
 echo ""
-RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "$PROXY_URL/v2/entities" \
+RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "$PROXY_URL/ngsi-ld/v1/entities" \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
@@ -174,7 +174,7 @@ echo ""
 echo -e "${YELLOW}Test 2: POST request WITHOUT authentication${NC}"
 echo -e "Expected: ${RED}Fail (401 Unauthorized)${NC}"
 echo ""
-RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "$PROXY_URL/v2/entities" \
+RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "$PROXY_URL/ngsi-ld/v1/entities" \
   -H "Content-Type: application/json" \
   -d '{
     "id": "urn:ngsi-ld:Test:002",
@@ -196,7 +196,7 @@ echo ""
 echo -e "${YELLOW}Test 3: POST request with INVALID token${NC}"
 echo -e "Expected: ${RED}Fail (401 Unauthorized)${NC}"
 echo ""
-RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "$PROXY_URL/v2/entities" \
+RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "$PROXY_URL/ngsi-ld/v1/entities" \
   -H "Authorization: Bearer invalid.token.here" \
   -H "Content-Type: application/json" \
   -d '{
@@ -219,7 +219,7 @@ echo ""
 echo -e "${YELLOW}Test 4: GET request WITHOUT authentication${NC}"
 echo -e "Expected: ${GREEN}Success (200)${NC}"
 echo ""
-RESPONSE=$(curl -s -w "\n%{http_code}" -X GET "$PROXY_URL/v2/entities?limit=1" \
+RESPONSE=$(curl -s -w "\n%{http_code}" -X GET "$PROXY_URL/ngsi-ld/v1/entities?limit=1" \
   -H "Accept: application/json")
 
 HTTP_CODE=$(echo "$RESPONSE" | tail -1)
@@ -245,7 +245,7 @@ echo -e "MongoDB:       ${BLUE}$MONGO_URI/$MONGO_DB_NAME.$MONGO_COLLECTION${NC}"
 echo ""
 echo -e "${YELLOW}Manual curl command with this token:${NC}"
 echo ""
-echo "curl -X POST \"$PROXY_URL/v2/entities\" \\"
+echo "curl -X POST \"$PROXY_URL/ngsi-ld/v1/entities\" \\"
 echo "  -H \"Authorization: Bearer $TOKEN\" \\"
 echo "  -H \"Content-Type: application/json\" \\"
 echo "  -d '{\"id\":\"urn:ngsi-ld:Test:$(date +%s)\",\"type\":\"TestEntity\"}'"
