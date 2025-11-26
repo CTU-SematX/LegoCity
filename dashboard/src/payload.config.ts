@@ -89,4 +89,5 @@ export default buildConfig({
     },
     tasks: [],
   },
+  telemetry: false,
 })

@@ -12,6 +12,9 @@ import { beforeSyncWithSearch } from '@/search/beforeSync'
 
 import { Page, Post } from '@/payload-types'
 import { getServerSideURL } from '@/utilities/getURL'
+import { Posts } from '@/collections/Posts'
+import { openrouterTextModel } from '@/custom-models/openrouter'
+import { payloadAiPlugin } from '@ai-stack/payloadcms'
 
 const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
   return doc?.title ? `${doc.title} | Payload Website Template` : 'Payload Website Template'
@@ -89,4 +92,16 @@ export const plugins: Plugin[] = [
       },
     },
   }),
+  payloadAiPlugin({
+      collections: {
+        [Posts.slug]: true,
+      },
+      debugging: true,
+      disableSponsorMessage: true,
+      generationModels(defaultModels) {
+        return [...defaultModels, openrouterTextModel]
+      },
+    }),
 ]
+
+
