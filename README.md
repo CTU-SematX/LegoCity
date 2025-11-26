@@ -1,16 +1,15 @@
- 
+![](./docs/assets/project_banner.png)
 
-# Lego City
+# Lego City [![MkDocs](https://img.shields.io/badge/MkDocs-526CFE?logo=materialformkdocs&logoColor=fff)](https://ctu-sematx.github.io/LegoCity/)
 
 Project logo and badges goes here.
 
 
-[![Version](https://img.shields.io/github/v/tag/CTU-SematX/SmartCity?style=for-the-badge&color=green&label=Version)](https://github.com/CTU-SematX/SmartCity/tags])
-[![REUSE](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.reuse.software%2Fstatus%2Fgithub.com%2Fdiggsweden%2Fopen-source-project-template&query=status&style=for-the-badge&label=REUSE)](https://api.reuse.software/info/github.com/CTU-SematX/SmartCity)
-[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/CTU-SematX/SmartCity/badge?style=for-the-badge)](https://scorecard.dev/viewer/?uri=github.com/CTU-SematX/SmartCity)
-![Standard for Public Code Commitment](https://img.shields.io/badge/Standard%20for%20Public%20Code%20Commitment-green?style=for-the-badge)
-
-Highly optional. Embed an image of the project logo and include links to relevant badges in the README.
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/CTU-SematX/SmartCity/badge)](https://scorecard.dev/viewer/?uri=github.com/CTU-SematX/SmartCity)
+[![Version](https://img.shields.io/github/v/release/CTU-SematX/SmartCity?label=Version)](https://github.com/CTU-SematX/SmartCity/releases)
+[![Commit activity](https://img.shields.io/github/commit-activity/m/CTU-SematX/SmartCity.svg 'Commit activity')](https://github.com/CTU-SematX/SmartCity/graphs/commit-activity)
+[![GitHub contributors](https://img.shields.io/github/contributors/CTU-SematX/SmartCity.svg 'Github contributors')](https://github.com/CTU-SematX/SmartCity/graphs/contributors)
+![](./docs/images/new_banner.png)
 
 **Description**:  Lego City is a Smart City Builder using Fiware Enablers and NGSI-LD under the hood and PayloadCMS as Wirecloud alternative with modern and fully customization UI. So you can build your Smart City platform the fastest and easiest way.
 
