@@ -1,0 +1,4 @@
+*.log
+.env
+proxy-service
+/test
