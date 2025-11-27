@@ -6,7 +6,6 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/smartcity/proxy-service/auth"
 	"github.com/smartcity/proxy-service/config"
 	"github.com/smartcity/proxy-service/database"
 	"github.com/smartcity/proxy-service/middleware"
@@ -45,10 +44,7 @@ func main() {
 	log.Printf("Connected to MongoDB: %s (database: %s, collection: %s)",
 		cfg.MongoURI, cfg.MongoDBName, cfg.MongoCollection)
 
-	// Initialize components
-	jwtValidator := auth.NewJWTValidator(cfg.TokenSecret)
 	authMiddleware := middleware.NewAuthMiddleware(
-		jwtValidator,
 		db,
 		time.Duration(cfg.DBQueryTimeout)*time.Second,
 	)

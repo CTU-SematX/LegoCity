@@ -2,11 +2,9 @@ package database
 
 import (
 	"context"
-	"errors"
 	"fmt"
 	"time"
 
-	"github.com/smartcity/proxy-service/models"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -42,20 +40,19 @@ func NewMongoDB(ctx context.Context, uri, dbName, collectionName string) (*Mongo
 	}, nil
 }
 
-// CheckTokenForUser verifies if the token exists in MongoDB for the given user
-func (db *MongoDB) CheckTokenForUser(ctx context.Context, tokenStr string, userID string) error {
-	var user models.User
-	err := db.collection.FindOne(ctx, bson.M{"_id": userID}).Decode(&user)
+// verify both token and id
+func (db *MongoDB) ValidateTokenAndEntity(ctx context.Context, tokenStr string, entityID string) error {
+	count, err := db.collection.CountDocuments(ctx, bson.M{
+		"token":      tokenStr,
+		"entity_ids": entityID,
+	})
+
 	if err != nil {
-		if err == mongo.ErrNoDocuments {
-			return errors.New("user not found in database")
-		}
 		return fmt.Errorf("database query error: %w", err)
 	}
 
-	// Verify the token matches the one stored in DB
-	if user.Token != tokenStr {
-		return errors.New("token does not match stored token")
+	if count == 0 {
+		return fmt.Errorf("unauthorized")
 	}
 
 	return nil

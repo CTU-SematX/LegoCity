@@ -37,21 +37,12 @@ func NewReverseProxy(upstreamURL *url.URL) *ReverseProxy {
 		},
 
 		ModifyResponse: func(resp *http.Response) error {
-			req := resp.Request
-			tokenValidated := req.Header.Get("X-Token-Validated")
-
-			log.Printf("Response: method=%s path=%s status=%d tokenValidated=%s",
-				req.Method,
-				req.URL.Path,
-				resp.StatusCode,
-				tokenValidated,
-			)
 			return nil
 		},
 
 		ErrorHandler: func(w http.ResponseWriter, r *http.Request, err error) {
-			log.Printf("ERROR proxying request: method=%s path=%s error=%v",
-				r.Method, r.URL.Path, err)
+			// log.Printf("ERROR proxying request: method=%s path=%s error=%v",
+			// r.Method, r.URL.Path, err)
 			utils.WriteJSONError(w, http.StatusBadGateway, "Failed to reach upstream server")
 		},
 	}

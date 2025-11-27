@@ -16,6 +16,13 @@ type CustomClaims struct {
 
 // User represents a user document in MongoDB
 type User struct {
-	ID    string `bson:"_id"`
-	Token string `bson:"token"`
+	ID        string   `bson:"_id"`
+	Token     string   `bson:"token"`
+	EntityIDs []string `bson:"entity_ids,omitempty"` // Authorized NGSI-LD entity IDs for this user
+}
+
+// NGSILDEntity represents a minimal NGSI-LD entity structure for parsing
+type NGSILDEntity struct {
+	ID   string `json:"id"`
+	Type string `json:"type"`
 }

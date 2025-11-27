@@ -12,7 +12,6 @@ import (
 type Config struct {
 	Port            string
 	UpstreamBaseURL string
-	TokenSecret     []byte
 	MongoURI        string
 	MongoDBName     string
 	MongoCollection string
@@ -50,16 +49,9 @@ func Load() (*Config, error) {
 		return nil, fmt.Errorf("UPSTREAM_BASE_URL environment variable is required")
 	}
 
-	tokenSecret := os.Getenv("TOKEN_SECRET")
-	if tokenSecret == "" {
-		return nil, fmt.Errorf("TOKEN_SECRET environment variable is required")
-	}
-	cfg.TokenSecret = []byte(tokenSecret)
-
 	return cfg, nil
 }
 
-// getEnvOrDefault returns the environment variable value or a default
 func getEnvOrDefault(key, defaultValue string) string {
 	if value := os.Getenv(key); value != "" {
 		return value
