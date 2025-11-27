@@ -12,6 +12,7 @@ import (
 type Config struct {
 	Port            string
 	UpstreamBaseURL string
+	DashboardOrigin string
 	MongoURI        string
 	MongoDBName     string
 	MongoCollection string
@@ -33,6 +34,7 @@ func Load() (*Config, error) {
 	cfg := &Config{
 		Port:            getEnvOrDefault("PORT", "8080"),
 		UpstreamBaseURL: os.Getenv("UPSTREAM_BASE_URL"),
+		DashboardOrigin: getEnvOrDefault("DASHBOARD_ORIGIN", "http://localhost:5173"),
 		MongoURI:        getEnvOrDefault("MONGO_URI", "mongodb://localhost:27017"),
 		MongoDBName:     getEnvOrDefault("MONGO_DB_NAME", "smartcity"),
 		MongoCollection: getEnvOrDefault("MONGO_COLLECTION", "users"),

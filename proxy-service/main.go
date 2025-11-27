@@ -44,6 +44,7 @@ func main() {
 	log.Printf("Connected to MongoDB: %s (database: %s, collection: %s)",
 		cfg.MongoURI, cfg.MongoDBName, cfg.MongoCollection)
 
+	corsMiddleware := middleware.NewCORSMiddleware(cfg.DashboardOrigin)
 	authMiddleware := middleware.NewAuthMiddleware(
 		db,
 		time.Duration(cfg.DBQueryTimeout)*time.Second,
@@ -51,7 +52,7 @@ func main() {
 	reverseProxy := proxy.NewReverseProxy(upstreamURL)
 
 	// Create and start server
-	srv := server.New(cfg, reverseProxy, authMiddleware)
+	srv := server.New(cfg, reverseProxy, corsMiddleware, authMiddleware)
 	if err := srv.Start(); err != nil {
 		log.Fatalf("Server error: %v", err)
 	}

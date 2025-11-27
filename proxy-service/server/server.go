@@ -20,19 +20,21 @@ type Server struct {
 	cfg            *config.Config
 	httpServer     *http.Server
 	proxy          *proxy.ReverseProxy
+	corsMiddleware *middleware.CORSMiddleware
 	authMiddleware *middleware.AuthMiddleware
 }
 
 // New creates a new server instance
-func New(cfg *config.Config, reverseProxy *proxy.ReverseProxy, authMiddleware *middleware.AuthMiddleware) *Server {
+func New(cfg *config.Config, reverseProxy *proxy.ReverseProxy, corsMiddleware *middleware.CORSMiddleware, authMiddleware *middleware.AuthMiddleware) *Server {
 	srv := &Server{
 		cfg:            cfg,
 		proxy:          reverseProxy,
+		corsMiddleware: corsMiddleware,
 		authMiddleware: authMiddleware,
 	}
 
-	// Create HTTP handler
-	handler := http.HandlerFunc(srv.handleRequest)
+	// Create HTTP handler with CORS wrapper
+	handler := srv.corsMiddleware.Handler(http.HandlerFunc(srv.handleRequest))
 
 	// Create HTTP server with timeouts
 	srv.httpServer = &http.Server{
