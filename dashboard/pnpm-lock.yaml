@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@ai-stack/payloadcms':
         specifier: 3.2.22-beta
-        version: 3.2.22-beta(83ccbf344524bde23ca2c1e52dfb9c48)
+        version: 3.2.22-beta(c73a260d66b1f2e1efaf0abf76500fab)
       '@openrouter/ai-sdk-provider':
         specifier: ^1.2.6
         version: 1.2.6(ai@5.0.102(zod@4.1.13))(zod@4.1.13)
@@ -44,6 +44,9 @@ importers:
       '@payloadcms/richtext-lexical':
         specifier: 3.64.0
         version: 3.64.0(@faceless-ui/modal@3.0.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@faceless-ui/scroll-info@2.0.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@payloadcms/next@3.64.0(@types/react@19.1.8)(graphql@16.12.0)(monaco-editor@0.54.0)(next@15.4.7(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(@playwright/test@1.56.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4))(payload@3.64.0(graphql@16.12.0)(typescript@5.7.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.7.3))(@types/react@19.1.8)(monaco-editor@0.54.0)(next@15.4.7(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(@playwright/test@1.56.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4))(payload@3.64.0(graphql@16.12.0)(typescript@5.7.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.7.3)(yjs@13.6.27)
+      '@payloadcms/translations':
+        specifier: ^3.65.0
+        version: 3.65.0
       '@payloadcms/ui':
         specifier: 3.64.0
         version: 3.64.0(@types/react@19.1.8)(monaco-editor@0.54.0)(next@15.4.7(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(@playwright/test@1.56.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4))(payload@3.64.0(graphql@16.12.0)(typescript@5.7.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.7.3)
@@ -1254,6 +1257,9 @@ packages:
 
   '@payloadcms/translations@3.64.0':
     resolution: {integrity: sha512-DlNPILu1h+ZTtGUZG28rZtWL/92t5mzK/k7sC4vWk/gPPMOXtZ5fNc6ut2lwzJ13E5lxvtRtVY/+IjNzKrUAFw==}
+
+  '@payloadcms/translations@3.65.0':
+    resolution: {integrity: sha512-wjKY0jHdudLeMZwSfJi2yQxyeRV6AkOgV9k2NuiltvwglYjBXM35XP15Bq9UYYS5UJ9nhajK1WZdHRn5qJ0gEA==}
 
   '@payloadcms/ui@3.64.0':
     resolution: {integrity: sha512-lFPo66LyIL0m7Uel+xp9RaQ8IXdJ6Wsu2IyRGrEDCFVG0emBFqKPynysEhs53rCMjOTatYF3LVmTlOTnZ/LAVg==}
@@ -4950,7 +4956,7 @@ snapshots:
       zod: 4.1.13
       zod-to-json-schema: 3.25.0(zod@4.1.13)
 
-  '@ai-stack/payloadcms@3.2.22-beta(83ccbf344524bde23ca2c1e52dfb9c48)':
+  '@ai-stack/payloadcms@3.2.22-beta(c73a260d66b1f2e1efaf0abf76500fab)':
     dependencies:
       '@ai-sdk/anthropic': 2.0.49(zod@4.1.13)
       '@ai-sdk/openai': 2.0.72(zod@4.1.13)
@@ -4961,7 +4967,7 @@ snapshots:
       '@fal-ai/client': 1.7.2
       '@lexical/html': 0.35.0
       '@payloadcms/richtext-lexical': 3.64.0(@faceless-ui/modal@3.0.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@faceless-ui/scroll-info@2.0.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@payloadcms/next@3.64.0(@types/react@19.1.8)(graphql@16.12.0)(monaco-editor@0.54.0)(next@15.4.7(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(@playwright/test@1.56.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4))(payload@3.64.0(graphql@16.12.0)(typescript@5.7.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.7.3))(@types/react@19.1.8)(monaco-editor@0.54.0)(next@15.4.7(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(@playwright/test@1.56.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4))(payload@3.64.0(graphql@16.12.0)(typescript@5.7.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.7.3)(yjs@13.6.27)
-      '@payloadcms/translations': 3.64.0
+      '@payloadcms/translations': 3.65.0
       '@payloadcms/ui': 3.64.0(@types/react@19.1.8)(monaco-editor@0.54.0)(next@15.4.7(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(@playwright/test@1.56.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4))(payload@3.64.0(graphql@16.12.0)(typescript@5.7.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.7.3)
       ai: 5.0.102(zod@4.1.13)
       ajv: 8.17.1
@@ -6042,6 +6048,10 @@ snapshots:
       - yjs
 
   '@payloadcms/translations@3.64.0':
+    dependencies:
+      date-fns: 4.1.0
+
+  '@payloadcms/translations@3.65.0':
     dependencies:
       date-fns: 4.1.0
 

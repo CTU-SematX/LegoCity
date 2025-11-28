@@ -17,6 +17,9 @@ import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
 
+import {en} from '@payloadcms/translations/languages/en'
+import {vi} from '@payloadcms/translations/languages/vi'
+
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -90,4 +93,8 @@ export default buildConfig({
     tasks: [],
   },
   telemetry: false,
+  i18n:{
+    fallbackLanguage: 'en',
+    supportedLanguages:{en, vi},
+  },
 })

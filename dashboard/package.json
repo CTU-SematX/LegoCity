@@ -34,6 +34,7 @@
     "@payloadcms/plugin-search": "3.64.0",
     "@payloadcms/plugin-seo": "3.64.0",
     "@payloadcms/richtext-lexical": "3.64.0",
+    "@payloadcms/translations": "^3.65.0",
     "@payloadcms/ui": "3.64.0",
     "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-label": "^2.0.2",
