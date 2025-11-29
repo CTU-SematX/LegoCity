@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url'
 
 import { Categories } from './collections/Categories'
 import { Media } from './collections/Media'
+import { NgsiSources } from './collections/NgsiSources'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
 import { Users } from './collections/Users'
@@ -17,8 +18,8 @@ import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
 
-import {en} from '@payloadcms/translations/languages/en'
-import {vi} from '@payloadcms/translations/languages/vi'
+import { en } from '@payloadcms/translations/languages/en'
+import { vi } from '@payloadcms/translations/languages/vi'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -65,7 +66,7 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
   }),
-  collections: [Pages, Posts, Media, Categories, Users],
+  collections: [Pages, Posts, Media, Categories, Users, NgsiSources],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   plugins: [
@@ -93,8 +94,8 @@ export default buildConfig({
     tasks: [],
   },
   telemetry: false,
-  i18n:{
+  i18n: {
     fallbackLanguage: 'en',
-    supportedLanguages:{en, vi},
+    supportedLanguages: { en, vi },
   },
 })

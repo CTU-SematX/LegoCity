@@ -72,6 +72,7 @@ export interface Config {
     media: Media;
     categories: Category;
     users: User;
+    'ngsi-sources': NgsiSource;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -95,6 +96,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
+    'ngsi-sources': NgsiSourcesSelect<false> | NgsiSourcesSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -781,6 +783,47 @@ export interface Form {
   createdAt: string;
 }
 /**
+ * Configure NGSI-LD Context Broker sources
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ngsi-sources".
+ */
+export interface NgsiSource {
+  id: string;
+  /**
+   * A friendly name for this NGSI source
+   */
+  name: string;
+  /**
+   * The base URL of the NGSI-LD Context Broker
+   */
+  brokerUrl: string;
+  /**
+   * Optional proxy URL if the broker requires a proxy
+   */
+  proxyUrl?: string | null;
+  /**
+   * Fiware-Service header values for multi-tenancy (add one or more)
+   */
+  serviceHeader?:
+    | {
+        value?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Fiware-ServicePath header values (e.g., /city/sensors). Multiple entries allowed.
+   */
+  servicePath?:
+    | {
+        value?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
@@ -1074,6 +1117,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'users';
         value: string | User;
+      } | null)
+    | ({
+        relationTo: 'ngsi-sources';
+        value: string | NgsiSource;
       } | null)
     | ({
         relationTo: 'redirects';
@@ -1443,6 +1490,29 @@ export interface UsersSelect<T extends boolean = true> {
         createdAt?: T;
         expiresAt?: T;
       };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ngsi-sources_select".
+ */
+export interface NgsiSourcesSelect<T extends boolean = true> {
+  name?: T;
+  brokerUrl?: T;
+  proxyUrl?: T;
+  serviceHeader?:
+    | T
+    | {
+        value?: T;
+        id?: T;
+      };
+  servicePath?:
+    | T
+    | {
+        value?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
