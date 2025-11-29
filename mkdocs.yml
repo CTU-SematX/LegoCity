@@ -1,13 +1,16 @@
-site_name: My Docs
-site_url: https://sitename.example
+site_name: LegoCity Smart City Builder
+site_url: https://ctu-sematx.github.io/LegoCity
+repo_url: https://github.com/CTU-SematX/LegoCity
+repo_name: CTU-SematX/LegoCity
+
 theme:
   name: material
-  palette: 
+  palette:
     # Light Mode
     - scheme: default
       toggle:
         icon: material/weather-night
-        name: Light mode
+        name: Switch to dark mode
       primary: blue
       accent: deep orange
 
@@ -15,9 +18,78 @@ theme:
     - scheme: slate
       toggle:
         icon: material/weather-sunny
-        name: Dark mode
+        name: Switch to light mode
       primary: green
       accent: deep purple
   font:
     text: Merriweather Sans
     code: Red Hat Mono
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+nav:
+  - Home: index.md
+
+  - Getting Started:
+      - Overview: getting-started/index.md
+      - Quick Start: getting-started/quickstart.md
+      - Architecture: getting-started/architecture.md
+
+  - Installation:
+      - Installation Guide: installation/index.md
+      - Local Setup: installation/local.md
+      - Docker Setup: installation/docker.md
+      - Development Environment: installation/development.md
+
+  - User Guide:
+      - User Guide Overview: user-guide/index.md
+      - Working with Data & Brokers: user-guide/data-and-brokers.md
+      - Understanding Entities: user-guide/entities.md
+      - API Keys & Access: user-guide/api-keys.md
+      - Sample Update Server: user-guide/sample-update-server.md
+
+  - Configuration:
+      - Configuration Guide: configuration/index.md
+      - Data Sources: configuration/data-sources.md
+      - API Keys: configuration/api-keys.md
+
+  - Development:
+      - Development Guide: development/index.md
+      - Creating Blocks: development/blocks.md
+      - Writing Plugins: development/plugins.md
+      - Seed Data: development/seed-data.md
+
+  - AI Integration (Optional):
+      - AI Overview: ai/overview.md
+      - Supported Providers (OpenAI, Anthropic, ElevenLabs): ai/providers.md
+      - OpenRouter (Custom Models): ai/openrouter.md
+      - Use Cases & Best Practices: ai/use-cases.md
+
+  - Deployment:
+      - Deployment Overview: deployment/index.md
+      - Virtual Machines & Docker: deployment/vm-docker.md
+      - AWS Deployment: deployment/aws.md
+      - Cloudflare: deployment/cloudflare.md
+      - Coolify: deployment/coolify.md
+      - Operations & Maintenance: deployment/operations.md
+
+  - Reference:
+      - Troubleshooting: reference/troubleshooting.md
+      - Open Source Checklist: Open_Source_Checklist.md
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
