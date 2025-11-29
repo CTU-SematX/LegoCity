@@ -10,6 +10,7 @@ import { Categories } from './collections/Categories'
 import { Media } from './collections/Media'
 import { NgsiDataModels } from './collections/NgsiDataModels'
 import { NgsiDomains } from './collections/NgsiDomains'
+import { NgsiEntities } from './collections/NgsiEntities'
 import { NgsiSources } from './collections/NgsiSources'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
@@ -68,7 +69,17 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
   }),
-  collections: [Pages, Posts, Media, Categories, Users, NgsiSources, NgsiDataModels, NgsiDomains],
+  collections: [
+    Pages,
+    Posts,
+    Media,
+    Categories,
+    Users,
+    NgsiSources,
+    NgsiDataModels,
+    NgsiDomains,
+    NgsiEntities,
+  ],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   plugins: [

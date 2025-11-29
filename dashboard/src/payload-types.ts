@@ -75,6 +75,7 @@ export interface Config {
     'ngsi-sources': NgsiSource;
     'ngsi-data-models': NgsiDataModel;
     'ngsi-domains': NgsiDomain;
+    'ngsi-entities': NgsiEntity;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -101,6 +102,7 @@ export interface Config {
     'ngsi-sources': NgsiSourcesSelect<false> | NgsiSourcesSelect<true>;
     'ngsi-data-models': NgsiDataModelsSelect<false> | NgsiDataModelsSelect<true>;
     'ngsi-domains': NgsiDomainsSelect<false> | NgsiDomainsSelect<true>;
+    'ngsi-entities': NgsiEntitiesSelect<false> | NgsiEntitiesSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -870,6 +872,55 @@ export interface NgsiDomain {
   createdAt: string;
 }
 /**
+ * Manage specific NGSI-LD Entities synced with Context Broker
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ngsi-entities".
+ */
+export interface NgsiEntity {
+  id: string;
+  /**
+   * Select the Type & Context for this entity
+   */
+  dataModel: string | NgsiDataModel;
+  /**
+   * Auto-populated from Data Model
+   */
+  type?: string | null;
+  /**
+   * Short identifier (e.g., "001", "store001")
+   */
+  shortId: string;
+  entityId: string;
+  source: string | NgsiSource;
+  /**
+   * Select Fiware-Service from source or leave empty
+   */
+  service?: string | null;
+  /**
+   * Select Fiware-ServicePath from source
+   */
+  servicePath: string;
+  /**
+   * JSON object containing properties and relationships (exclude id, type, @context)
+   */
+  attributes:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  syncStatus?: ('synced' | 'error' | 'pending') | null;
+  lastSyncTime?: string | null;
+  lastSyncError?: string | null;
+  owner?: (string | null) | User;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
@@ -1175,6 +1226,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'ngsi-domains';
         value: string | NgsiDomain;
+      } | null)
+    | ({
+        relationTo: 'ngsi-entities';
+        value: string | NgsiEntity;
       } | null)
     | ({
         relationTo: 'redirects';
@@ -1586,6 +1641,26 @@ export interface NgsiDataModelsSelect<T extends boolean = true> {
  */
 export interface NgsiDomainsSelect<T extends boolean = true> {
   name?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ngsi-entities_select".
+ */
+export interface NgsiEntitiesSelect<T extends boolean = true> {
+  dataModel?: T;
+  type?: T;
+  shortId?: T;
+  entityId?: T;
+  source?: T;
+  service?: T;
+  servicePath?: T;
+  attributes?: T;
+  syncStatus?: T;
+  lastSyncTime?: T;
+  lastSyncError?: T;
+  owner?: T;
   updatedAt?: T;
   createdAt?: T;
 }
