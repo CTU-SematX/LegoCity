@@ -24,5 +24,19 @@ services:
     ports:
       - "1026:1026"
 
+  gateway:
+    build: .                   
+    container_name: gateway
+    depends_on:
+      - orion-ld
+    ports:
+      - "8080:80"
+    environment:
+      JWT_SECRET: ${JWT_SECRET}
+      TRUSTED_IP: ${TRUSTED_IP}
+    volumes:
+      - ./nginx/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf:ro
+      - ./nginx/conf.d:/usr/local/openresty/nginx/conf/conf.d:ro
+
 volumes:
   mongo_volume:
