@@ -8,6 +8,8 @@ import { fileURLToPath } from 'url'
 
 import { Categories } from './collections/Categories'
 import { Media } from './collections/Media'
+import { NgsiDataModels } from './collections/NgsiDataModels'
+import { NgsiDomains } from './collections/NgsiDomains'
 import { NgsiSources } from './collections/NgsiSources'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
@@ -66,7 +68,7 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
   }),
-  collections: [Pages, Posts, Media, Categories, Users, NgsiSources],
+  collections: [Pages, Posts, Media, Categories, Users, NgsiSources, NgsiDataModels, NgsiDomains],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   plugins: [

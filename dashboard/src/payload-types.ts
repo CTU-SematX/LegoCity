@@ -73,6 +73,8 @@ export interface Config {
     categories: Category;
     users: User;
     'ngsi-sources': NgsiSource;
+    'ngsi-data-models': NgsiDataModel;
+    'ngsi-domains': NgsiDomain;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -97,6 +99,8 @@ export interface Config {
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'ngsi-sources': NgsiSourcesSelect<false> | NgsiSourcesSelect<true>;
+    'ngsi-data-models': NgsiDataModelsSelect<false> | NgsiDataModelsSelect<true>;
+    'ngsi-domains': NgsiDomainsSelect<false> | NgsiDomainsSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -824,6 +828,48 @@ export interface NgsiSource {
   createdAt: string;
 }
 /**
+ * NGSI-LD data models from Smart Data Models
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ngsi-data-models".
+ */
+export interface NgsiDataModel {
+  id: string;
+  /**
+   * The entity type name (e.g., "Building", "Device")
+   */
+  model: string;
+  /**
+   * The direct URL to the context.jsonld file
+   */
+  contextUrl: string;
+  /**
+   * The domains this data model belongs to
+   */
+  domains?: (string | NgsiDomain)[] | null;
+  /**
+   * Link to the GitHub repository for this data model
+   */
+  repoLink?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * NGSI-LD data model domains
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ngsi-domains".
+ */
+export interface NgsiDomain {
+  id: string;
+  /**
+   * Domain name (e.g., "SmartCities", "SmartAgrifood")
+   */
+  name: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
@@ -1121,6 +1167,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'ngsi-sources';
         value: string | NgsiSource;
+      } | null)
+    | ({
+        relationTo: 'ngsi-data-models';
+        value: string | NgsiDataModel;
+      } | null)
+    | ({
+        relationTo: 'ngsi-domains';
+        value: string | NgsiDomain;
       } | null)
     | ({
         relationTo: 'redirects';
@@ -1511,6 +1565,27 @@ export interface NgsiSourcesSelect<T extends boolean = true> {
         value?: T;
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ngsi-data-models_select".
+ */
+export interface NgsiDataModelsSelect<T extends boolean = true> {
+  model?: T;
+  contextUrl?: T;
+  domains?: T;
+  repoLink?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ngsi-domains_select".
+ */
+export interface NgsiDomainsSelect<T extends boolean = true> {
+  name?: T;
   updatedAt?: T;
   createdAt?: T;
 }

@@ -6,6 +6,7 @@ import { home } from './home'
 import { image1 } from './image-1'
 import { image2 } from './image-2'
 import { imageHero1 } from './image-hero-1'
+import { ngsiSource } from './ngsi-source'
 import { post1 } from './post-1'
 import { post2 } from './post-2'
 import { post3 } from './post-3'
@@ -18,6 +19,7 @@ const collections: CollectionSlug[] = [
   'forms',
   'form-submissions',
   'search',
+  'ngsi-sources',
 ]
 
 const globals: GlobalSlug[] = ['header', 'footer']
@@ -168,6 +170,14 @@ export const seed = async ({
     },
     data: post3({ heroImage: image3Doc, blockImage: image1Doc, author: demoAuthor }),
   })
+
+  // create ngsi source
+  await payload.create({
+    collection: 'ngsi-sources',
+    data: ngsiSource,
+  })
+
+  payload.logger.info(`— Seeded NGSI source: Local Orion`)
 
   // update each post with related posts
   await payload.update({
