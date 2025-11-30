@@ -1,27 +1,53 @@
-# #
-# name: Pull Request Workflow
-# on: # yamllint disable-line rule:truthy
-#   pull_request:
-# permissions:
-#   contents: read
-# concurrency:
-#   group: ${{ github.workflow }}-${{ github.ref }}
-#   cancel-in-progress: true
-# jobs:
-#   pr-checks:
-#     uses: diggsweden/reusable-ci/.github/workflows/pullrequest-orchestrator.yml@1a7dcd9c5257495ebf141e4e4b4bac438a8aae56 # v2.0.0
-#     permissions:
-#       contents: read
-#       packages: read
-#       security-events: write
-#     secrets: inherit
-#     with:
-#       # This template is documentation/reference - not a buildable project
-#       # Projects using this template should set their actual type:
-#       # maven, npm, gradle, python, go, rust
-#       project-type: maven
-#       # Use just+mise-based linting (lightweight, uses .mise.toml + justfile)
-#       linters.justmiselint: true
-#       # Disable heavy MegaLinter (optional - keep both if needed)
-#       linters.megalint: false
-#       # Other linters remain enabled by default
+name: Pull Request Workflow
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Build and test Go backend
+  backend:
+    name: Build Backend (Go)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.21'
+
+      - name: Download dependencies
+        run: go mod download
+
+      - name: Build
+        run: go build -v ./...
+
+      - name: Test
+        run: go test -v ./...
+
+  # Lint check
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.21'
+
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v4
+        with:
+          working-directory: backend
