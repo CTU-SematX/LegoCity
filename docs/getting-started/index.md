@@ -17,13 +17,9 @@ LegoCity is a Smart City Builder that provides a reusable foundation for buildin
 
 ### Core Components
 
-```mermaid
-graph TB
-    A[Dashboard UI<br/>Next.js + Mapbox] --> B[PayloadCMS<br/>Content Management]
-    B --> C[MongoDB<br/>Database]
-    A --> D[NGSI-LD Broker<br/>Context Data]
-    D --> E[IoT Sensors & Services]
-```
+![LegoCity Architecture](../assets/diagram_EN.png)
+
+_LegoCity's 3-layer architecture: Data Sources, Smart City Context Broker, and Dashboard Management_
 
 ## Quick Start
 

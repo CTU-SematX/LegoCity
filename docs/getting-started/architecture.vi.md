@@ -1,63 +1,46 @@
-# Architecture Overview
+# Tổng quan Kiến trúc
 
-Understanding LegoCity's architecture helps you make informed decisions about customization and deployment.
+Hiểu kiến trúc của LegoCity giúp bạn đưa ra quyết định sáng suốt về customization và deployment.
 
-## System Architecture
-
+## Kiến trúc Hệ thống
 ```mermaid
 flowchart LR
-  %% Layout: left (data sources) → right (dashboard)
-  classDef layer fill=#0b1020,stroke=#4c8ddf,stroke-width=1,color=#ffffff;
-  classDef box fill=#111827,stroke=#4b5563,stroke-width=1,color=#e5e7eb;
-  classDef db fill=#111827,stroke=#f97316,stroke-width=1,color=#f9fafb;
-  classDef note fill=#111827,stroke=#6b7280,stroke-dasharray: 3 3,color=#e5e7eb;
 
   %% ----- LAYER 1: DATA SOURCES -----
-  subgraph L1["LAYER 1: DATA SOURCES<br/>(Nguồn dữ liệu)"]
-    class L1 layer;
-
-    A["Server nguồn A<br/>(IoT / Sensor / Legacy Sys)"]
-    B["Server nguồn B<br/>(Camera AI / External API)"]
+  subgraph L1["LAYER 1: DATA SOURCES\n(Nguồn dữ liệu)"]
+    A["Server nguồn A\n(IoT/Sensor/Legacy Sys)"]
+    B["Server nguồn B\n(Camera AI/External API)"]
     C["Server nguồn N..."]
-    class A,B,C box;
   end
 
-  %% ----- LAYER 2: CONTEXT BROKER NODE -----
-  subgraph L2["LAYER 2: SMART CITY CONTEXT BROKER NODE<br/>(Cụm Broker)"]
-    class L2 layer;
-
-    SG["Security Gateway<br/>(Nginx Reverse Proxy + Auth)"]
-    CB["Orion-LD<br/>(Context Broker)"]
-    MDB["MongoDB<br/>for Orion-LD State"]
+  %% ----- LAYER 2: SMART CITY CONTEXT BROKER NODE -----
+  subgraph L2["LAYER 2: SMART CITY CONTEXT BROKER NODE\n(Cụm Broker)"]
+    SG["Security Gateway\n(Nginx Reverse Proxy + Authentication)"]
+    CB["Orion-LD\n(Context Broker)"]
+    MDB["MongoDB for\nOrion-LD State"]
     OTH["Other Broker Nodes..."]
-    class SG,CB,OTH box;
-    class MDB db;
   end
 
   %% ----- LAYER 3: DASHBOARD & MANAGEMENT -----
-  subgraph L3["LAYER 3: DASHBOARD & MANAGEMENT<br/>(PayloadCMS + Next.js)"]
-    class L3 layer;
-
-    AS["Application Server<br/>(Next.js + PayloadCMS Core)"]
-    NX["Next.js"]
+  subgraph L3["LAYER 3: DASHBOARD & MANAGEMENT\n(PayloadCMS + NextJS)"]
+    AS["Application Server\n(NextJS + PayloadCMS Core)"]
+    NX["NextJS"]
     PL["PayloadCMS"]
-    DBD["Dashboard Database<br/>(Mongo / Postgres / SQLite)"]
-    class AS,NX,PL box;
-    class DBD db;
+    DBD["Dashboard Database\n(Mongo/Postgres/SQLite)"]
   end
 
   %% ----- FLOWS: DATA SOURCES → BROKER -----
-  A -->|"HTTP POST<br/>(NGSI-LD Payload)<br/>Push Data + Auth Header"| SG
-  B -->|"HTTP POST<br/>(NGSI-LD Payload)<br/>Push Data + Auth Header"| SG
-  C -->|"HTTP POST<br/>(NGSI-LD Payload)<br/>Push Data + Auth Header"| SG
+  A -->|"HTTP POST\n(NGSI-LD Payload)\nPush Data + Auth Header"| SG
+  B -->|"HTTP POST\n(NGSI-LD Payload)\nPush Data + Auth Header"| SG
+  C -->|"HTTP POST\n(NGSI-LD Payload)\nPush Data + Auth Header"| SG
 
   %% ----- BROKER INTERNALS -----
   SG --> CB
   CB --> MDB
-  CB <-->|Replicate state| OTH
+  CB --> OTH
 
   %% ----- BROKER ↔ DASHBOARD -----
-  AS -->|"HTTP GET / SUB<br/>(NGSI-LD Query)<br/>Fetch Data + Auth Header"| SG
+  AS -->|"HTTP GET/SUB\n(NGSI-LD Query)\nFetch Data + Auth Header"| SG
 
   %% ----- APP SERVER INTERNALS -----
   AS --> NX
@@ -65,23 +48,23 @@ flowchart LR
   PL -->|"CRUD Data"| DBD
 
   %% ----- MANY-TO-MANY RELATION NOTE -----
-  NREL[["Mối quan hệ N-N:<br/>• 1 Dashboard kết nối N Broker<br/>• 1 Broker phục vụ N Dashboard"]]
-  class NREL note;
-  CB --- NREL
-  AS --- NREL
+  NOTE[/"Mối quan hệ N-N:\n- 1 Dashboard kết nối N Broker\n- 1 Broker phục vụ N Dashboard"/]
+  CB --- NOTE
+  DBD --- NOTE
+
 ```
 
-## Three-Layer Design
+## Thiết kế Ba Lớp
 
 ### 1. Context & Data Layer
 
-**Purpose**: Single source of truth for city information
+**Mục đích**: Nguồn sự thật duy nhất cho thông tin thành phố
 
 **Components**:
 
 - **NGSI-LD Context Broker** (Orion-LD)
-- **Smart Data Models** - Standardized schemas
-- **Real-time Updates** - Subscriptions and notifications
+- **Smart Data Models** - Schemas chuẩn hóa
+- **Real-time Updates** - Subscriptions và notifications
 
 **Key Concepts**:
 
@@ -104,17 +87,17 @@ flowchart LR
 **Responsibilities**:
 
 - Store city entities (sensors, zones, services)
-- Manage relationships between entities
+- Manage relationships giữa các entities
 - Handle temporal queries
 - Provide standardized API (NGSI-LD)
 
 ### 2. UI & Content Layer
 
-**Purpose**: Configure and render dashboard interfaces
+**Mục đích**: Configure và render dashboard interfaces
 
 **Components**:
 
-- **Next.js 15** - React framework with App Router
+- **Next.js 15** - React framework với App Router
 - **PayloadCMS 3.x** - Headless CMS
 - **MongoDB** - Content database
 - **Mapbox GL JS** - Interactive maps
@@ -133,7 +116,7 @@ interface Page {
 
 **b) Dynamic Configuration**
 
-- Pages, map views, layers stored in PayloadCMS
+- Pages, map views, layers stored trong PayloadCMS
 - No hard-coded dashboards
 - Runtime configuration changes
 
@@ -145,7 +128,7 @@ interface Page {
 
 ### 3. Integration Layer
 
-**Purpose**: Connect external services and enhance functionality
+**Mục đích**: Connect external services và enhance functionality
 
 **Components**:
 
@@ -203,27 +186,27 @@ sequenceDiagram
 
 ### Frontend
 
-- **Next.js 15** - React framework with App Router and Server Components
+- **Next.js 15** - React framework với App Router và Server Components
 - **TypeScript** - Type safety
 - **Tailwind CSS** - Utility-first styling
 - **Mapbox GL JS** - WebGL-powered maps
 
 ### Backend
 
-- **PayloadCMS 3.x** - Headless CMS with admin UI
+- **PayloadCMS 3.x** - Headless CMS với admin UI
 - **MongoDB 6.x** - Document database
 - **Node.js 18+** - JavaScript runtime
 
 ### Infrastructure
 
 - **FIWARE Orion-LD** - NGSI-LD context broker
-- **MongoDB** - Context and content storage
-- **Reverse Proxy** - Nginx or similar
+- **MongoDB** - Context và content storage
+- **Reverse Proxy** - Nginx hoặc similar
 
 ### Optional Services
 
 - **OpenRouter** - AI model gateway
-- **Mapbox** - Map tiles and geocoding
+- **Mapbox** - Map tiles và geocoding
 - **Redis** - Caching layer
 
 ## Scalability Considerations
@@ -238,13 +221,13 @@ sequenceDiagram
 
 **MongoDB**:
 
-- Replica sets for high availability
-- Sharding for large datasets
+- Replica sets cho high availability
+- Sharding cho large datasets
 
 **NGSI-LD Broker**:
 
 - Multiple broker instances
-- Federation for multi-region
+- Federation cho multi-region
 
 ### Vertical Scaling
 
@@ -257,7 +240,7 @@ sequenceDiagram
 **CPU**:
 
 - Map rendering is CPU-intensive
-- Consider GPU acceleration for complex visualizations
+- Consider GPU acceleration cho complex visualizations
 
 ### Caching Strategy
 
@@ -403,8 +386,8 @@ export class CustomAdapter implements DataAdapter {
 
 ### Configuration Management
 
-✅ Store config in PayloadCMS, not code  
-✅ Use environment variables for secrets  
+✅ Store config trong PayloadCMS, not code  
+✅ Use environment variables cho secrets  
 ✅ Version control schema definitions
 
 ### Performance
@@ -416,18 +399,18 @@ export class CustomAdapter implements DataAdapter {
 
 ### Security
 
-✅ Never expose API keys to frontend  
+✅ Never expose API keys tới frontend  
 ✅ Validate all user inputs  
 ✅ Implement rate limiting  
-✅ Use HTTPS in production
+✅ Use HTTPS trong production
 
 ### Monitoring
 
-✅ Log errors to external service  
+✅ Log errors tới external service  
 ✅ Track performance metrics  
 ✅ Monitor broker health  
 ✅ Set up alerts
 
 ---
 
-**Next**: [Installation Guide](../installation/local.md) to set up your development environment.
+**Next**: [Installation Guide](../installation/local.md) để thiết lập development environment của bạn.

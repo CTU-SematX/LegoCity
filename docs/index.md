@@ -1,107 +1,109 @@
 # LegoCity Documentation
 
-Welcome to **LegoCity** - A Smart City Builder for modern urban dashboards.
+Welcome to **LegoCity** — a Smart City Builder platform for modern, map-based urban dashboards.
+
+---
 
 ## What is LegoCity?
 
-LegoCity is a reusable, configurable platform for building smart city dashboards and applications on top of **FIWARE/NGSI-LD** standards and modern web technologies.
+**LegoCity** is a reusable and configurable platform for building smart city dashboards and applications on top of **FIWARE / NGSI-LD** standards and modern web technologies.
 
-**Key Features**:
+**Key features**
 
-- 🏙️ **FIWARE/NGSI-LD Integration** - Standards-based context management
-- 🗺️ **Interactive Maps** - Powered by Mapbox GL JS
-- 📊 **Flexible Dashboards** - Built with PayloadCMS blocks
-- 🔌 **Extensible Architecture** - Plugin system for customization
-- 🤖 **AI-Powered** - Optional AI assistance for content creation
-- 🌍 **Multi-Tenant Ready** - Reusable across different cities
+- 🏙️ **FIWARE / NGSI-LD integration** – standards-based context and entity management
+- 🗺️ **Interactive maps** – Mapbox GL JS with configurable layers and styles
+- 📊 **Configurable dashboards** – layouts and blocks managed via PayloadCMS
+- 🔌 **Extensible architecture** – plugins, proxy services, and custom integrations
+- 🤖 **Optional AI helpers** – content assistance in the Payload admin (OpenAI / Anthropic / OpenRouter)
+- 🌍 **Multi-tenant ready** – reusable for different cities and scenarios
 
 ---
 
-## Quick Navigation
+## Quick navigation
 
 ### 🚀 New to LegoCity?
 
-Get started quickly with our beginner-friendly guides:
+Start here if you are seeing LegoCity for the first time.
 
 <div class="grid cards" markdown>
 
-- **:material-rocket-launch: Getting Started**
+- **🚀 Getting started**
 
   ***
 
-  Learn the basics and get LegoCity running in minutes
+  Understand the core concepts and run LegoCity for the first time.
 
-  [:octicons-arrow-right-24: Start Here](getting-started/index.md)
+  <a class="md-button" href="getting-started/index.md">Start here</a>
 
-- **:material-download: Installation**
-
-  ***
-
-  Choose your installation method: local, Docker, or development
-
-  [:octicons-arrow-right-24: Install LegoCity](installation/index.md)
-
-- **:material-school: User Guide**
+- **⬇️ Installation**
 
   ***
 
-  Learn how to use LegoCity's features and capabilities
+  Choose an installation method: local, Docker, or development environment.
 
-  [:octicons-arrow-right-24: Read Guide](user-guide/index.md)
+  <a class="md-button" href="installation/index.md">Install LegoCity</a>
 
-- **:material-cog: Configuration**
+- **🎓 User guide**
 
   ***
 
-  Configure data sources, maps, APIs, and AI integration
+  Learn how to use maps, layers, dashboards, and entities as an end-user.
 
-  [:octicons-arrow-right-24: Configure](configuration/index.md)
+  <a class="md-button" href="user-guide/index.md">Read user guide</a>
+
+- **⚙️ Configuration**
+
+  ***
+
+  Configure data sources, Mapbox, brokers, APIs, and optional AI integration.
+
+  <a class="md-button" href="configuration/index.md">Configure LegoCity</a>
 
 </div>
 
-### 🛠️ For Developers
+### 🛠️ For developers
 
-Building custom features or contributing to LegoCity?
+Use these sections if you want to extend or contribute to LegoCity.
 
 <div class="grid cards" markdown>
 
-- **:material-code-braces: Development Guide**
+- **💻 Development guide**
 
   ***
 
-  Create blocks, plugins, and customize LegoCity
+  Set up a dev environment, create blocks, and extend the platform.
 
-  [:octicons-arrow-right-24: Start Developing](development/index.md)
+  <a class="md-button" href="development/index.md">Start developing</a>
 
-- **:material-robot: AI Integration**
-
-  ***
-
-  Set up AI assistants with OpenAI, Anthropic, or OpenRouter
-
-  [:octicons-arrow-right-24: Configure AI](ai/overview.md)
-
-- **:material-cloud-upload: Deployment**
+- **🤖 AI integration**
 
   ***
 
-  Deploy to AWS, VMs, Docker, or Cloudflare
+  Configure the Payload AI plugin and OpenRouter-based models.
 
-  [:octicons-arrow-right-24: Deploy](deployment/index.md)
+  <a class="md-button" href="ai/overview.md">Configure AI</a>
 
-- **:material-book-open-variant: Reference**
+- **☁️ Deployment**
 
   ***
 
-  Troubleshooting, API docs, and technical references
+  Deploy LegoCity using Docker, AWS, VMs, Cloudflare, or Coolify.
 
-  [:octicons-arrow-right-24: Browse Reference](reference/troubleshooting.md)
+  <a class="md-button" href="deployment/index.md">Deployment options</a>
+
+- **📚 Reference**
+
+  ***
+
+  Troubleshooting, API details, and technical reference material.
+
+  <a class="md-button" href="reference/troubleshooting.md">Browse reference</a>
 
 </div>
 
 ---
 
-## Quick Start
+## Quick start
 
 ```bash
 # Clone repository

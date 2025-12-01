@@ -1,3 +1,5 @@
+## Build for the first time
+# docker compose build gateway
 docker compose up -d mongo
 sleep 2
 
@@ -10,3 +12,5 @@ docker exec -it mongo mongosh --eval 'rs.initiate({
 
 
 docker compose up -d orion-ld
+sleep 2
+docker compose up -d gateway

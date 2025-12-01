@@ -1,22 +1,30 @@
+[English](README.md) | [Tiếng Việt](README.vi.md)
+
 ![](./docs/assets/project_banner.png)
 
 # Lego City [![MkDocs](https://img.shields.io/badge/MkDocs-526CFE?logo=materialformkdocs&logoColor=fff)](https://ctu-sematx.github.io/LegoCity/)
 
 Project logo and badges goes here.
 
-
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/CTU-SematX/SmartCity/badge)](https://scorecard.dev/viewer/?uri=github.com/CTU-SematX/SmartCity)
 [![Version](https://img.shields.io/github/v/release/CTU-SematX/SmartCity?label=Version)](https://github.com/CTU-SematX/SmartCity/releases)
-[![Commit activity](https://img.shields.io/github/commit-activity/m/CTU-SematX/SmartCity.svg 'Commit activity')](https://github.com/CTU-SematX/SmartCity/graphs/commit-activity)
-[![GitHub contributors](https://img.shields.io/github/contributors/CTU-SematX/SmartCity.svg 'Github contributors')](https://github.com/CTU-SematX/SmartCity/graphs/contributors)
+[![Commit activity](https://img.shields.io/github/commit-activity/m/CTU-SematX/SmartCity.svg "Commit activity")](https://github.com/CTU-SematX/SmartCity/graphs/commit-activity)
+[![GitHub contributors](https://img.shields.io/github/contributors/CTU-SematX/SmartCity.svg "Github contributors")](https://github.com/CTU-SematX/SmartCity/graphs/contributors)
 ![](./docs/images/new_banner.png)
 
-**Description**:  Lego City is a Smart City Builder using Fiware Enablers and NGSI-LD under the hood and PayloadCMS as Wirecloud alternative with modern and fully customization UI. So you can build your Smart City platform the fastest and easiest way.
+**Description**: Lego City is a Smart City Builder using Fiware Enablers and NGSI-LD under the hood and PayloadCMS as Wirecloud alternative with modern and fully customization UI. So you can build your Smart City platform the fastest and easiest way.
+
+## Architecture Overview
+
+![LegoCity Architecture](./docs/assets/architecture-diagram-en.png)
+
+_The system architecture showing the integration between FIWARE Orion-LD context broker, PayloadCMS dashboard, update servers, and external data sources._
 
 **Screenshot**: If the software has visual components, place a screenshot after the description; e.g.,
 
 ## Table of Contents
 
+- [Architecture Overview](#architecture-overview)
 - [Installation and Requirements](#installation-and-requirements)
 - [Quickstart Instructions](#quick-start-instructions)
 - [Usage](#usage)
