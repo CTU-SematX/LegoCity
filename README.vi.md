@@ -16,7 +16,7 @@ Logo dự án và các badge được đặt ở đây.
 
 ## Tổng quan Kiến trúc
 
-![Kiến trúc LegoCity](./docs/assets/architecture-diagram-vi.png)
+![Kiến trúc LegoCity](./docs/assets/architecture-diagram-vi.jpg)
 
 _Kiến trúc hệ thống cho thấy sự tích hợp giữa FIWARE Orion-LD context broker, PayloadCMS dashboard, các update server và các nguồn dữ liệu bên ngoài._
 
