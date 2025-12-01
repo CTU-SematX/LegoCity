@@ -5,6 +5,7 @@ repo_name: CTU-SematX/LegoCity
 
 theme:
   name: material
+  language: en
   palette:
     # Light Mode
     - scheme: default
@@ -32,6 +33,72 @@ theme:
     - search.suggest
     - search.highlight
     - content.code.copy
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: vi
+          name: Tiếng Việt
+          build: true
+          nav_translations:
+            Home: Trang chủ
+            Getting Started: Bắt đầu
+            Overview: Tổng quan
+            Quick Start: Khởi động nhanh
+            Architecture: Kiến trúc
+            Installation: Cài đặt
+            Installation Guide: Hướng dẫn cài đặt
+            Local Setup: Thiết lập cục bộ
+            Docker Setup: Thiết lập Docker
+            Development Environment: Môi trường phát triển
+            User Guide: Hướng dẫn sử dụng
+            User Guide Overview: Tổng quan hướng dẫn
+            Working with Data & Brokers: Làm việc với dữ liệu & Broker
+            Understanding Entities: Hiểu về Entities
+            API Keys & Access: API Keys & Truy cập
+            Sample Update Server: Server cập nhật mẫu
+            Configuration: Cấu hình
+            Configuration Guide: Hướng dẫn cấu hình
+            Data Sources: Nguồn dữ liệu
+            API Keys: API Keys
+            Development: Phát triển
+            Development Guide: Hướng dẫn phát triển
+            Creating Blocks: Tạo Blocks
+            Writing Plugins: Viết Plugins
+            Seed Data: Dữ liệu mẫu
+            AI Integration (Optional): Tích hợp AI (Tùy chọn)
+            AI Overview: Tổng quan AI
+            Supported Providers (OpenAI, Anthropic, ElevenLabs): Nhà cung cấp hỗ trợ
+            OpenRouter (Custom Models): OpenRouter (Models tùy chỉnh)
+            Use Cases & Best Practices: Trường hợp sử dụng & Best Practices
+            Deployment: Triển khai
+            Deployment Overview: Tổng quan triển khai
+            Virtual Machines & Docker: Virtual Machines & Docker
+            AWS Deployment: Triển khai AWS
+            Cloudflare: Cloudflare
+            Coolify: Coolify
+            Operations & Maintenance: Vận hành & Bảo trì
+            Reference: Tham khảo
+            Troubleshooting: Xử lý sự cố
+            Open Source Checklist: Danh sách kiểm tra Open Source
+
+extra:
+  alternate:
+    - name: English
+      link: /LegoCity/
+      lang: en
+    - name: Tiếng Việt
+      link: /LegoCity/vi/
+      lang: vi
 
 nav:
   - Home: index.md
@@ -86,7 +153,11 @@ nav:
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
   - admonition

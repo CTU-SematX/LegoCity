@@ -1,5 +1,3 @@
- 
-
 # The Open Source Checklist
 
 ## About
@@ -17,7 +15,7 @@ Use this checklist as a discussion starter for your team and a foundation for co
 ## Documentation
 
 - Must ensure the project includes standard Community Health Files (CHANGELOG, CONTRIBUTING, CODE_OF_CONDUCT, etc.).  
-  See the [README.md Template Files section for a complete list](../README.md).
+  See the [README.md Template Files section for a complete list](https://github.com/CTU-SematX/LegoCity#readme).
 
 - Should include usage documentation and architecture descriptions relevant to the project.
 
@@ -118,31 +116,38 @@ Secure software practices and tooling from OpenSSF and OWASP:
 
 ## Workflows
 
-- May discuss your GitHub workflow - a brief summary and suggestion can be found in [CONTRIBUTING - Pull Request Lifecycle](../CONTRIBUTING.md)
+- May discuss your GitHub workflow - a brief summary and suggestion can be found in [CONTRIBUTING - Pull Request Lifecycle](https://github.com/CTU-SematX/LegoCity/blob/main/CONTRIBUTING.md)
 
 ## Specifications and Standards to Follow
 
 The following will help your Open Source Project to be collaborative, reusable, accessible, and up-to-date.
 
 - [REUSE License specification](https://reuse.software/)
+
   - Ensures clear and standardized license compliance across the project.
 
 - [Conventional Commits format](https://www.conventionalcommits.org/en/v1.1.0/)
+
   - Provides a clear and structured project history through standardized commit messages.
 
 - [Keep-A-Changelog format](https://keepachangelog.com/en/1.1.0/)
+
   - Maintains a clear and user-friendly release history.
 
 - [Semantic Versioning 2.0.0](https://semver.org/)
+
   - Provides consistent version numbering for releases.
 
 - [Contributor Covenant guidelines](https://www.contributor-covenant.org/)
+
   - Establishes a social contract for respectful and inclusive collaboration.
 
 - [OpenSSF Scorecard](https://scorecard.dev/)
+
   - Helps assess and improve the security health of our project.
 
 - [PublicCode.yml](https://yml.publiccode.tools/index.html)
+
   - Facilitates easy metadata indexing for better discoverability of our project.
 
 - [Standard for Public Code](https://standard.publiccode.net/)
