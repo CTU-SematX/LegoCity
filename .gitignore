@@ -15,3 +15,5 @@ __pycache__
 
 */node_modules
 venv
+
+.env
