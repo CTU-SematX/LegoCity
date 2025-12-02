@@ -11,12 +11,16 @@
         <link rel="canonical" href="https://ctu-sematx.github.io/LegoCity/deployment/coolify/">
       
       
-        <link rel="prev" href="../vm/">
+        <link rel="prev" href="../cloudflare/">
       
       
-        <link rel="next" href="../../ai/overview/">
+        <link rel="next" href="../operations/">
       
       
+        
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../vi/deployment/coolify/" hreflang="vi">
         
       
       
@@ -25,7 +29,7 @@
     
     
       
-        <title>Deploy with Coolify - LegoCity Smart City Builder</title>
+        <title>Coolify - LegoCity Smart City Builder</title>
       
     
     
@@ -76,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#deploy-voi-coolify" class="md-skip">
+        <a href="#coolify-deployment" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Deploy with Coolify
+              Coolify
             
           </span>
         </div>
@@ -146,6 +150,32 @@
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../vi/deployment/coolify/" hreflang="vi" class="md-select__link">
+              Tiếng Việt
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
     
     
       
@@ -229,7 +259,7 @@
   
     
   
-  Introduction
+  Home
 
       </a>
     </li>
@@ -244,11 +274,11 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../usage/" class="md-tabs__link">
+        <a href="../../about-sematx/" class="md-tabs__link">
           
   
   
-  Usage
+  About SematX
 
         </a>
       </li>
@@ -260,17 +290,115 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../overview/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../getting-started/" class="md-tabs__link">
           
   
   
-  Deployment
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../core-concepts/overview/" class="md-tabs__link">
+          
+  
+  
+  Core Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../installation/" class="md-tabs__link">
+          
+  
+  
+  Installation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../user-guide/" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../configuration/" class="md-tabs__link">
+          
+  
+  
+  Configuration
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../development/" class="md-tabs__link">
+          
+  
+  
+  Development
 
         </a>
       </li>
@@ -290,7 +418,29 @@
           
   
   
-  AI Integration
+  AI Integration (Optional)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Deployment
 
         </a>
       </li>
@@ -306,11 +456,11 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../dev/overview/" class="md-tabs__link">
+        <a href="../../reference/troubleshooting/" class="md-tabs__link">
           
   
   
-  Development & Contribute
+  Reference
 
         </a>
       </li>
@@ -377,7 +527,7 @@
   <span class="md-ellipsis">
     
   
-    Introduction
+    Home
   
 
     
@@ -422,7 +572,7 @@
   <span class="md-ellipsis">
     
   
-    Usage
+    About SematX
   
 
     
@@ -438,7 +588,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Usage
+    About SematX
   
 
           </label>
@@ -451,14 +601,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/" class="md-nav__link">
+      <a href="../../about-sematx/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Usage overview
+    Overview
   
 
     
@@ -479,14 +629,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/data-and-brokers/" class="md-nav__link">
+      <a href="../../about-sematx/ecosystem/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Data & brokers
+    Ecosystem
   
 
     
@@ -507,70 +657,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/entities/" class="md-nav__link">
+      <a href="../../about-sematx/tools/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Entities
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../usage/api-keys/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    API keys & access
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../usage/sample-update-server/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Sample update server
+    Tools & Technologies
   
 
     
@@ -595,38 +689,35 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
     
   
-    Deployment
+    Getting Started
   
 
     
@@ -637,12 +728,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Deployment
+    Getting Started
   
 
           </label>
@@ -655,14 +746,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../overview/" class="md-nav__link">
+      <a href="../../getting-started/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Deployment Overview
+    Overview
   
 
     
@@ -682,108 +773,33 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../aws/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
     
-  
-    Deploy on AWS
-  
-
     
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../cloudflare/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
     
-  
-    Deploy with Cloudflare
-  
-
     
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../vm/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Deploy on VPS / VM
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
         
       
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
+        
+        
           
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
   
   
   <span class="md-ellipsis">
     
   
-    Deploy with Coolify
+    Start Server
   
 
     
@@ -791,17 +807,35 @@
   
   
 
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Start Server
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/start-server/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Deploy with Coolify
+    Local Docker Setup
   
 
     
@@ -810,48 +844,328 @@
   
 
       </a>
-      
-        
+    </li>
+  
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
     
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#coming-soon" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Coming soon
-      
-    </span>
-  </a>
+  <span class="md-ellipsis">
+    
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#du-kien-noi-dung" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dự kiến nội dung
-      
-    </span>
-  </a>
+    Bring Your Own Server
   
-</li>
-      
-    </ul>
+
+    
+  </span>
   
-</nav>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Bring Your Own Server
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/bring-your-own-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/bring-your-own-server/1-create-account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Create Account
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/bring-your-own-server/2-create-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Create Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/bring-your-own-server/3-create-entity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Create Entity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/bring-your-own-server/4-push-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Push Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/bring-your-own-server/5-create-card/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Create Card
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/bring-your-own-server/6-subscriptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subscriptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -896,7 +1210,7 @@
   <span class="md-ellipsis">
     
   
-    AI Integration
+    Core Concepts
   
 
     
@@ -912,7 +1226,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    AI Integration
+    Core Concepts
   
 
           </label>
@@ -925,14 +1239,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/overview/" class="md-nav__link">
+      <a href="../../core-concepts/overview/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    AI Plugin Overview
+    Overview
   
 
     
@@ -953,14 +1267,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/providers/" class="md-nav__link">
+      <a href="../../core-concepts/orion-nginx/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Configure OpenAI / Anthropic / ElevenLabs
+    Orion Nginx Gateway
   
 
     
@@ -981,42 +1295,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/openrouter/" class="md-nav__link">
+      <a href="../../core-concepts/lego-dashboard/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Using OpenRouter as Custom Provider
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai/use-cases/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    AI Use Cases for LegoCity
+    Lego Dashboard
   
 
     
@@ -1069,7 +1355,7 @@
   <span class="md-ellipsis">
     
   
-    Development & Contribute
+    Installation
   
 
     
@@ -1085,7 +1371,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Development & Contribute
+    Installation
   
 
           </label>
@@ -1098,14 +1384,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/overview/" class="md-nav__link">
+      <a href="../../installation/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Development Setup & Guidelines
+    Installation Guide
   
 
     
@@ -1126,14 +1412,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/blocks/" class="md-nav__link">
+      <a href="../../installation/local/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Creating New Blocks in Payload
+    Local Setup
   
 
     
@@ -1154,14 +1440,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/payload-plugins/" class="md-nav__link">
+      <a href="../../installation/docker/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Writing PayloadCMS Plugins
+    Docker Setup
   
 
     
@@ -1182,14 +1468,103 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/proxy-security/" class="md-nav__link">
+      <a href="../../installation/development/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Proxy & API Security
+    Development Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide Overview
   
 
     
@@ -1210,14 +1585,1228 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/seed-data/" class="md-nav__link">
+      <a href="../../user-guide/data-and-brokers/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Seed Database for Use Cases
+    Working with Data & Brokers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/entities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Understanding Entities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/api-keys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Keys & Access
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/sample-update-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample Update Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Configuration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/data-sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/api-keys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Keys
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/blocks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creating Blocks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/seed-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seed Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Integration (Optional)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI Integration (Optional)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supported Providers (OpenAI, Anthropic, ElevenLabs)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/openrouter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenRouter (Custom Models)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/use-cases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Use Cases & Best Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vm-docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtual Machines & Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudflare/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloudflare
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coolify
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coolify
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-coolify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to use Coolify
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#components-as-coolify-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Components as Coolify services
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-requisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-requisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#high-level-architecture-on-coolify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High-level architecture on Coolify
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planning-services-and-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planning services and domains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defining-services-in-coolify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Defining services in Coolify
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Defining services in Coolify">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-database-service-payloadcms-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Database service (PayloadCMS DB)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-context-broker-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Context broker service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-payloadcms-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. PayloadCMS service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-proxy-api-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Proxy / API service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-dashboard-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Dashboard service
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Dashboard service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-a-nextjs-ssr-application-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option A – Next.js SSR (Application service)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-b-static-build-application-static-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option B – Static build (Application + static mode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-update-server-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Update server services
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-separation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment separation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-and-secrets-in-coolify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration and secrets in Coolify
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-workflow-in-coolify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment workflow in Coolify
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-and-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring and logs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backups-and-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backups and maintenance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scaling-and-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scaling and limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operations & Maintenance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Open_Source_Checklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Open Source Checklist
   
 
     
@@ -1265,10 +2854,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#coming-soon" class="md-nav__link">
+  <a href="#when-to-use-coolify" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Coming soon
+        When to use Coolify
       
     </span>
   </a>
@@ -1276,10 +2865,231 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#du-kien-noi-dung" class="md-nav__link">
+  <a href="#components-as-coolify-services" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Dự kiến nội dung
+        Components as Coolify services
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-requisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-requisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#high-level-architecture-on-coolify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High-level architecture on Coolify
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planning-services-and-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planning services and domains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defining-services-in-coolify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Defining services in Coolify
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Defining services in Coolify">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-database-service-payloadcms-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Database service (PayloadCMS DB)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-context-broker-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Context broker service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-payloadcms-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. PayloadCMS service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-proxy-api-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Proxy / API service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-dashboard-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Dashboard service
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Dashboard service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-a-nextjs-ssr-application-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option A – Next.js SSR (Application service)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-b-static-build-application-static-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option B – Static build (Application + static mode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-update-server-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Update server services
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-separation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment separation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-and-secrets-in-coolify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration and secrets in Coolify
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-workflow-in-coolify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment workflow in Coolify
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-and-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring and logs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backups-and-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backups and maintenance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scaling-and-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scaling and limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
       
     </span>
   </a>
@@ -1306,19 +3116,487 @@
   
 
 
-<h1 id="deploy-voi-coolify">Deploy với Coolify</h1>
-<h2 id="coming-soon">Coming soon</h2>
-<p>Hướng dẫn chi tiết deploy LegoCity với Coolify đang được hoàn thiện.</p>
-<h2 id="du-kien-noi-dung">Dự kiến nội dung</h2>
+<h1 id="coolify-deployment">Coolify deployment</h1>
+<p>This page describes how to deploy LegoCity using <strong>Coolify</strong> or a similar self-hosted application platform.</p>
+<p>It focuses on:</p>
 <ul>
-<li>Setup Coolify instance</li>
-<li>Connect Git repository</li>
-<li>One-click deployment</li>
-<li>Environment variables configuration</li>
-<li>Automatic SSL setup</li>
-<li>Database management</li>
-<li>Monitoring dashboard</li>
-<li>Update và rollback</li>
+<li>mapping LegoCity components to Coolify “services”,</li>
+<li>a ready-to-use pattern for a single server or small cluster,</li>
+<li>how to configure environment variables, domains and TLS,</li>
+<li>basic maintenance (updates, backups, monitoring) in this setup.</li>
+</ul>
+<p>Coolify acts as a control plane for containers, making it easier to deploy without managing raw Docker commands and reverse proxies manually.</p>
+<hr />
+<h2 id="when-to-use-coolify">When to use Coolify</h2>
+<p>A Coolify-based deployment is a good fit when:</p>
+<ul>
+<li>you have one or a small number of servers,</li>
+<li>you want a <strong>UI-driven</strong> way to deploy Dockerised applications,</li>
+<li>you want automatic domain, routing and TLS handling,</li>
+<li>you do not want to manage Kubernetes or complex AWS services.</li>
+</ul>
+<p>It may be less suitable when:</p>
+<ul>
+<li>you need large-scale, multi-region high availability,</li>
+<li>the organisation mandates a specific cloud platform and tooling.</li>
+</ul>
+<hr />
+<h2 id="components-as-coolify-services">Components as Coolify services</h2>
+<p>In Coolify, each LegoCity component becomes one or more services:</p>
+<ul>
+<li>
+<p><strong>Context broker service</strong></p>
+</li>
+<li>
+<p>runs the NGSI-LD broker container.</p>
+</li>
+<li>
+<p><strong>PayloadCMS service</strong></p>
+</li>
+<li>
+<p>runs PayloadCMS (Node.js) container.</p>
+</li>
+<li>
+<p><strong>Database service for PayloadCMS</strong></p>
+</li>
+<li>
+<p>PostgreSQL or MongoDB container.</p>
+</li>
+<li>
+<p><strong>Proxy / API service</strong></p>
+</li>
+<li>
+<p>backend between UI and broker.</p>
+</li>
+<li>
+<p><strong>Dashboard service</strong></p>
+</li>
+<li>
+<p>Next.js frontend (can be SSR or static build).</p>
+</li>
+<li>
+<p><strong>Update server services</strong></p>
+</li>
+<li>one service per update server (long-running worker).</li>
+</ul>
+<p>Optionally, you can:</p>
+<ul>
+<li>add a separate reverse proxy or let Coolify manage routing directly,</li>
+<li>add other supporting services (metrics, monitoring, etc.) if needed.</li>
+</ul>
+<hr />
+<h2 id="pre-requisites">Pre-requisites</h2>
+<p>To use this pattern, you need:</p>
+<ul>
+<li>a server (or VM) on which Coolify is installed,</li>
+<li>a domain name with DNS control (for example <code>city.example</code>),</li>
+<li>ability to point DNS records to the Coolify server.</li>
+</ul>
+<p>On the LegoCity side:</p>
+<ul>
+<li>container images for broker, PayloadCMS, proxy, dashboard and update servers,</li>
+<li>repository URLs (Git) if you let Coolify build images from source.</li>
+</ul>
+<hr />
+<h2 id="high-level-architecture-on-coolify">High-level architecture on Coolify</h2>
+<p>Logically, the deployment looks like:</p>
+<ul>
+<li>
+<p><strong>Coolify host</strong></p>
+</li>
+<li>
+<p>runs all LegoCity services as containers,</p>
+</li>
+<li>
+<p>manages:</p>
+<ul>
+<li>container lifecycle,</li>
+<li>routing and domains,</li>
+<li>TLS certificates.</li>
+</ul>
+</li>
+<li>
+<p><strong>LegoCity services</strong></p>
+</li>
+<li>database service (PayloadCMS DB),</li>
+<li>context broker service,</li>
+<li>PayloadCMS service,</li>
+<li>proxy service,</li>
+<li>dashboard service,</li>
+<li>update servers.</li>
+</ul>
+<p>Network layout:</p>
+<ul>
+<li>Coolify manages internal networks between containers,</li>
+<li>external traffic comes through:</li>
+<li>Coolify’s reverse proxy and domain configuration.</li>
+</ul>
+<p>The broker and database are not directly exposed, unless explicitly configured.</p>
+<hr />
+<h2 id="planning-services-and-domains">Planning services and domains</h2>
+<p>Before creating services, decide:</p>
+<ul>
+<li>
+<p>which domains or subdomains you want:</p>
+</li>
+<li>
+<p>e.g. <code>city.example</code> → dashboard,</p>
+</li>
+<li><code>api.city.example</code> → proxy,</li>
+<li>
+<p><code>admin.city.example</code> → PayloadCMS.</p>
+</li>
+<li>
+<p>where each service should be reachable:</p>
+</li>
+<li>some only internal (broker, DB, update servers),</li>
+<li>some external (dashboard, proxy, PayloadCMS admin).</li>
+</ul>
+<p>Typical mapping:</p>
+<ul>
+<li><strong>Dashboard</strong> → <code>city.example</code></li>
+<li><strong>Proxy</strong> → <code>api.city.example</code></li>
+<li><strong>PayloadCMS admin</strong> → <code>admin.city.example</code></li>
+<li><strong>Broker</strong> → no public domain (internal only)</li>
+<li><strong>Update servers</strong> → no public domain (internal only)</li>
+</ul>
+<p>Coolify allows you to assign domains per service and will request TLS certificates automatically.</p>
+<hr />
+<h2 id="defining-services-in-coolify">Defining services in Coolify</h2>
+<h3 id="1-database-service-payloadcms-db">1. Database service (PayloadCMS DB)</h3>
+<ul>
+<li>
+<p>Add a new <strong>Database</strong> service in Coolify:</p>
+</li>
+<li>
+<p>choose PostgreSQL or MongoDB, according to your PayloadCMS configuration.</p>
+</li>
+<li>
+<p>Configuration:</p>
+</li>
+<li>
+<p>database name: <code>payload_db</code> (example),</p>
+</li>
+<li>user: <code>payload_user</code>,</li>
+<li>
+<p>password: secure random password.</p>
+</li>
+<li>
+<p>Make note of:</p>
+</li>
+<li>internal host,</li>
+<li>port,</li>
+<li>database name,</li>
+<li>user and password.</li>
+</ul>
+<p>Coolify usually provides a connection string you can use directly in environment variables.</p>
+<h3 id="2-context-broker-service">2. Context broker service</h3>
+<ul>
+<li>
+<p>Add a new <strong>Application</strong> (container) service:</p>
+</li>
+<li>
+<p>choose “Docker image” as source,</p>
+</li>
+<li>
+<p>specify the broker image (e.g. <code>orion-ld</code> or your custom image).</p>
+</li>
+<li>
+<p>Configuration:</p>
+</li>
+<li>
+<p>internal port: whatever the broker uses (e.g. <code>1026</code>),</p>
+</li>
+<li>no public domain if you want it internal only,</li>
+<li>
+<p>internal networking enabled so other services can reach it.</p>
+</li>
+<li>
+<p>Environment variables:</p>
+</li>
+<li>any broker configuration required (depending on broker implementation).</li>
+</ul>
+<p>Coolify will manage the container; other LegoCity services will use the broker’s internal hostname and port.</p>
+<h3 id="3-payloadcms-service">3. PayloadCMS service</h3>
+<ul>
+<li>
+<p>Add another <strong>Application</strong> service:</p>
+</li>
+<li>
+<p>source: Git repo or Docker image for PayloadCMS.</p>
+</li>
+<li>
+<p>If using Git:</p>
+</li>
+<li>
+<p>configure build:</p>
+<ul>
+<li>Node.js version,</li>
+<li>build command (<code>npm run build</code> or similar),</li>
+<li>start command (<code>npm run start</code>),</li>
+<li>or use a Dockerfile.</li>
+</ul>
+</li>
+<li>
+<p>Attach a domain:</p>
+</li>
+<li>
+<p>e.g. <code>admin.city.example</code> for the PayloadCMS admin UI.</p>
+</li>
+<li>
+<p>Environment variables:</p>
+</li>
+<li><code>PAYLOAD_DB_URL</code> or equivalent:<ul>
+<li>use the connection string provided by the database service,</li>
+</ul>
+</li>
+<li><code>PAYLOAD_SECRET</code>, <code>NODE_ENV</code>, etc.,</li>
+<li>any other variables required by your PayloadCMS configuration (e.g. auth, storage).</li>
+</ul>
+<p>Ensure:</p>
+<ul>
+<li>service is in the same internal network as the DB service,</li>
+<li>DB service is not exposed externally.</li>
+</ul>
+<h3 id="4-proxy-api-service">4. Proxy / API service</h3>
+<ul>
+<li>
+<p>Add an <strong>Application</strong> service for the proxy backend:</p>
+</li>
+<li>
+<p>source: Git repo or Docker image holding the proxy.</p>
+</li>
+<li>
+<p>Attach a domain:</p>
+</li>
+<li>
+<p>e.g. <code>api.city.example</code>.</p>
+</li>
+<li>
+<p>Environment variables:</p>
+</li>
+<li><code>BROKER_URL</code> set to the internal URL of the broker service,</li>
+<li>other config (e.g. allowed origins, API keys),</li>
+<li><code>NODE_ENV</code> / <code>APP_ENV</code>.</li>
+</ul>
+<p>The proxy is the only component that needs network access to the broker (besides update servers).</p>
+<h3 id="5-dashboard-service">5. Dashboard service</h3>
+<p>There are two main ways to host the dashboard:</p>
+<h4 id="option-a-nextjs-ssr-application-service">Option A – Next.js SSR (Application service)</h4>
+<ul>
+<li>
+<p>Add an <strong>Application</strong> service:</p>
+</li>
+<li>
+<p>source: dashboard repo or image,</p>
+</li>
+<li>
+<p>build and start commands as usual for Next.js.</p>
+</li>
+<li>
+<p>Attach domain:</p>
+</li>
+<li>
+<p>e.g. <code>city.example</code>.</p>
+</li>
+<li>
+<p>Environment variables:</p>
+</li>
+<li><code>NEXT_PUBLIC_API_BASE_URL=https://api.city.example</code>,</li>
+<li><code>NEXT_PUBLIC_MAPBOX_TOKEN</code> and any other public config.</li>
+</ul>
+<p>This option runs Next.js as a Node.js process behind Coolify’s reverse proxy.</p>
+<h4 id="option-b-static-build-application-static-mode">Option B – Static build (Application + static mode)</h4>
+<ul>
+<li>Build dashboard into static files (e.g. <code>next export</code>).</li>
+<li>Configure the service in Coolify to serve static files only.</li>
+<li>Simplifies runtime but restricts SSR functionality.</li>
+</ul>
+<p>The exact configuration depends on how your dashboard is built; the key is:</p>
+<ul>
+<li><code>NEXT_PUBLIC_API_BASE_URL</code> must point to the proxy,</li>
+<li>static assets must be served on your chosen domain.</li>
+</ul>
+<h3 id="6-update-server-services">6. Update server services</h3>
+<ul>
+<li>
+<p>For each update server, add an <strong>Application</strong> service:</p>
+</li>
+<li>
+<p>source: Git repo or Docker image,</p>
+</li>
+<li>
+<p>type: background worker / long-running process.</p>
+</li>
+<li>
+<p>Environment variables:</p>
+</li>
+<li>
+<p><code>BROKER_URL</code> → internal broker URL,</p>
+</li>
+<li><code>BROKER_WRITE_KEY</code> → write key for the relevant domain,</li>
+<li>external API keys (e.g. <code>WEATHER_API_KEY</code>),</li>
+<li>
+<p>any schedule configuration (if workers handle their own timing).</p>
+</li>
+<li>
+<p>Networking:</p>
+</li>
+<li>same internal network as broker,</li>
+<li>no public domains (no need for HTTP ingress).</li>
+</ul>
+<p>You can run different update servers for environment, flooding, mobility, etc.</p>
+<hr />
+<h2 id="environment-separation">Environment separation</h2>
+<p>To keep dev and prod separate, you can:</p>
+<ul>
+<li>run <strong>two Coolify instances</strong> on different servers, or</li>
+<li>run:</li>
+<li>dev services and prod services on the same Coolify but:<ul>
+<li>with different domains (e.g. <code>dev.city.example</code> vs <code>city.example</code>),</li>
+<li>with separate DB instances,</li>
+<li>with different broker instances.</li>
+</ul>
+</li>
+</ul>
+<p>Recommended for clarity:</p>
+<ul>
+<li>one Coolify instance per environment, or</li>
+<li>at least clear naming and isolation of services and databases.</li>
+</ul>
+<hr />
+<h2 id="configuration-and-secrets-in-coolify">Configuration and secrets in Coolify</h2>
+<p>Coolify allows you to:</p>
+<ul>
+<li>define environment variables per service,</li>
+<li>mark some as secrets,</li>
+<li>override values per deployment.</li>
+</ul>
+<p>Best practices:</p>
+<ul>
+<li>do not put secrets in the repository,</li>
+<li>define DB passwords, broker write keys, external API keys as secrets in Coolify,</li>
+<li>keep non-secret configuration (like map style names) as plain variables.</li>
+</ul>
+<p>For each service, document:</p>
+<ul>
+<li>which variables must be set,</li>
+<li>where values come from (DB service, broker, external provider).</li>
+</ul>
+<hr />
+<h2 id="deployment-workflow-in-coolify">Deployment workflow in Coolify</h2>
+<p>A typical workflow for deploying a change:</p>
+<ol>
+<li>Push new code to the Git repository.</li>
+<li>In Coolify:</li>
+<li>either:<ul>
+<li>configure automatic deployment on push, or</li>
+<li>trigger deployment manually.</li>
+</ul>
+</li>
+<li>Coolify:</li>
+<li>pulls the latest code,</li>
+<li>builds the application image or bundle,</li>
+<li>restarts the service with new version.</li>
+</ol>
+<p>For image-based services:</p>
+<ul>
+<li>update image tag in Coolify service configuration,</li>
+<li>trigger redeploy.</li>
+</ul>
+<p>Order of changes:</p>
+<ul>
+<li>backend/proxy updates first,</li>
+<li>then dashboard,</li>
+<li>occasionally PayloadCMS or broker if data contracts change.</li>
+</ul>
+<hr />
+<h2 id="monitoring-and-logs">Monitoring and logs</h2>
+<p>Coolify provides basic management and access to logs:</p>
+<ul>
+<li>you can view logs per service from the UI,</li>
+<li>you can see container status (running, failed, restarting).</li>
+</ul>
+<p>Recommended:</p>
+<ul>
+<li>periodically check logs for:</li>
+<li>update servers (data ingestion),</li>
+<li>proxy (API errors),</li>
+<li>PayloadCMS (DB issues),</li>
+<li>broker (resource or context errors).</li>
+</ul>
+<p>If needed, you can:</p>
+<ul>
+<li>export logs to an external system (ELK, Loki, etc.),</li>
+<li>add health endpoints to services and use Coolify health checks.</li>
+</ul>
+<hr />
+<h2 id="backups-and-maintenance">Backups and maintenance</h2>
+<p>Stateful components on a Coolify server:</p>
+<ul>
+<li>
+<p>PayloadCMS database:</p>
+</li>
+<li>
+<p>critical to back up regularly,</p>
+</li>
+<li>
+<p>use DB-native tooling or a backup add-on if Coolify supports it.</p>
+</li>
+<li>
+<p>Broker storage (if using persistent volume):</p>
+</li>
+<li>
+<p>remember where it is stored on the host,</p>
+</li>
+<li>
+<p>snapshot or backup this directory.</p>
+</li>
+<li>
+<p>Coolify configuration:</p>
+</li>
+<li>backup Coolify configuration and metadata,</li>
+<li>keep a copy of deployment definitions and environment variables in a safe place (text export or IaC).</li>
+</ul>
+<p>Maintenance tasks:</p>
+<ul>
+<li>apply OS updates on the host (kernel, security),</li>
+<li>update Docker engine if relevant,</li>
+<li>update Coolify itself (following their upgrade guide),</li>
+<li>rotate credentials (DB passwords, broker keys, external API keys).</li>
+</ul>
+<p>Test:</p>
+<ul>
+<li>restoration of DB backups in a staging environment,</li>
+<li>service restart after host reboot.</li>
+</ul>
+<hr />
+<h2 id="scaling-and-limitations">Scaling and limitations</h2>
+<p>Coolify simplifies deployment but does not remove all infrastructure limits.</p>
+<p>Scaling strategies:</p>
+<ul>
+<li>increase CPU/memory assigned to specific services,</li>
+<li>move DB to a separate, more powerful server,</li>
+<li>split heavy services (e.g. broker and PayloadCMS) across multiple hosts managed by the same Coolify instance (if supported).</li>
+</ul>
+<p>Limitations:</p>
+<ul>
+<li>horizontal scaling across multiple data centres is not automatic,</li>
+<li>you still depend on the health and capacity of the underlying host(s).</li>
+</ul>
+<p>For larger deployments, you may later migrate:</p>
+<ul>
+<li>broker and DB to dedicated infrastructure (AWS/RDS, etc.),</li>
+<li>keep Coolify mainly for frontend and smaller services.</li>
+</ul>
+<hr />
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Coolify provides a UI-driven way to deploy LegoCity components as Docker containers on a single server or small set of servers.</li>
+<li>Each major component (broker, PayloadCMS, DB, proxy, dashboard, update servers) is defined as a separate service with its own environment variables and, where needed, domain.</li>
+<li>Domains such as <code>city.example</code>, <code>api.city.example</code> and <code>admin.city.example</code> are mapped through Coolify’s reverse proxy, which also manages TLS certificates.</li>
+<li>Configuration and secrets are handled via service-level environment variables; stateful services like the DB and broker use persistent volumes and require regular backups.</li>
+<li>This pattern is suitable for teams who want to avoid managing low-level Docker/NGINX but do not need the complexity of full cloud platforms or Kubernetes.</li>
 </ul>
 
 

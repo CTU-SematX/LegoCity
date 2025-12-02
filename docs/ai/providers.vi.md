@@ -160,7 +160,7 @@ OpenRouter cung cấp truy cập 100+ AI models thông qua unified API.
 
 ### Thiết lập
 
-Xem hướng dẫn chi tiết: [OpenRouter Custom Provider](openrouter.md)
+Xem hướng dẫn chi tiết: [OpenRouter Custom Provider](openrouter.vi.md)
 
 **Thiết lập nhanh**:
 
@@ -340,6 +340,6 @@ curl https://api.anthropic.com/v1/messages \
 
 ## Các bước tiếp theo
 
-- [Hướng dẫn thiết lập OpenRouter](openrouter.md) - Sử dụng custom models
-- [AI Trường hợp sử dụngs](use-cases.md) - Các ví dụ thực tế
-- [Tổng quan AI](overview.md) - Hiểu về AI trong LegoCity
+- [Hướng dẫn thiết lập OpenRouter](openrouter.vi.md) - Sử dụng custom models
+- [AI Trường hợp sử dụng](use-cases.vi.md) - Các ví dụ thực tế
+- [Tổng quan AI](overview.vi.md) - Hiểu về AI trong LegoCity

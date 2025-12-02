@@ -4,72 +4,9 @@ Understanding LegoCity's architecture helps you make informed decisions about cu
 
 ## System Architecture
 
-```mermaid
-flowchart LR
-  %% Layout: left (data sources) → right (dashboard)
-  classDef layer fill=#0b1020,stroke=#4c8ddf,stroke-width=1,color=#ffffff;
-  classDef box fill=#111827,stroke=#4b5563,stroke-width=1,color=#e5e7eb;
-  classDef db fill=#111827,stroke=#f97316,stroke-width=1,color=#f9fafb;
-  classDef note fill=#111827,stroke=#6b7280,stroke-dasharray: 3 3,color=#e5e7eb;
+![LegoCity System Architecture](../assets/diagram_EN.png)
 
-  %% ----- LAYER 1: DATA SOURCES -----
-  subgraph L1["LAYER 1: DATA SOURCES<br/>(Nguồn dữ liệu)"]
-    class L1 layer;
-
-    A["Server nguồn A<br/>(IoT / Sensor / Legacy Sys)"]
-    B["Server nguồn B<br/>(Camera AI / External API)"]
-    C["Server nguồn N..."]
-    class A,B,C box;
-  end
-
-  %% ----- LAYER 2: CONTEXT BROKER NODE -----
-  subgraph L2["LAYER 2: SMART CITY CONTEXT BROKER NODE<br/>(Cụm Broker)"]
-    class L2 layer;
-
-    SG["Security Gateway<br/>(Nginx Reverse Proxy + Auth)"]
-    CB["Orion-LD<br/>(Context Broker)"]
-    MDB["MongoDB<br/>for Orion-LD State"]
-    OTH["Other Broker Nodes..."]
-    class SG,CB,OTH box;
-    class MDB db;
-  end
-
-  %% ----- LAYER 3: DASHBOARD & MANAGEMENT -----
-  subgraph L3["LAYER 3: DASHBOARD & MANAGEMENT<br/>(PayloadCMS + Next.js)"]
-    class L3 layer;
-
-    AS["Application Server<br/>(Next.js + PayloadCMS Core)"]
-    NX["Next.js"]
-    PL["PayloadCMS"]
-    DBD["Dashboard Database<br/>(Mongo / Postgres / SQLite)"]
-    class AS,NX,PL box;
-    class DBD db;
-  end
-
-  %% ----- FLOWS: DATA SOURCES → BROKER -----
-  A -->|"HTTP POST<br/>(NGSI-LD Payload)<br/>Push Data + Auth Header"| SG
-  B -->|"HTTP POST<br/>(NGSI-LD Payload)<br/>Push Data + Auth Header"| SG
-  C -->|"HTTP POST<br/>(NGSI-LD Payload)<br/>Push Data + Auth Header"| SG
-
-  %% ----- BROKER INTERNALS -----
-  SG --> CB
-  CB --> MDB
-  CB <-->|Replicate state| OTH
-
-  %% ----- BROKER ↔ DASHBOARD -----
-  AS -->|"HTTP GET / SUB<br/>(NGSI-LD Query)<br/>Fetch Data + Auth Header"| SG
-
-  %% ----- APP SERVER INTERNALS -----
-  AS --> NX
-  AS --> PL
-  PL -->|"CRUD Data"| DBD
-
-  %% ----- MANY-TO-MANY RELATION NOTE -----
-  NREL[["Mối quan hệ N-N:<br/>• 1 Dashboard kết nối N Broker<br/>• 1 Broker phục vụ N Dashboard"]]
-  class NREL note;
-  CB --- NREL
-  AS --- NREL
-```
+_Three-layer architecture: Data Sources → Smart City Context Broker → Dashboard & Management_
 
 ## Three-Layer Design
 
@@ -167,21 +104,47 @@ fetch("/api/proxy/geocode", {
 
 ## Data Flow
 
+### Pushing Data from IoT Sources
+
+```mermaid
+sequenceDiagram
+    participant Source as Source Server<br/>(IoT/Sensor/Camera)
+    participant Gateway as Security Gateway<br/>(Nginx)
+    participant Broker as Orion-LD<br/>(Context Broker)
+    participant MongoDB
+    participant OtherNodes as Other Broker Nodes
+
+    Source->>Gateway: HTTP POST<br/>(NGSI-LD Payload)<br/>Push Data + Auth Header
+    Gateway->>Gateway: Validate Auth Header
+    Gateway->>Broker: Forward entity data
+    Broker->>MongoDB: Store/Update entity
+    MongoDB-->>Broker: Confirm
+    Broker->>OtherNodes: Replicate state (optional)
+    Broker-->>Gateway: 201 Created / 204 Updated
+    Gateway-->>Source: Success response
+```
+
 ### Reading City Data
 
 ```mermaid
 sequenceDiagram
     participant User
-    participant Next.js
-    participant PayloadCMS
-    participant NGSI-LD
+    participant AppServer as Application Server<br/>(NextJS + PayloadCMS)
+    participant Gateway as Security Gateway<br/>(Nginx)
+    participant Broker as Orion-LD<br/>(Context Broker)
+    participant MongoDB
 
-    User->>Next.js: Load dashboard page
-    Next.js->>PayloadCMS: Fetch page config
-    PayloadCMS-->>Next.js: Return blocks & layers
-    Next.js->>NGSI-LD: Query entities
-    NGSI-LD-->>Next.js: Return sensor data
-    Next.js-->>User: Render dashboard
+    User->>AppServer: Load dashboard page
+    AppServer->>AppServer: Fetch page config from PayloadCMS
+    AppServer->>Gateway: HTTP GET/SUB<br/>(NGSI-LD Query)<br/>+ Auth Header
+    Gateway->>Gateway: Validate JWT
+    Gateway->>Broker: Forward query
+    Broker->>MongoDB: Get entity data
+    MongoDB-->>Broker: Return entities
+    Broker-->>Gateway: NGSI-LD Response
+    Gateway-->>AppServer: Return sensor data
+    AppServer->>AppServer: NextJS renders with data
+    AppServer-->>User: Display dashboard
 ```
 
 ### Updating Content
@@ -189,14 +152,16 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     participant Admin
-    participant PayloadCMS
-    participant MongoDB
-    participant Next.js
+    participant AppServer as Application Server<br/>(PayloadCMS)
+    participant DashDB as Dashboard Database<br/>(MongoDB/Postgres/SQLite)
+    participant NextJS
 
-    Admin->>PayloadCMS: Edit page/block
-    PayloadCMS->>MongoDB: Save changes
-    PayloadCMS->>Next.js: Trigger revalidation
-    Next.js-->>Admin: Updated page live
+    Admin->>AppServer: Edit page/block via Admin UI
+    AppServer->>DashDB: CRUD Data<br/>(Save changes)
+    DashDB-->>AppServer: Confirm save
+    AppServer->>NextJS: Trigger revalidation
+    NextJS->>NextJS: Rebuild pages (ISR)
+    NextJS-->>Admin: Updated page live
 ```
 
 ## Technology Stack
@@ -277,11 +242,32 @@ Cache-Control: public, s-maxage=3600
 ### Authentication & Authorization
 
 ```mermaid
-graph LR
-    A[User] -->|Login| B[PayloadCMS Auth]
-    B -->|JWT| C[Next.js Middleware]
-    C -->|Verify| D[Protected Routes]
-    C -->|Check Role| E[Admin Panel]
+flowchart TB
+    subgraph Layer1["LAYER 1: DATA SOURCES"]
+        IoT[IoT Device/Sensor]
+    end
+
+    subgraph Layer2["LAYER 2: BROKER NODE"]
+        Gateway[Security Gateway<br/>Nginx + Auth Validation]
+        Broker[Orion-LD Context Broker]
+        Gateway --> Broker
+    end
+
+    subgraph Layer3["LAYER 3: DASHBOARD"]
+        User[User/Admin]
+        Auth[PayloadCMS Auth<br/>JWT Generation]
+        MW[Next.js Middleware<br/>JWT Verification]
+        Routes[Protected Routes]
+        Admin[Admin Panel]
+
+        User --> Auth
+        Auth -->|JWT Token| MW
+        MW -->|Verify & Route| Routes
+        MW -->|Check Role| Admin
+    end
+
+    IoT -->|POST + Auth Header| Gateway
+    Layer3 -->|API Calls + JWT| Gateway
 ```
 
 ### API Security

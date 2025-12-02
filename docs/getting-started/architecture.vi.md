@@ -3,56 +3,10 @@
 Hiểu kiến trúc của LegoCity giúp bạn đưa ra quyết định sáng suốt về customization và deployment.
 
 ## Kiến trúc Hệ thống
-```mermaid
-flowchart LR
 
-  %% ----- LAYER 1: DATA SOURCES -----
-  subgraph L1["LAYER 1: DATA SOURCES\n(Nguồn dữ liệu)"]
-    A["Server nguồn A\n(IoT/Sensor/Legacy Sys)"]
-    B["Server nguồn B\n(Camera AI/External API)"]
-    C["Server nguồn N..."]
-  end
+![Kiến trúc Hệ thống LegoCity](../assets/diagram_VI.png)
 
-  %% ----- LAYER 2: SMART CITY CONTEXT BROKER NODE -----
-  subgraph L2["LAYER 2: SMART CITY CONTEXT BROKER NODE\n(Cụm Broker)"]
-    SG["Security Gateway\n(Nginx Reverse Proxy + Authentication)"]
-    CB["Orion-LD\n(Context Broker)"]
-    MDB["MongoDB for\nOrion-LD State"]
-    OTH["Other Broker Nodes..."]
-  end
-
-  %% ----- LAYER 3: DASHBOARD & MANAGEMENT -----
-  subgraph L3["LAYER 3: DASHBOARD & MANAGEMENT\n(PayloadCMS + NextJS)"]
-    AS["Application Server\n(NextJS + PayloadCMS Core)"]
-    NX["NextJS"]
-    PL["PayloadCMS"]
-    DBD["Dashboard Database\n(Mongo/Postgres/SQLite)"]
-  end
-
-  %% ----- FLOWS: DATA SOURCES → BROKER -----
-  A -->|"HTTP POST\n(NGSI-LD Payload)\nPush Data + Auth Header"| SG
-  B -->|"HTTP POST\n(NGSI-LD Payload)\nPush Data + Auth Header"| SG
-  C -->|"HTTP POST\n(NGSI-LD Payload)\nPush Data + Auth Header"| SG
-
-  %% ----- BROKER INTERNALS -----
-  SG --> CB
-  CB --> MDB
-  CB --> OTH
-
-  %% ----- BROKER ↔ DASHBOARD -----
-  AS -->|"HTTP GET/SUB\n(NGSI-LD Query)\nFetch Data + Auth Header"| SG
-
-  %% ----- APP SERVER INTERNALS -----
-  AS --> NX
-  AS --> PL
-  PL -->|"CRUD Data"| DBD
-
-  %% ----- MANY-TO-MANY RELATION NOTE -----
-  NOTE[/"Mối quan hệ N-N:\n- 1 Dashboard kết nối N Broker\n- 1 Broker phục vụ N Dashboard"/]
-  CB --- NOTE
-  DBD --- NOTE
-
-```
+_Kiến trúc 3 lớp: Nguồn Dữ liệu → Smart City Context Broker → Dashboard & Quản lý_
 
 ## Thiết kế Ba Lớp
 
@@ -150,36 +104,64 @@ fetch("/api/proxy/geocode", {
 
 ## Data Flow
 
+### Đẩy Dữ liệu từ Nguồn IoT
+
+```mermaid
+sequenceDiagram
+    participant Source as Source Server<br/>(IoT/Sensor/Camera)
+    participant Gateway as Security Gateway<br/>(Nginx)
+    participant Broker as Orion-LD<br/>(Context Broker)
+    participant MongoDB
+    participant OtherNodes as Các Broker Node khác
+
+    Source->>Gateway: HTTP POST<br/>(NGSI-LD Payload)<br/>Push Data + Auth Header
+    Gateway->>Gateway: Xác thực Auth Header
+    Gateway->>Broker: Chuyển tiếp dữ liệu entity
+    Broker->>MongoDB: Lưu/Cập nhật entity
+    MongoDB-->>Broker: Xác nhận
+    Broker->>OtherNodes: Sao chép state (tùy chọn)
+    Broker-->>Gateway: 201 Created / 204 Updated
+    Gateway-->>Source: Phản hồi thành công
+```
+
 ### Reading City Data
 
 ```mermaid
 sequenceDiagram
-    participant User
-    participant Next.js
-    participant PayloadCMS
-    participant NGSI-LD
+    participant User as Người dùng
+    participant AppServer as Application Server<br/>(NextJS + PayloadCMS)
+    participant Gateway as Security Gateway<br/>(Nginx)
+    participant Broker as Orion-LD<br/>(Context Broker)
+    participant MongoDB
 
-    User->>Next.js: Load dashboard page
-    Next.js->>PayloadCMS: Fetch page config
-    PayloadCMS-->>Next.js: Return blocks & layers
-    Next.js->>NGSI-LD: Query entities
-    NGSI-LD-->>Next.js: Return sensor data
-    Next.js-->>User: Render dashboard
+    User->>AppServer: Tải trang dashboard
+    AppServer->>AppServer: Lấy config từ PayloadCMS
+    AppServer->>Gateway: HTTP GET/SUB<br/>(NGSI-LD Query)<br/>+ Auth Header
+    Gateway->>Gateway: Xác thực JWT
+    Gateway->>Broker: Chuyển tiếp query
+    Broker->>MongoDB: Lấy dữ liệu entity
+    MongoDB-->>Broker: Trả về entities
+    Broker-->>Gateway: NGSI-LD Response
+    Gateway-->>AppServer: Trả về dữ liệu sensor
+    AppServer->>AppServer: NextJS render với dữ liệu
+    AppServer-->>User: Hiển thị dashboard
 ```
 
 ### Updating Content
 
 ```mermaid
 sequenceDiagram
-    participant Admin
-    participant PayloadCMS
-    participant MongoDB
-    participant Next.js
+    participant Admin as Quản trị viên
+    participant AppServer as Application Server<br/>(PayloadCMS)
+    participant DashDB as Dashboard Database<br/>(MongoDB/Postgres/SQLite)
+    participant NextJS
 
-    Admin->>PayloadCMS: Edit page/block
-    PayloadCMS->>MongoDB: Save changes
-    PayloadCMS->>Next.js: Trigger revalidation
-    Next.js-->>Admin: Updated page live
+    Admin->>AppServer: Chỉnh sửa page/block qua Admin UI
+    AppServer->>DashDB: CRUD Data<br/>(Lưu thay đổi)
+    DashDB-->>AppServer: Xác nhận lưu
+    AppServer->>NextJS: Kích hoạt revalidation
+    NextJS->>NextJS: Rebuild pages (ISR)
+    NextJS-->>Admin: Trang đã cập nhật
 ```
 
 ## Technology Stack
@@ -260,11 +242,32 @@ Cache-Control: public, s-maxage=3600
 ### Authentication & Authorization
 
 ```mermaid
-graph LR
-    A[User] -->|Login| B[PayloadCMS Auth]
-    B -->|JWT| C[Next.js Middleware]
-    C -->|Verify| D[Protected Routes]
-    C -->|Check Role| E[Admin Panel]
+flowchart TB
+    subgraph Layer1["LAYER 1: NGUỒN DỮ LIỆU"]
+        IoT[Thiết bị IoT/Cảm biến]
+    end
+
+    subgraph Layer2["LAYER 2: BROKER NODE"]
+        Gateway[Security Gateway<br/>Nginx + Xác thực]
+        Broker[Orion-LD Context Broker]
+        Gateway --> Broker
+    end
+
+    subgraph Layer3["LAYER 3: DASHBOARD"]
+        User[Người dùng/Admin]
+        Auth[PayloadCMS Auth<br/>Tạo JWT]
+        MW[Next.js Middleware<br/>Xác minh JWT]
+        Routes[Protected Routes]
+        Admin[Trang Admin]
+
+        User --> Auth
+        Auth -->|JWT Token| MW
+        MW -->|Xác minh & Định tuyến| Routes
+        MW -->|Kiểm tra Role| Admin
+    end
+
+    IoT -->|POST + Auth Header| Gateway
+    Layer3 -->|API Calls + JWT| Gateway
 ```
 
 ### API Security

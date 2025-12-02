@@ -17,7 +17,7 @@ LegoCity là một Smart City Builder cung cấp một nền tảng có thể t�
 
 ### Core Components
 
-![LegoCity Architecture](../assets/diagram_EN.png)
+![LegoCity Architecture](../assets/diagram_VI.png)
 
 _Kiến trúc 3 lớp của LegoCity: Data Sources, Smart City Context Broker, và Dashboard Management_
 

@@ -165,6 +165,6 @@ pnpm install
 
 ## Học thêm
 
-- 🏗️ [Kiến trúc hệ thống](architecture.md)
+- 🏗️ [Kiến trúc hệ thống](architecture.vi.md)
 - 📖 [Hướng dẫn đầy đủ](../user-guide/index.md)
 - 👨‍💻 [Hướng dẫn phát triển](../development/index.md)

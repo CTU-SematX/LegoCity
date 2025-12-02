@@ -90,6 +90,20 @@ plugins:
             Reference: Tham khảo
             Troubleshooting: Xử lý sự cố
             Open Source Checklist: Danh sách kiểm tra Open Source
+            About SematX: Về SematX
+            Ecosystem: Hệ sinh thái
+            Tools & Technologies: Công cụ & Công nghệ
+            Start Server: Khởi động Server
+            Bring Your Own Server: Kết nối Server riêng
+            Create Account: Tạo tài khoản
+            Create Service: Tạo dịch vụ
+            Create Entity: Tạo Entity
+            Push Data: Đẩy dữ liệu
+            Create Card: Tạo Card
+            Subscriptions: Đăng ký
+            Core Concepts: Khái niệm cốt lõi
+            Orion Nginx Gateway: Orion Nginx Gateway
+            Lego Dashboard: Lego Dashboard
 
 extra:
   alternate:
@@ -103,10 +117,30 @@ extra:
 nav:
   - Home: index.md
 
+  - About SematX:
+      - Overview: about-sematx/index.md
+      - Ecosystem: about-sematx/ecosystem.md
+      - Tools & Technologies: about-sematx/tools.md
+
   - Getting Started:
       - Overview: getting-started/index.md
+      - Start Server:
+          - Local Docker Setup: getting-started/start-server/index.md
+      - Bring Your Own Server:
+          - Overview: getting-started/bring-your-own-server/index.md
+          - Create Account: getting-started/bring-your-own-server/1-create-account.md
+          - Create Service: getting-started/bring-your-own-server/2-create-service.md
+          - Create Entity: getting-started/bring-your-own-server/3-create-entity.md
+          - Push Data: getting-started/bring-your-own-server/4-push-data.md
+          - Create Card: getting-started/bring-your-own-server/5-create-card.md
+          - Subscriptions: getting-started/bring-your-own-server/6-subscriptions.md
       - Quick Start: getting-started/quickstart.md
       - Architecture: getting-started/architecture.md
+
+  - Core Concepts:
+      - Overview: core-concepts/overview.md
+      - Orion Nginx Gateway: core-concepts/orion-nginx.md
+      - Lego Dashboard: core-concepts/lego-dashboard.md
 
   - Installation:
       - Installation Guide: installation/index.md

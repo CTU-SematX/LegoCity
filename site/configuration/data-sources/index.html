@@ -1,0 +1,3663 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ctu-sematx.github.io/LegoCity/configuration/data-sources/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../api-keys/">
+      
+      
+        
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../vi/configuration/data-sources/" hreflang="vi">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Data Sources - LegoCity Smart City Builder</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Merriweather Sans";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#data-and-brokers" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="LegoCity Smart City Builder" class="md-header__button md-logo" aria-label="LegoCity Smart City Builder" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LegoCity Smart City Builder
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data Sources
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../vi/configuration/data-sources/" hreflang="vi" class="md-select__link">
+              Tiếng Việt
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/CTU-SematX/LegoCity" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CTU-SematX/LegoCity
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../about-sematx/" class="md-tabs__link">
+          
+  
+  
+  About SematX
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting-started/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../core-concepts/overview/" class="md-tabs__link">
+          
+  
+  
+  Core Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../installation/" class="md-tabs__link">
+          
+  
+  
+  Installation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../user-guide/" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Configuration
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../development/" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ai/overview/" class="md-tabs__link">
+          
+  
+  
+  AI Integration (Optional)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../deployment/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../reference/troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LegoCity Smart City Builder" class="md-nav__button md-logo" aria-label="LegoCity Smart City Builder" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    LegoCity Smart City Builder
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/CTU-SematX/LegoCity" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CTU-SematX/LegoCity
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About SematX
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About SematX
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about-sematx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about-sematx/ecosystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about-sematx/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools & Technologies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start Server
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Start Server
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/start-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local Docker Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bring Your Own Server
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Bring Your Own Server
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/bring-your-own-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/bring-your-own-server/1-create-account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Create Account
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/bring-your-own-server/2-create-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Create Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/bring-your-own-server/3-create-entity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Create Entity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/bring-your-own-server/4-push-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Push Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/bring-your-own-server/5-create-card/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Create Card
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/bring-your-own-server/6-subscriptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subscriptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core-concepts/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core-concepts/orion-nginx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orion Nginx Gateway
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core-concepts/lego-dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lego Dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Installation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/local/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/data-and-brokers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Working with Data & Brokers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/entities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Understanding Entities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/api-keys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Keys & Access
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/sample-update-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample Update Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Configuration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Sources
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-overall-data-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Overall data flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-context-broker-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Context broker role
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Context broker role">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-what-is-stored-in-the-broker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 What is stored in the broker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-what-is-not-stored-in-the-broker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 What is not stored in the broker
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-broker-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Broker topology
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Broker topology">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-single-broker-deployments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Single-broker deployments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-multi-broker-deployments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Multi-broker deployments
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-domains-and-ownership" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Domains and ownership
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-update-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Update servers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Update servers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-responsibilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Responsibilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-granularity-and-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Granularity and scope
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-idempotency-and-conflict-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Idempotency and conflict handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-current-state-and-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Current state and history
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Current state and history">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-current-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Current state
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-history-and-trends" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 History and trends
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-data-contracts-and-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Data contracts and conventions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Data contracts and conventions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-entity-types-and-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Entity types and models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-identifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Identifiers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-geospatial-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Geospatial attributes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-time-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 Time attributes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-multiple-sources-for-the-same-entity-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Multiple sources for the same entity type
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-subscriptions-and-reactive-flows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Subscriptions and reactive flows
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-relationship-to-the-dashboard-and-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Relationship to the dashboard and proxy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-keys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Keys
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/blocks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creating Blocks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/seed-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seed Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Integration (Optional)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI Integration (Optional)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supported Providers (OpenAI, Anthropic, ElevenLabs)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/openrouter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenRouter (Custom Models)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/use-cases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Use Cases & Best Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/vm-docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtual Machines & Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/aws/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/cloudflare/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloudflare
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/coolify/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coolify
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operations & Maintenance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Open_Source_Checklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Open Source Checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-overall-data-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Overall data flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-context-broker-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Context broker role
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Context broker role">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-what-is-stored-in-the-broker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 What is stored in the broker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-what-is-not-stored-in-the-broker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 What is not stored in the broker
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-broker-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Broker topology
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Broker topology">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-single-broker-deployments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Single-broker deployments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-multi-broker-deployments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Multi-broker deployments
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-domains-and-ownership" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Domains and ownership
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-update-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Update servers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Update servers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-responsibilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Responsibilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-granularity-and-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Granularity and scope
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-idempotency-and-conflict-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Idempotency and conflict handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-current-state-and-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Current state and history
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Current state and history">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-current-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Current state
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-history-and-trends" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 History and trends
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-data-contracts-and-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Data contracts and conventions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Data contracts and conventions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-entity-types-and-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Entity types and models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-identifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Identifiers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-geospatial-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Geospatial attributes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-time-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 Time attributes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-multiple-sources-for-the-same-entity-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Multiple sources for the same entity type
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-subscriptions-and-reactive-flows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Subscriptions and reactive flows
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-relationship-to-the-dashboard-and-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Relationship to the dashboard and proxy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="data-and-brokers">Data and brokers</h1>
+<p>This page explains in detail how the <strong>data layer</strong> of LegoCity is organised around NGSI-LD context brokers and update servers.</p>
+<p>It focuses on:</p>
+<ul>
+<li>what the broker is expected to store and provide,</li>
+<li>how data is grouped into domains,</li>
+<li>how update servers are designed and operated,</li>
+<li>how decisions about history, quality and source-of-truth are made.</li>
+</ul>
+<p>It does not cover deployment commands or infrastructure automation; those are documented in the Deployment section.</p>
+<hr />
+<h2 id="1-overall-data-flow">1. Overall data flow</h2>
+<p>The basic data flow in a LegoCity deployment is:</p>
+<ol>
+<li>An external system (for example, a weather API, a sensor gateway, a flood model, a transport feed) exposes raw data.</li>
+<li>An update server for that domain reads the raw data on a schedule.</li>
+<li>The update server converts the raw data into <strong>NGSI-LD entities</strong> that follow the agreed models and conventions.</li>
+<li>The update server writes those entities into a <strong>context broker</strong>.</li>
+<li>The dashboard and other application services read entities from the broker (usually via a proxy) and turn them into map layers and UI elements.</li>
+</ol>
+<p>The important constraints are:</p>
+<ul>
+<li>update servers are the only components that write to the broker in normal operation,</li>
+<li>the broker is the only source where the dashboard reads city context,</li>
+<li>if something is not in the broker, it does not exist from LegoCity’s point of view.</li>
+</ul>
+<hr />
+<h2 id="2-context-broker-role">2. Context broker role</h2>
+<p>The context broker is responsible for:</p>
+<ul>
+<li>storing all <strong>current state</strong> of city entities that LegoCity needs,</li>
+<li>exposing a standard NGSI-LD API for create, update, query and subscription,</li>
+<li>providing a consistent, canonical view of “what the city looks like right now”.</li>
+</ul>
+<p>From LegoCity’s perspective, the broker must:</p>
+<ul>
+<li>store entities for all domains in scope (for example, environment, flooding, mobility, public services),</li>
+<li>support geospatial queries and filtering on attributes that the UI will need,</li>
+<li>handle the expected volume and update frequency of the entities.</li>
+</ul>
+<p>The broker is not expected to:</p>
+<ul>
+<li>perform heavy analytics,</li>
+<li>render maps,</li>
+<li>be aware of UI concepts like pages, blocks or permissions inside the dashboard.</li>
+</ul>
+<p>Those concerns are external to the broker.</p>
+<h3 id="21-what-is-stored-in-the-broker">2.1 What is stored in the broker</h3>
+<p>For each domain, the broker stores:</p>
+<ul>
+<li>entity identifiers that represent real-world objects or observations,</li>
+<li>current values of attributes (status, measurements, capacities, etc.),</li>
+<li>geospatial attributes (locations, geometries, coverage areas),</li>
+<li>timestamps that indicate when the information was observed or last updated.</li>
+</ul>
+<p>Examples of what is in scope for the broker:</p>
+<ul>
+<li>“There is a flood zone with this polygon and this current risk level.”</li>
+<li>“There is a parking facility with this capacity and this current occupancy.”</li>
+<li>“There is a weather observation at this location with this temperature and humidity.”</li>
+</ul>
+<p>If the dashboard needs to show a value for the user, that value should be present or derivable from entities in the broker.</p>
+<h3 id="22-what-is-not-stored-in-the-broker">2.2 What is not stored in the broker</h3>
+<p>The broker is not required to store:</p>
+<ul>
+<li>UI configuration (map styles, layer visibility defaults, panel layouts),</li>
+<li>user accounts, roles or permissions,</li>
+<li>documentation or descriptive text that is only relevant for the admin UI.</li>
+</ul>
+<p>These items belong to PayloadCMS or other parts of the LegoCity stack.</p>
+<hr />
+<h2 id="3-broker-topology">3. Broker topology</h2>
+<p>A LegoCity deployment must choose how many brokers to run and what each one is responsible for. This is a structural decision that affects every other part of the system.</p>
+<h3 id="31-single-broker-deployments">3.1 Single-broker deployments</h3>
+<p>In a single-broker deployment:</p>
+<ul>
+<li>one broker instance stores all entities for the deployment (all domains, all city areas),</li>
+<li>all update servers write to that broker,</li>
+<li>all dashboards and application services read from that broker.</li>
+</ul>
+<p>This is usually the default for:</p>
+<ul>
+<li>proofs of concept,</li>
+<li>small to medium deployments,</li>
+<li>a single city or campus.</li>
+</ul>
+<p>Advantages:</p>
+<ul>
+<li>fewer endpoints to configure,</li>
+<li>simpler monitoring and logging,</li>
+<li>easier for new team members to understand.</li>
+</ul>
+<p>Risks and constraints:</p>
+<ul>
+<li>if the broker is unavailable, all domains are affected,</li>
+<li>all domains share the same performance and scaling limits,</li>
+<li>careful naming and scoping is needed to avoid conflicts between domains.</li>
+</ul>
+<p>In practice, a single-broker deployment should still separate environments (for example, one broker for development and one for production).</p>
+<h3 id="32-multi-broker-deployments">3.2 Multi-broker deployments</h3>
+<p>In a multi-broker deployment, different brokers are used for different scopes. Common patterns:</p>
+<ul>
+<li>one broker per environment (development, staging, production),</li>
+<li>one broker per city or administrative region,</li>
+<li>one broker for high-frequency telemetry and another for more static reference data.</li>
+</ul>
+<p>Advantages:</p>
+<ul>
+<li>clearer separation between environments or cities,</li>
+<li>different tuning and retention policies per broker,</li>
+<li>failures in one broker do not immediately affect all domains.</li>
+</ul>
+<p>Costs and constraints:</p>
+<ul>
+<li>more endpoints and credentials to manage,</li>
+<li>update servers must know which broker to write to,</li>
+<li>dashboards and proxies must be configured to query the correct broker for each context.</li>
+</ul>
+<p>The documentation of a LegoCity deployment should explicitly list:</p>
+<ul>
+<li>each broker instance (name and base URL),</li>
+<li>which domains and entity types each broker owns,</li>
+<li>which update servers and applications are allowed to access each broker.</li>
+</ul>
+<hr />
+<h2 id="4-domains-and-ownership">4. Domains and ownership</h2>
+<p>Without structure, a broker can become a random collection of entities. LegoCity encourages grouping entities into <strong>domains</strong> and assigning clear responsibility.</p>
+<p>Typical domains are:</p>
+<ul>
+<li>Environment (weather, air quality, noise),</li>
+<li>Water and flooding,</li>
+<li>Mobility and transport,</li>
+<li>Public services (health, education, administration),</li>
+<li>Infrastructure assets (parking, charging stations, cameras).</li>
+</ul>
+<p>For each domain, the documentation should state:</p>
+<ul>
+<li>which entity types belong to it (by <code>type</code> name),</li>
+<li>which update server(s) are responsible for creating and updating those entities,</li>
+<li>which broker instance stores those entities,</li>
+<li>which dashboards or map views consume that domain.</li>
+</ul>
+<p>This gives a clear answer to questions like:</p>
+<ul>
+<li>“If flood data is wrong, which server should we check?”</li>
+<li>“Where does the air quality data come from?”</li>
+<li>“If we add a new city, which domains need new brokers or new servers?”</li>
+</ul>
+<p>Domains are a documentation and ownership concept; they are not a new technical component.</p>
+<hr />
+<h2 id="5-update-servers">5. Update servers</h2>
+<p>Update servers are <strong>integration services</strong>. They connect external systems to the context broker and are the only regular writers of entities.</p>
+<h3 id="51-responsibilities">5.1 Responsibilities</h3>
+<p>An update server is responsible for a complete loop:</p>
+<ol>
+<li><strong>Configuration</strong><br />
+   It reads all its configuration from environment variables or configuration files, including:</li>
+<li>broker URL and credentials,</li>
+<li>external API endpoints and keys,</li>
+<li>
+<p>update frequency and any domain-specific parameters (for example, list of locations to monitor).</p>
+</li>
+<li>
+<p><strong>Data ingestion</strong><br />
+   It contacts external data sources:</p>
+</li>
+<li>fetches raw data,</li>
+<li>handles paging, rate limits and temporary errors,</li>
+<li>
+<p>validates that the received data is structurally sound.</p>
+</li>
+<li>
+<p><strong>Transformation</strong><br />
+   It converts raw data into the internal entity representation:</p>
+</li>
+<li>chooses the entity type,</li>
+<li>sets identifiers according to the project’s conventions,</li>
+<li>fills attributes that match the chosen Smart Data Model,</li>
+<li>
+<p>sets locations and timestamps.</p>
+</li>
+<li>
+<p><strong>Publishing</strong><br />
+   It writes entities to the broker:</p>
+</li>
+<li>creates entities that do not exist yet,</li>
+<li>updates attributes for existing entities,</li>
+<li>
+<p>handles partial failures and retries where appropriate.</p>
+</li>
+<li>
+<p><strong>Reporting and health</strong><br />
+   It logs key events:</p>
+</li>
+<li>how many entities were created or updated,</li>
+<li>when the last successful update occurred,</li>
+<li>whether there were errors and of what kind.</li>
+</ol>
+<p>This loop can be implemented as a continuously running service with a timer or as a scheduled job.</p>
+<h3 id="52-granularity-and-scope">5.2 Granularity and scope</h3>
+<p>The recommended approach is to keep update servers narrow in scope:</p>
+<ul>
+<li>one server per external data source,</li>
+<li>or one server per domain when sources are tightly related.</li>
+</ul>
+<p>This avoids:</p>
+<ul>
+<li>mixing unrelated concerns in a single codebase,</li>
+<li>making one failure affect many domains,</li>
+<li>creating hidden couplings that are hard to debug.</li>
+</ul>
+<p>Each server should have a clear name and documented scope, for example:</p>
+<ul>
+<li><code>env-weather-server</code> – reads weather API, writes <code>WeatherObserved</code>,</li>
+<li><code>water-flood-server</code> – reads flood model outputs, writes <code>FloodZone</code>,</li>
+<li><code>mobility-parking-server</code> – reads parking backend, writes <code>ParkingFacility</code> and <code>ParkingSpot</code>.</li>
+</ul>
+<h3 id="53-idempotency-and-conflict-handling">5.3 Idempotency and conflict handling</h3>
+<p>Update servers should be designed to be <strong>idempotent</strong>:</p>
+<ul>
+<li>running the same update twice in a row should not create duplicate entities,</li>
+<li>updates should always converge to the correct state.</li>
+</ul>
+<p>This has implications for:</p>
+<ul>
+<li>how IDs are generated (stable IDs vs new random IDs),</li>
+<li>how updates are applied (replace vs patch),</li>
+<li>how deleted or obsolete entities are handled (explicit deletion, or marking as inactive).</li>
+</ul>
+<p>The project should define how deletions and deactivations are represented, so the UI can interpret them correctly (for example, whether inactive entities are hidden or styled differently).</p>
+<hr />
+<h2 id="6-current-state-and-history">6. Current state and history</h2>
+<p>NGSI-LD brokers can support both <strong>current context</strong> and <strong>temporal</strong> queries, but LegoCity must define how it uses this capability.</p>
+<h3 id="61-current-state">6.1 Current state</h3>
+<p>For many dashboards, only the current state matters. For example:</p>
+<ul>
+<li>current water level,</li>
+<li>current parking occupancy,</li>
+<li>current flood risk level.</li>
+</ul>
+<p>In this mode:</p>
+<ul>
+<li>the broker holds one entity per real-world object,</li>
+<li>each update overwrites relevant attributes,</li>
+<li>old values are not kept in the broker.</li>
+</ul>
+<p>This is simpler to operate and often sufficient for monitoring-style use cases.</p>
+<h3 id="62-history-and-trends">6.2 History and trends</h3>
+<p>For some use cases, LegoCity may need short-term history, for example:</p>
+<ul>
+<li>charts of the last 24 hours of weather or air quality,</li>
+<li>recent evolution of water levels during a flood event.</li>
+</ul>
+<p>Two approaches are possible:</p>
+<ul>
+<li>use the broker’s temporal features (if available and enabled) to store attribute history,</li>
+<li>forward data to a specialised time-series database while keeping only the latest values in the broker.</li>
+</ul>
+<p>The choice should be documented for each domain:</p>
+<ul>
+<li>which domains store only current state,</li>
+<li>which domains retain a limited history,</li>
+<li>where long-term analytics data is stored if not in the broker.</li>
+</ul>
+<p>The dashboard and proxy must be aligned with this decision so that queries are realistic and efficient.</p>
+<hr />
+<h2 id="7-data-contracts-and-conventions">7. Data contracts and conventions</h2>
+<p>To keep the data layer coherent, LegoCity relies on explicit <strong>data contracts</strong> between update servers, brokers and the UI.</p>
+<p>These contracts cover:</p>
+<ul>
+<li>which entity types are used,</li>
+<li>which attributes must be present,</li>
+<li>which naming conventions are followed.</li>
+</ul>
+<h3 id="71-entity-types-and-models">7.1 Entity types and models</h3>
+<p>For each entity type used in LegoCity, the documentation should specify:</p>
+<ul>
+<li>the name of the entity type (for example, <code>WeatherObserved</code>),</li>
+<li>whether it follows a FIWARE Smart Data Model directly, an extended version, or a custom schema,</li>
+<li>which attributes are mandatory (must always be present),</li>
+<li>which attributes are optional and under which conditions they appear.</li>
+</ul>
+<p>Update servers must respect these definitions when creating or updating entities.</p>
+<h3 id="72-identifiers">7.2 Identifiers</h3>
+<p>Identifiers (<code>id</code>) need to be:</p>
+<ul>
+<li>stable over time for the same real-world object or location,</li>
+<li>predictable enough that systems can refer to entities by ID if needed,</li>
+<li>unique across the broker, or at least across a domain.</li>
+</ul>
+<p>The documentation should state:</p>
+<ul>
+<li>how IDs are constructed (for example, URN patterns that include domain and location),</li>
+<li>whether IDs are derived from external identifiers or generated internally,</li>
+<li>how ID changes are handled if an external system renames something.</li>
+</ul>
+<h3 id="73-geospatial-attributes">7.3 Geospatial attributes</h3>
+<p>Because LegoCity is map-centric, geospatial attributes must be consistent:</p>
+<ul>
+<li>which attribute name is used for location (for example, always <code>location</code>),</li>
+<li>which types of geometries are expected for each entity type (point, line, polygon),</li>
+<li>how coordinate reference systems are handled (typically WGS84).</li>
+</ul>
+<p>This consistency allows:</p>
+<ul>
+<li>generic map layers that can handle many entity types,</li>
+<li>simple filtering by bounding box or area of interest.</li>
+</ul>
+<h3 id="74-time-attributes">7.4 Time attributes</h3>
+<p>Time is critical for context:</p>
+<ul>
+<li>each observation-type entity should have a clear observation timestamp,</li>
+<li>entities representing static objects (for example, a public facility) may have creation or last-update timestamps.</li>
+</ul>
+<p>The documentation should list:</p>
+<ul>
+<li>which attributes carry time information,</li>
+<li>how they are used in the UI (for example, to mark stale data).</li>
+</ul>
+<hr />
+<h2 id="8-multiple-sources-for-the-same-entity-type">8. Multiple sources for the same entity type</h2>
+<p>Sometimes more than one external source can provide data for the same conceptual entity type. For example, different agencies might publish partially overlapping flood maps.</p>
+<p>In such cases, LegoCity needs explicit rules to avoid confusion:</p>
+<ul>
+<li>whether one source is considered the <strong>authoritative</strong> source and others are ignored,</li>
+<li>whether entities from different sources are kept separate by ID and metadata,</li>
+<li>whether a dedicated aggregation service combines data from multiple sources into a single set of entities.</li>
+</ul>
+<p>If multiple sources are used, the documentation should specify for each entity type:</p>
+<ul>
+<li>which sources feed this type,</li>
+<li>how conflicts are resolved,</li>
+<li>which attributes indicate the origin or quality of each entity.</li>
+</ul>
+<hr />
+<h2 id="9-subscriptions-and-reactive-flows">9. Subscriptions and reactive flows</h2>
+<p>NGSI-LD supports subscriptions so that services can be notified when entities change. LegoCity may use subscriptions to drive backend workflows, but not as a primary mechanism for the dashboard.</p>
+<p>Possible uses include:</p>
+<ul>
+<li>a service that updates aggregated indicators when sensor entities change,</li>
+<li>a monitoring component that alerts when certain thresholds are crossed.</li>
+</ul>
+<p>If subscriptions are used:</p>
+<ul>
+<li>the components that create and manage subscriptions should be identified,</li>
+<li>the scopes of subscriptions (which entity types, which conditions) should be documented,</li>
+<li>error handling and recovery strategies should be defined (what happens when notification delivery fails).</li>
+</ul>
+<p>The dashboard is expected to continue using normal queries; any “push” logic should be mediated by application services.</p>
+<hr />
+<h2 id="10-relationship-to-the-dashboard-and-proxy">10. Relationship to the dashboard and proxy</h2>
+<p>The data layer and the UI layer communicate through a narrow interface.</p>
+<p>In a typical setup:</p>
+<ul>
+<li>the proxy layer exposes a small set of HTTP endpoints tailored to the UI,</li>
+<li>these endpoints internally query the broker using NGSI-LD and project the results into simpler structures,</li>
+<li>the dashboard calls these endpoints to obtain the data it needs for map views and blocks.</li>
+</ul>
+<p>Consequences:</p>
+<ul>
+<li>the broker’s internal details are not exposed directly to browsers or untrusted clients,</li>
+<li>changes in entity structures can be absorbed by the proxy without immediately breaking the UI,</li>
+<li>security policies (who can read what) can be implemented in one place.</li>
+</ul>
+<p>The design of these proxy endpoints is documented in the Development section; from the data-layer perspective, it is enough to understand that:</p>
+<ul>
+<li>read access is centralised,</li>
+<li>write access remains with update servers,</li>
+<li>the broker remains the single source of truth.</li>
+</ul>
+<hr />
+<h2 id="11-summary">11. Summary</h2>
+<ul>
+<li>The context broker stores the current representation of the city as NGSI-LD entities and is treated as the source of truth.</li>
+<li>A deployment must choose and document its broker topology (single or multiple brokers) and domain structure.</li>
+<li>Domains group related entity types and update servers; each domain has clear ownership and responsibilities.</li>
+<li>Update servers are the only regular writers to the broker and must follow shared data contracts for entity structure, identifiers, geospatial attributes and timestamps.</li>
+<li>Decisions about history, retention and multiple data sources must be explicit so that the dashboard and analytics behave predictably.</li>
+<li>The dashboard reads from the broker through a proxy, keeping UI concerns clearly separated from data ingestion and storage.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

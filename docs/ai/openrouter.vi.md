@@ -425,4 +425,4 @@ await Promise.all(promises);
 
 - [Cấu hình nhà cung cấp AI](providers.md) - So sánh tất cả nhà cung cấp
 - [Các trường hợp sử dụng AI](use-cases.md) - Các ví dụ thực tế
-- [Tổng quan về AI](overview.md) - Hiểu về AI trong LegoCity
+- [Tổng quan về AI](overview.vi.md) - Hiểu về AI trong LegoCity

@@ -8,7 +8,7 @@ LegoCity có thể được cài đặt trong các môi trường khác nhau tù
 
 Nếu bạn muốn **triển khai và sử dụng** LegoCity:
 
-1. **[Khởi động Nhanh](../getting-started/quickstart.md)** - Chạy trong 5 phút
+1. **[Khởi động Nhanh](../getting-started/quickstart.vi.md)** - Chạy trong 5 phút
 2. **[Cài đặt Local](local.md)** - Thiết lập phát triển local đầy đủ
 3. **[Triển khai Production](../deployment/index.md)** - Triển khai lên servers
 
@@ -146,7 +146,7 @@ Trước khi bắt đầu cài đặt:
 - [ ] Cài đặt phần mềm cần thiết (Node.js, pnpm, MongoDB)
 - [ ] Có sẵn Mapbox access token (cho maps)
 - [ ] Chuẩn bị tên miền (chỉ cho production)
-- [ ] Xem lại [Tổng quan Kiến trúc](../getting-started/architecture.md)
+- [ ] Xem lại [Tổng quan Kiến trúc](../getting-started/architecture.vi.md)
 
 ## Vấn đề Cài đặt Thường gặp
 

@@ -123,7 +123,7 @@ pnpm dev
 
 **Truy cập tại**: [http://localhost:3000](http://localhost:3000)
 
-👉 Xem [Hướng dẫn Khởi động Nhanh](getting-started/quickstart.md) để biết hướng dẫn chi tiết.
+👉 Xem [Hướng dẫn Khởi động Nhanh](getting-started/quickstart.vi.md) để biết hướng dẫn chi tiết.
 
 ---
 
@@ -135,7 +135,7 @@ LegoCity sử dụng kiến trúc ba lớp:
 2. **Lớp Content & UI** - PayloadCMS + Next.js cho dashboards có thể cấu hình
 3. **Lớp Integration** - API proxies, AI helpers, các dịch vụ bên ngoài
 
-👉 Xem [Hướng dẫn Kiến trúc](getting-started/architecture.md) để biết sơ đồ và giải thích chi tiết.
+👉 Xem [Hướng dẫn Kiến trúc](getting-started/architecture.vi.md) để biết sơ đồ và giải thích chi tiết.
 
 ---
 
@@ -172,9 +172,9 @@ Chọn con đường của bạn:
 
     **Bắt đầu tại đây**:
 
-    1. Đọc [Bắt đầu](getting-started/index.md)
-    2. Làm theo [Khởi động Nhanh](getting-started/quickstart.md)
-    3. Khám phá [Hướng dẫn Sử dụng](user-guide/index.md)
+    1. Đọc [Bắt đầu](getting-started/index.vi.md)
+    2. Làm theo [Khởi động Nhanh](getting-started/quickstart.vi.md)
+    3. Khám phá [Hướng dẫn Sử dụng](user-guide/index.vi.md)
 
 === "Tôi muốn sử dụng nó"
 
@@ -202,4 +202,4 @@ Chọn con đường của bạn:
 
 ---
 
-**Sẵn sàng bắt đầu?** Đi đến [Hướng dẫn Bắt đầu](getting-started/index.md) →
+**Sẵn sàng bắt đầu?** Đi đến [Hướng dẫn Bắt đầu](getting-started/index.vi.md) →

@@ -265,7 +265,7 @@ module.exports = withPayload({
 
 **Enable AI Helpers** (Tùy chọn):
 
-- Xem [AI Integration section](../ai/overview.md) cho AI provider configuration
+- Xem [AI Integration section](../ai/overview.vi.md) cho AI provider configuration
 
 ## Xác thực cấu hình
 

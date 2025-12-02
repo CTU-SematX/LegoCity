@@ -207,9 +207,10 @@ Typical seed script process:
 ```mermaid
 graph LR
     A[Read Entity Files] --> B[Validate Format]
-    B --> C[Connect to Broker]
-    C --> D[Create/Upsert Entities]
-    D --> E[Log Results]
+    B --> C[Connect to Gateway<br/>with Auth]
+    C --> D[POST to Broker<br/>via Gateway]
+    D --> E[Broker Stores<br/>in MongoDB]
+    E --> F[Log Results]
 ```
 
 **Script responsibilities:**
@@ -437,12 +438,13 @@ graph TD
     A[Start] --> B{Development Environment?}
     B -->|Yes| C[Clean Existing Data]
     B -->|No| D[Skip Clean]
-    C --> E[Seed Broker Entities]
+    C --> E[Seed Broker Entities<br/>via Security Gateway]
     D --> E
-    E --> F[Seed PayloadCMS Config]
-    F --> G[Verify Seeds]
-    G --> H[Log Results]
-    H --> I[Complete]
+    E --> F[Orion-LD stores<br/>in MongoDB]
+    F --> G[Seed PayloadCMS Config<br/>to Dashboard DB]
+    G --> H[Verify Seeds]
+    H --> I[Log Results]
+    I --> J[Complete]
 ```
 
 ### Developer Workflow

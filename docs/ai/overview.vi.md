@@ -119,7 +119,8 @@ Trong mọi trường hợp:
     ```
 
 === "Biến môi trường"
-```env title=".env" # Cấu hình nhà cung cấp AI
+
+````env title=".env" # Cấu hình nhà cung cấp AI
 ENABLE_AI=true
 AI_PROVIDER=openai
 OPENAI_API_KEY=sk-...
@@ -172,7 +173,7 @@ Khi thêm AI helpers vào admin UI:
 >
   ✨ Tạo mô tả bằng AI
 </Button>
-```
+````
 
 ### 2. Hiển thị đề xuất rõ ràng
 
@@ -437,6 +438,6 @@ describe("Tích hợp AI", () => {
 **Các trang liên quan:**
 
 - [AI Providers](providers.md)
-- [OpenRouter Integration](openrouter.md)
+- [OpenRouter Integration](openrouter.vi.md)
 - [AI Use Cases](use-cases.md)
 - [Creating New Blocks](../development/blocks.md)

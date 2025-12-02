@@ -1,87 +1,647 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
-         <loc>https://ctu-sematx.github.io/LegoCity/</loc>
-         <lastmod>2025-11-29</lastmod>
+        <loc>https://ctu-sematx.github.io/LegoCity/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/"/>
     </url>
     <url>
-         <loc>https://ctu-sematx.github.io/LegoCity/Open_Source_Checklist/</loc>
-         <lastmod>2025-11-29</lastmod>
+        <loc>https://ctu-sematx.github.io/LegoCity/Open_Source_Checklist/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/Open_Source_Checklist/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/Open_Source_Checklist/"/>
     </url>
     <url>
-         <loc>https://ctu-sematx.github.io/LegoCity/ai/openrouter/</loc>
-         <lastmod>2025-11-29</lastmod>
+        <loc>https://ctu-sematx.github.io/LegoCity/about-sematx/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/about-sematx/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/about-sematx/"/>
     </url>
     <url>
-         <loc>https://ctu-sematx.github.io/LegoCity/ai/overview/</loc>
-         <lastmod>2025-11-29</lastmod>
+        <loc>https://ctu-sematx.github.io/LegoCity/about-sematx/ecosystem/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/about-sematx/ecosystem/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/about-sematx/ecosystem/"/>
     </url>
     <url>
-         <loc>https://ctu-sematx.github.io/LegoCity/ai/providers/</loc>
-         <lastmod>2025-11-29</lastmod>
+        <loc>https://ctu-sematx.github.io/LegoCity/about-sematx/tools/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/about-sematx/tools/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/about-sematx/tools/"/>
     </url>
     <url>
-         <loc>https://ctu-sematx.github.io/LegoCity/ai/use-cases/</loc>
-         <lastmod>2025-11-29</lastmod>
+        <loc>https://ctu-sematx.github.io/LegoCity/ai/openrouter/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/ai/openrouter/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/ai/openrouter/"/>
     </url>
     <url>
-         <loc>https://ctu-sematx.github.io/LegoCity/deployment/aws/</loc>
-         <lastmod>2025-11-29</lastmod>
+        <loc>https://ctu-sematx.github.io/LegoCity/ai/overview/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/ai/overview/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/ai/overview/"/>
     </url>
     <url>
-         <loc>https://ctu-sematx.github.io/LegoCity/deployment/cloudflare/</loc>
-         <lastmod>2025-11-29</lastmod>
+        <loc>https://ctu-sematx.github.io/LegoCity/ai/providers/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/ai/providers/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/ai/providers/"/>
     </url>
     <url>
-         <loc>https://ctu-sematx.github.io/LegoCity/deployment/coolify/</loc>
-         <lastmod>2025-11-29</lastmod>
+        <loc>https://ctu-sematx.github.io/LegoCity/ai/use-cases/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/ai/use-cases/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/ai/use-cases/"/>
     </url>
     <url>
-         <loc>https://ctu-sematx.github.io/LegoCity/deployment/overview/</loc>
-         <lastmod>2025-11-29</lastmod>
+        <loc>https://ctu-sematx.github.io/LegoCity/configuration/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/configuration/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/configuration/"/>
     </url>
     <url>
-         <loc>https://ctu-sematx.github.io/LegoCity/deployment/vm/</loc>
-         <lastmod>2025-11-29</lastmod>
+        <loc>https://ctu-sematx.github.io/LegoCity/configuration/api-keys/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/configuration/api-keys/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/configuration/api-keys/"/>
     </url>
     <url>
-         <loc>https://ctu-sematx.github.io/LegoCity/dev/blocks/</loc>
-         <lastmod>2025-11-29</lastmod>
+        <loc>https://ctu-sematx.github.io/LegoCity/configuration/data-sources/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/configuration/data-sources/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/configuration/data-sources/"/>
     </url>
     <url>
-         <loc>https://ctu-sematx.github.io/LegoCity/dev/overview/</loc>
-         <lastmod>2025-11-29</lastmod>
+        <loc>https://ctu-sematx.github.io/LegoCity/core-concepts/lego-dashboard/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/core-concepts/lego-dashboard/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/core-concepts/lego-dashboard/"/>
     </url>
     <url>
-         <loc>https://ctu-sematx.github.io/LegoCity/dev/payload-plugins/</loc>
-         <lastmod>2025-11-29</lastmod>
+        <loc>https://ctu-sematx.github.io/LegoCity/core-concepts/orion-nginx/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/core-concepts/orion-nginx/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/core-concepts/orion-nginx/"/>
     </url>
     <url>
-         <loc>https://ctu-sematx.github.io/LegoCity/dev/proxy-security/</loc>
-         <lastmod>2025-11-29</lastmod>
+        <loc>https://ctu-sematx.github.io/LegoCity/core-concepts/overview/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/core-concepts/overview/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/core-concepts/overview/"/>
     </url>
     <url>
-         <loc>https://ctu-sematx.github.io/LegoCity/dev/seed-data/</loc>
-         <lastmod>2025-11-29</lastmod>
+        <loc>https://ctu-sematx.github.io/LegoCity/deployment/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/deployment/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/deployment/"/>
     </url>
     <url>
-         <loc>https://ctu-sematx.github.io/LegoCity/usage/</loc>
-         <lastmod>2025-11-29</lastmod>
+        <loc>https://ctu-sematx.github.io/LegoCity/deployment/aws/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/deployment/aws/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/deployment/aws/"/>
     </url>
     <url>
-         <loc>https://ctu-sematx.github.io/LegoCity/usage/api-keys/</loc>
-         <lastmod>2025-11-29</lastmod>
+        <loc>https://ctu-sematx.github.io/LegoCity/deployment/cloudflare/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/deployment/cloudflare/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/deployment/cloudflare/"/>
     </url>
     <url>
-         <loc>https://ctu-sematx.github.io/LegoCity/usage/data-and-brokers/</loc>
-         <lastmod>2025-11-29</lastmod>
+        <loc>https://ctu-sematx.github.io/LegoCity/deployment/coolify/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/deployment/coolify/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/deployment/coolify/"/>
     </url>
     <url>
-         <loc>https://ctu-sematx.github.io/LegoCity/usage/entities/</loc>
-         <lastmod>2025-11-29</lastmod>
+        <loc>https://ctu-sematx.github.io/LegoCity/deployment/operations/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/deployment/operations/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/deployment/operations/"/>
     </url>
     <url>
-         <loc>https://ctu-sematx.github.io/LegoCity/usage/sample-update-server/</loc>
-         <lastmod>2025-11-29</lastmod>
+        <loc>https://ctu-sematx.github.io/LegoCity/deployment/vm-docker/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/deployment/vm-docker/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/deployment/vm-docker/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/development/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/development/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/development/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/development/blocks/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/development/blocks/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/development/blocks/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/development/plugins/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/development/plugins/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/development/plugins/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/development/seed-data/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/development/seed-data/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/development/seed-data/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/getting-started/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/getting-started/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/getting-started/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/getting-started/architecture/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/getting-started/architecture/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/getting-started/architecture/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/getting-started/quickstart/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/getting-started/quickstart/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/getting-started/quickstart/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/getting-started/bring-your-own-server/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/getting-started/bring-your-own-server/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/getting-started/bring-your-own-server/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/getting-started/bring-your-own-server/1-create-account/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/getting-started/bring-your-own-server/1-create-account/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/getting-started/bring-your-own-server/1-create-account/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/getting-started/bring-your-own-server/2-create-service/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/getting-started/bring-your-own-server/2-create-service/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/getting-started/bring-your-own-server/2-create-service/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/getting-started/bring-your-own-server/3-create-entity/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/getting-started/bring-your-own-server/3-create-entity/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/getting-started/bring-your-own-server/3-create-entity/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/getting-started/bring-your-own-server/4-push-data/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/getting-started/bring-your-own-server/4-push-data/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/getting-started/bring-your-own-server/4-push-data/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/getting-started/bring-your-own-server/5-create-card/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/getting-started/bring-your-own-server/5-create-card/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/getting-started/bring-your-own-server/5-create-card/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/getting-started/bring-your-own-server/6-subscriptions/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/getting-started/bring-your-own-server/6-subscriptions/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/getting-started/bring-your-own-server/6-subscriptions/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/getting-started/start-server/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/getting-started/start-server/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/getting-started/start-server/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/installation/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/installation/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/installation/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/installation/development/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/installation/development/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/installation/development/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/installation/docker/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/installation/docker/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/installation/docker/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/installation/local/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/installation/local/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/installation/local/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/reference/troubleshooting/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/reference/troubleshooting/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/reference/troubleshooting/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/user-guide/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/user-guide/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/user-guide/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/user-guide/api-keys/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/user-guide/api-keys/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/user-guide/api-keys/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/user-guide/data-and-brokers/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/user-guide/data-and-brokers/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/user-guide/data-and-brokers/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/user-guide/entities/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/user-guide/entities/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/user-guide/entities/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/user-guide/sample-update-server/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/user-guide/sample-update-server/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/user-guide/sample-update-server/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/Open_Source_Checklist/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/Open_Source_Checklist/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/Open_Source_Checklist/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/about-sematx/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/about-sematx/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/about-sematx/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/about-sematx/ecosystem/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/about-sematx/ecosystem/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/about-sematx/ecosystem/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/about-sematx/tools/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/about-sematx/tools/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/about-sematx/tools/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/ai/openrouter/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/ai/openrouter/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/ai/openrouter/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/ai/overview/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/ai/overview/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/ai/overview/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/ai/providers/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/ai/providers/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/ai/providers/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/ai/use-cases/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/ai/use-cases/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/ai/use-cases/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/configuration/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/configuration/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/configuration/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/configuration/api-keys/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/configuration/api-keys/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/configuration/api-keys/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/configuration/data-sources/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/configuration/data-sources/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/configuration/data-sources/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/core-concepts/lego-dashboard/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/core-concepts/lego-dashboard/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/core-concepts/lego-dashboard/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/core-concepts/orion-nginx/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/core-concepts/orion-nginx/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/core-concepts/orion-nginx/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/core-concepts/overview/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/core-concepts/overview/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/core-concepts/overview/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/deployment/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/deployment/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/deployment/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/deployment/aws/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/deployment/aws/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/deployment/aws/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/deployment/cloudflare/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/deployment/cloudflare/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/deployment/cloudflare/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/deployment/coolify/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/deployment/coolify/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/deployment/coolify/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/deployment/operations/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/deployment/operations/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/deployment/operations/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/deployment/vm-docker/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/deployment/vm-docker/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/deployment/vm-docker/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/development/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/development/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/development/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/development/blocks/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/development/blocks/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/development/blocks/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/development/plugins/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/development/plugins/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/development/plugins/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/development/seed-data/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/development/seed-data/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/development/seed-data/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/getting-started/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/getting-started/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/getting-started/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/getting-started/architecture/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/getting-started/architecture/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/getting-started/architecture/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/getting-started/quickstart/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/getting-started/quickstart/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/getting-started/quickstart/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/getting-started/bring-your-own-server/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/getting-started/bring-your-own-server/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/getting-started/bring-your-own-server/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/getting-started/bring-your-own-server/1-create-account/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/getting-started/bring-your-own-server/1-create-account/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/getting-started/bring-your-own-server/1-create-account/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/getting-started/bring-your-own-server/2-create-service/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/getting-started/bring-your-own-server/2-create-service/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/getting-started/bring-your-own-server/2-create-service/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/getting-started/bring-your-own-server/3-create-entity/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/getting-started/bring-your-own-server/3-create-entity/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/getting-started/bring-your-own-server/3-create-entity/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/getting-started/bring-your-own-server/4-push-data/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/getting-started/bring-your-own-server/4-push-data/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/getting-started/bring-your-own-server/4-push-data/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/getting-started/bring-your-own-server/5-create-card/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/getting-started/bring-your-own-server/5-create-card/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/getting-started/bring-your-own-server/5-create-card/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/getting-started/bring-your-own-server/6-subscriptions/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/getting-started/bring-your-own-server/6-subscriptions/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/getting-started/bring-your-own-server/6-subscriptions/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/getting-started/start-server/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/getting-started/start-server/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/getting-started/start-server/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/installation/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/installation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/installation/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/installation/development/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/installation/development/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/installation/development/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/installation/docker/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/installation/docker/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/installation/docker/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/installation/local/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/installation/local/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/installation/local/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/reference/troubleshooting/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/reference/troubleshooting/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/reference/troubleshooting/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/user-guide/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/user-guide/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/user-guide/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/user-guide/api-keys/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/user-guide/api-keys/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/user-guide/api-keys/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/user-guide/data-and-brokers/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/user-guide/data-and-brokers/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/user-guide/data-and-brokers/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/user-guide/entities/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/user-guide/entities/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/user-guide/entities/"/>
+    </url>
+    <url>
+        <loc>https://ctu-sematx.github.io/LegoCity/vi/user-guide/sample-update-server/</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://ctu-sematx.github.io/LegoCity/vi/user-guide/sample-update-server/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ctu-sematx.github.io/LegoCity/user-guide/sample-update-server/"/>
     </url>
 </urlset>

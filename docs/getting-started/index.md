@@ -1,27 +1,216 @@
-# Getting Started with LegoCity
+# Getting Started with SematX
 
-Welcome to LegoCity! This guide will help you get up and running quickly.
+Welcome to SematX! This guide will help you get started with the platform, whether you want to run it locally for development or deploy it to your own infrastructure.
 
-## What is LegoCity?
+## Choose Your Path
 
-LegoCity is a Smart City Builder that provides a reusable foundation for building city dashboards and applications on top of **FIWARE / NGSI-LD** and modern web technologies.
+There are two main ways to get started with SematX:
 
-### Key Features
+### 1. Start a Local Server (Recommended for Beginners)
 
-- 🏙️ **Smart City Ready** - Built on FIWARE/NGSI-LD standards
-- 🗺️ **Interactive Maps** - Powered by Mapbox GL JS
-- 📊 **Flexible Dashboard** - Configure with PayloadCMS
-- 🔌 **Extensible** - Plugin architecture for custom features
-- 🤖 **AI-Powered** - Optional AI assistance for content creation
-- 🌍 **Multi-tenant** - Reusable across different cities
+**Best for**: Learning, development, experimentation
 
-### Core Components
+Run SematX on your local machine using Docker Compose. This is the fastest way to get started and explore the platform.
 
-![LegoCity Architecture](../assets/diagram_EN.png)
+- ⏱️ **Time**: 10-15 minutes
+- 💻 **Requirements**: Docker Desktop
+- 🎯 **Goal**: Explore SematX features locally
 
-_LegoCity's 3-layer architecture: Data Sources, Smart City Context Broker, and Dashboard Management_
+[**Start Local Server →**](start-server/index.md)
 
-## Quick Start
+### 2. Bring Your Own Server
+
+**Best for**: Production deployments, cloud infrastructure, team collaboration
+
+Deploy SematX to your own server or cloud provider. This guide walks you through connecting your application to an existing SematX instance.
+
+- ⏱️ **Time**: 30-45 minutes
+- 💻 **Requirements**: SematX instance URL, API key
+- 🎯 **Goal**: Integrate your app with SematX
+
+[**Bring Your Own Server →**](bring-your-own-server/index.md)
+
+## What You'll Learn
+
+### Start Server Tutorial
+
+In the local server tutorial, you'll learn how to:
+
+1. Install Docker and Docker Compose
+2. Clone the SematX repository
+3. Start all services with a single command
+4. Access the dashboard and create your first entity
+5. Query data using the NGSI-LD API
+6. Create visualizations and dashboards
+
+### Bring Your Own Server Tutorial
+
+In the bring your own server tutorial, you'll learn how to:
+
+1. Create a SematX account and get API credentials
+2. Set up a service for your application
+3. Create your first NGSI-LD entity
+4. Push data from your application to SematX
+5. Create dashboard cards to visualize your data
+6. Set up subscriptions for real-time notifications
+
+## Prerequisites
+
+Before you begin, make sure you have:
+
+### For Local Development
+
+- **Docker Desktop**: [Download](https://www.docker.com/products/docker-desktop/)
+- **Git**: [Download](https://git-scm.com/downloads)
+- **Code Editor**: We recommend [VS Code](https://code.visualstudio.com/)
+- **Modern Browser**: Chrome, Firefox, or Edge
+
+### For Production Deployment
+
+- **SematX Instance**: Access to a running SematX server
+- **API Key**: Obtained from the dashboard admin
+- **Basic CLI Skills**: Comfortable with terminal/command line
+- **HTTP Client**: curl, Postman, or your programming language's HTTP library
+
+## Architecture Overview
+
+Before diving in, it's helpful to understand how SematX components work together:
+
+```
+Your Application
+       │
+       │ HTTP/HTTPS + JWT
+       │
+       ▼
+  Nginx Gateway ────────┐
+  (Authentication)      │
+       │                │
+       ├────────────────┴─────────────┐
+       │                              │
+       ▼                              ▼
+  Lego Dashboard              Orion-LD Context Broker
+  (Web UI + API)              (NGSI-LD Data Store)
+       │                              │
+       └──────────┬───────────────────┘
+                  │
+                  ▼
+              MongoDB
+          (Data Persistence)
+```
+
+**Key Components**:
+
+- **Nginx Gateway**: Handles authentication and routes requests
+- **Lego Dashboard**: Visual interface for managing data and creating dashboards
+- **Orion-LD**: Standards-based context broker for storing and querying entities
+- **MongoDB**: Database for persistent storage
+
+## Quick Concepts
+
+### Entities
+
+In SematX, everything is an **entity**. An entity represents a real-world object like a sensor, device, vehicle, or building.
+
+```json
+{
+  "id": "urn:ngsi-ld:Sensor:001",
+  "type": "Sensor",
+  "temperature": {
+    "type": "Property",
+    "value": 25.5,
+    "unitCode": "CEL"
+  },
+  "location": {
+    "type": "GeoProperty",
+    "value": {
+      "type": "Point",
+      "coordinates": [105.78, 10.03]
+    }
+  }
+}
+```
+
+### NGSI-LD
+
+SematX uses the **NGSI-LD** standard for representing data. This ensures:
+
+- Interoperability with other FIWARE systems
+- Standardized data models
+- Rich query capabilities
+- Built-in support for relationships and context
+
+### API Keys
+
+To access the SematX API, you need an **API key** (JWT token). This key:
+
+- Authenticates your requests
+- Controls what data you can access
+- Enforces rate limits
+- Can be revoked instantly
+
+### Subscriptions
+
+**Subscriptions** allow you to receive real-time notifications when entities change:
+
+```json
+{
+  "type": "Subscription",
+  "entities": [{ "type": "Sensor" }],
+  "notification": {
+    "endpoint": {
+      "uri": "https://your-app.com/webhook",
+      "accept": "application/json"
+    }
+  }
+}
+```
+
+## Common Use Cases
+
+### IoT Data Collection
+
+Send sensor data from devices to SematX and visualize it in real-time dashboards.
+
+### Smart City Applications
+
+Build applications for traffic monitoring, environmental sensing, public safety, and more.
+
+### Data Integration
+
+Connect multiple data sources and provide a unified API for querying.
+
+### Dashboard Creation
+
+Create custom dashboards for monitoring and analysis without writing code.
+
+## Need Help?
+
+- **Documentation**: Browse the [full documentation](../index.md)
+- **Community**: Join [GitHub Discussions](https://github.com/CTU-SematX/LegoCity/discussions)
+- **Issues**: Report bugs on [GitHub Issues](https://github.com/CTU-SematX/LegoCity/issues)
+- **Examples**: Check out [code examples](../development/index.md)
+
+## Ready to Start?
+
+Choose your path and let's get building:
+
+<div style="display: flex; gap: 20px; margin-top: 20px;">
+  <a href="start-server/index.md" style="flex: 1; padding: 20px; border: 2px solid #0066cc; border-radius: 8px; text-decoration: none;">
+    <h3>🖥️ Start Local Server</h3>
+    <p>Run SematX on your machine for development and testing</p>
+  </a>
+  
+  <a href="bring-your-own-server/index.md" style="flex: 1; padding: 20px; border: 2px solid #0066cc; border-radius: 8px; text-decoration: none;">
+    <h3>☁️ Bring Your Own Server</h3>
+    <p>Connect your app to an existing SematX instance</p>
+  </a>
+</div>
+
+---
+
+## Legacy Quick Start Guide
+
+The following section contains the original quick start guide for local development. For the new step-by-step tutorials, see the links above.
 
 ### Prerequisites
 

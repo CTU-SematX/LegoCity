@@ -612,5 +612,5 @@ async function generateWithCostTracking(prompt: string) {
 ## Các bước tiếp theo
 
 - [Cấu hình nhà cung cấp AI](providers.md) - Thiết lập nhà cung cấp AI
-- [Hướng dẫn OpenRouter](openrouter.md) - Sử dụng mô hình tùy chỉnh
-- [Tổng quan AI](overview.md) - Hiểu về AI trong LegoCity
+- [Hướng dẫn OpenRouter](openrouter.vi.md) - Sử dụng mô hình tùy chỉnh
+- [Tổng quan AI](overview.vi.md) - Hiểu về AI trong LegoCity
