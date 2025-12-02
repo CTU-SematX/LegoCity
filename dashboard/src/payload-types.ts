@@ -72,10 +72,15 @@ export interface Config {
     media: Media;
     categories: Category;
     users: User;
+    'ngsi-sources': NgsiSource;
+    'ngsi-data-models': NgsiDataModel;
+    'ngsi-domains': NgsiDomain;
+    'ngsi-entities': NgsiEntity;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
     search: Search;
+    'plugin-ai-instructions': PluginAiInstruction;
     'payload-kv': PayloadKv;
     'payload-jobs': PayloadJob;
     'payload-folders': FolderInterface;
@@ -94,10 +99,15 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
+    'ngsi-sources': NgsiSourcesSelect<false> | NgsiSourcesSelect<true>;
+    'ngsi-data-models': NgsiDataModelsSelect<false> | NgsiDataModelsSelect<true>;
+    'ngsi-domains': NgsiDomainsSelect<false> | NgsiDomainsSelect<true>;
+    'ngsi-entities': NgsiEntitiesSelect<false> | NgsiEntitiesSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
     search: SearchSelect<false> | SearchSelect<true>;
+    'plugin-ai-instructions': PluginAiInstructionsSelect<false> | PluginAiInstructionsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-jobs': PayloadJobsSelect<false> | PayloadJobsSelect<true>;
     'payload-folders': PayloadFoldersSelect<false> | PayloadFoldersSelect<true>;
@@ -779,6 +789,138 @@ export interface Form {
   createdAt: string;
 }
 /**
+ * Configure NGSI-LD Context Broker sources
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ngsi-sources".
+ */
+export interface NgsiSource {
+  id: string;
+  /**
+   * A friendly name for this NGSI source
+   */
+  name: string;
+  /**
+   * The base URL of the NGSI-LD Context Broker
+   */
+  brokerUrl: string;
+  /**
+   * Optional proxy URL if the broker requires a proxy
+   */
+  proxyUrl?: string | null;
+  /**
+   * Fiware-Service header values for multi-tenancy (add one or more)
+   */
+  serviceHeader?:
+    | {
+        value?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Fiware-ServicePath header values (e.g., /city/sensors). Multiple entries allowed.
+   */
+  servicePath?:
+    | {
+        value?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * NGSI-LD data models from Smart Data Models
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ngsi-data-models".
+ */
+export interface NgsiDataModel {
+  id: string;
+  /**
+   * The entity type name (e.g., "Building", "Device")
+   */
+  model: string;
+  /**
+   * The direct URL to the context.jsonld file
+   */
+  contextUrl: string;
+  /**
+   * The domains this data model belongs to
+   */
+  domains?: (string | NgsiDomain)[] | null;
+  /**
+   * Link to the GitHub repository for this data model
+   */
+  repoLink?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * NGSI-LD data model domains
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ngsi-domains".
+ */
+export interface NgsiDomain {
+  id: string;
+  /**
+   * Domain name (e.g., "SmartCities", "SmartAgrifood")
+   */
+  name: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Manage specific NGSI-LD Entities synced with Context Broker
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ngsi-entities".
+ */
+export interface NgsiEntity {
+  id: string;
+  /**
+   * Select the Type & Context for this entity
+   */
+  dataModel: string | NgsiDataModel;
+  /**
+   * Auto-populated from Data Model
+   */
+  type?: string | null;
+  /**
+   * Short identifier (e.g., "001", "store001")
+   */
+  shortId: string;
+  entityId: string;
+  source: string | NgsiSource;
+  /**
+   * Select Fiware-Service from source or leave empty
+   */
+  service?: string | null;
+  /**
+   * Select Fiware-ServicePath from source
+   */
+  servicePath: string;
+  /**
+   * JSON object containing properties and relationships (exclude id, type, @context)
+   */
+  attributes:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  syncStatus?: ('synced' | 'error' | 'pending') | null;
+  lastSyncTime?: string | null;
+  lastSyncError?: string | null;
+  owner?: (string | null) | User;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
@@ -849,6 +991,91 @@ export interface Search {
         id?: string | null;
       }[]
     | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "plugin-ai-instructions".
+ */
+export interface PluginAiInstruction {
+  id: string;
+  /**
+   * Please don't change this unless you're sure of what you're doing
+   */
+  'schema-path'?: string | null;
+  /**
+   * Please don't change this unless you're sure of what you're doing
+   */
+  'field-type'?: ('text' | 'textarea' | 'upload' | 'richText') | null;
+  'relation-to'?: string | null;
+  'model-id'?: ('Oai-text' | 'dall-e' | 'gpt-image-1' | 'tts' | 'Oai-object' | 'openrouter-text') | null;
+  /**
+   * Please reload your collection after applying the changes
+   */
+  disabled?: boolean | null;
+  /**
+   * Click 'Compose' to run this custom prompt and generate content
+   */
+  prompt?: string | null;
+  images?:
+    | {
+        /**
+         * Please make sure the image is publicly accessible.
+         */
+        image?: (string | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  system?: string | null;
+  layout?: string | null;
+  'Oai-text-settings'?: {
+    model?:
+      | ('gpt-5' | 'gpt-5-mini' | 'gpt-5-nano' | 'gpt-4.1' | 'gpt-4o' | 'gpt-4-turbo' | 'gpt-4o-mini' | 'gpt-3.5-turbo')
+      | null;
+    maxTokens?: number | null;
+    temperature?: number | null;
+    extractAttachments?: boolean | null;
+  };
+  'dalle-e-settings'?: {
+    version?: ('dall-e-3' | 'dall-e-2') | null;
+    size?: ('256x256' | '512x512' | '1024x1024' | '1792x1024' | '1024x1792') | null;
+    style?: ('vivid' | 'natural') | null;
+    'enable-prompt-optimization'?: boolean | null;
+  };
+  'gpt-image-1-settings'?: {
+    version?: 'gpt-image-1' | null;
+    size?: ('1024x1024' | '1024x1536' | '1536x1024' | 'auto') | null;
+    quality?: ('low' | 'medium' | 'high' | 'auto') | null;
+    output_format?: ('png' | 'jpeg' | 'webp') | null;
+    output_compression?: number | null;
+    background?: ('white' | 'transparent') | null;
+    moderation?: ('auto' | 'low') | null;
+  };
+  'Oai-tts-settings'?: {
+    voice?: ('alloy' | 'echo' | 'fable' | 'onyx' | 'nova' | 'shimmer') | null;
+    model?: ('tts-1' | 'tts-1-hd') | null;
+    response_format?: ('mp3' | 'opus' | 'aac' | 'flac' | 'wav' | 'pcm') | null;
+    speed?: number | null;
+  };
+  'Oai-object-settings'?: {
+    model?:
+      | ('gpt-5' | 'gpt-5-mini' | 'gpt-5-nano' | 'gpt-4.1' | 'gpt-4o' | 'gpt-4-turbo' | 'gpt-4o-mini' | 'gpt-3.5-turbo')
+      | null;
+    maxTokens?: number | null;
+    temperature?: number | null;
+    extractAttachments?: boolean | null;
+  };
+  'openrouter-text-settings'?: {
+    model?:
+      | (
+          | 'meta-llama/llama-3.3-70b-instruct'
+          | 'openai/gpt-4o-mini'
+          | 'anthropic/claude-3.5-sonnet'
+          | 'google/gemini-2.0-flash-001'
+        )
+      | null;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -989,6 +1216,22 @@ export interface PayloadLockedDocument {
         value: string | User;
       } | null)
     | ({
+        relationTo: 'ngsi-sources';
+        value: string | NgsiSource;
+      } | null)
+    | ({
+        relationTo: 'ngsi-data-models';
+        value: string | NgsiDataModel;
+      } | null)
+    | ({
+        relationTo: 'ngsi-domains';
+        value: string | NgsiDomain;
+      } | null)
+    | ({
+        relationTo: 'ngsi-entities';
+        value: string | NgsiEntity;
+      } | null)
+    | ({
         relationTo: 'redirects';
         value: string | Redirect;
       } | null)
@@ -1003,6 +1246,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'search';
         value: string | Search;
+      } | null)
+    | ({
+        relationTo: 'plugin-ai-instructions';
+        value: string | PluginAiInstruction;
       } | null)
     | ({
         relationTo: 'payload-folders';
@@ -1355,6 +1602,70 @@ export interface UsersSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ngsi-sources_select".
+ */
+export interface NgsiSourcesSelect<T extends boolean = true> {
+  name?: T;
+  brokerUrl?: T;
+  proxyUrl?: T;
+  serviceHeader?:
+    | T
+    | {
+        value?: T;
+        id?: T;
+      };
+  servicePath?:
+    | T
+    | {
+        value?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ngsi-data-models_select".
+ */
+export interface NgsiDataModelsSelect<T extends boolean = true> {
+  model?: T;
+  contextUrl?: T;
+  domains?: T;
+  repoLink?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ngsi-domains_select".
+ */
+export interface NgsiDomainsSelect<T extends boolean = true> {
+  name?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ngsi-entities_select".
+ */
+export interface NgsiEntitiesSelect<T extends boolean = true> {
+  dataModel?: T;
+  type?: T;
+  shortId?: T;
+  entityId?: T;
+  source?: T;
+  service?: T;
+  servicePath?: T;
+  attributes?: T;
+  syncStatus?: T;
+  lastSyncTime?: T;
+  lastSyncError?: T;
+  owner?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects_select".
  */
 export interface RedirectsSelect<T extends boolean = true> {
@@ -1541,6 +1852,76 @@ export interface SearchSelect<T extends boolean = true> {
         categoryID?: T;
         title?: T;
         id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "plugin-ai-instructions_select".
+ */
+export interface PluginAiInstructionsSelect<T extends boolean = true> {
+  'schema-path'?: T;
+  'field-type'?: T;
+  'relation-to'?: T;
+  'model-id'?: T;
+  disabled?: T;
+  prompt?: T;
+  images?:
+    | T
+    | {
+        image?: T;
+        id?: T;
+      };
+  system?: T;
+  layout?: T;
+  'Oai-text-settings'?:
+    | T
+    | {
+        model?: T;
+        maxTokens?: T;
+        temperature?: T;
+        extractAttachments?: T;
+      };
+  'dalle-e-settings'?:
+    | T
+    | {
+        version?: T;
+        size?: T;
+        style?: T;
+        'enable-prompt-optimization'?: T;
+      };
+  'gpt-image-1-settings'?:
+    | T
+    | {
+        version?: T;
+        size?: T;
+        quality?: T;
+        output_format?: T;
+        output_compression?: T;
+        background?: T;
+        moderation?: T;
+      };
+  'Oai-tts-settings'?:
+    | T
+    | {
+        voice?: T;
+        model?: T;
+        response_format?: T;
+        speed?: T;
+      };
+  'Oai-object-settings'?:
+    | T
+    | {
+        model?: T;
+        maxTokens?: T;
+        temperature?: T;
+        extractAttachments?: T;
+      };
+  'openrouter-text-settings'?:
+    | T
+    | {
+        model?: T;
       };
   updatedAt?: T;
   createdAt?: T;

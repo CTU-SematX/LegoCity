@@ -8,6 +8,10 @@ import { fileURLToPath } from 'url'
 
 import { Categories } from './collections/Categories'
 import { Media } from './collections/Media'
+import { NgsiDataModels } from './collections/NgsiDataModels'
+import { NgsiDomains } from './collections/NgsiDomains'
+import { NgsiEntities } from './collections/NgsiEntities'
+import { NgsiSources } from './collections/NgsiSources'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
 import { Users } from './collections/Users'
@@ -16,6 +20,9 @@ import { Header } from './Header/config'
 import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
+
+import { en } from '@payloadcms/translations/languages/en'
+import { vi } from '@payloadcms/translations/languages/vi'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -62,7 +69,17 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
   }),
-  collections: [Pages, Posts, Media, Categories, Users],
+  collections: [
+    Pages,
+    Posts,
+    Media,
+    Categories,
+    Users,
+    NgsiSources,
+    NgsiDataModels,
+    NgsiDomains,
+    NgsiEntities,
+  ],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   plugins: [
@@ -88,5 +105,10 @@ export default buildConfig({
       },
     },
     tasks: [],
+  },
+  telemetry: false,
+  i18n: {
+    fallbackLanguage: 'en',
+    supportedLanguages: { en, vi },
   },
 })

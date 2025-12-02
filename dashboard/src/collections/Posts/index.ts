@@ -26,6 +26,7 @@ import {
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
 import { slugField } from 'payload'
+import { PayloadAiPluginLexicalEditorFeature } from '@ai-stack/payloadcms'
 
 export const Posts: CollectionConfig<'posts'> = {
   slug: 'posts',
@@ -93,6 +94,7 @@ export const Posts: CollectionConfig<'posts'> = {
                     FixedToolbarFeature(),
                     InlineToolbarFeature(),
                     HorizontalRuleFeature(),
+                    PayloadAiPluginLexicalEditorFeature(),
                   ]
                 },
               }),
