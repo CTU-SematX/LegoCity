@@ -198,11 +198,11 @@ docker compose up -d
 
 ## 📝 Seed Data
 
-Mỗi server tự động load dữ liệu từ thư mục `/data` khi khởi động:
+Mỗi server tự động load dữ liệu từ thư mục `/opendata` khi khởi động:
 
-- `traffic-flow` ← `/data/traffic.json`
-- `environment-monitor` ← `/data/environment.json`
-- `public-lighting` ← `/data/lighting.json`
-- `urban-infra` ← `/data/infrastructure.json`
+- `traffic-flow` ← `/opendata/traffic.json`
+- `environment-monitor` ← `/opendata/environment.json`
+- `public-lighting` ← `/opendata/lighting.json`
+- `urban-infra` ← `/opendata/infrastructure.json`
 
 Dữ liệu chỉ được seed một lần (nếu database trống).

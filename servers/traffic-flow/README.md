@@ -48,9 +48,9 @@ uvicorn main:app --host 0.0.0.0 --port 8001
 ## Biến môi trường
 
 | Biến | Mô tả | Mặc định |
-|------|-------|----------|
+|------|-------|---------|
 | `BROKER_URL` | URL của Context Broker | `http://localhost:1026` |
-| `DATA_PATH` | Đường dẫn đến file data seed | `../data/traffic.json` |
+| `DATA_PATH` | Đường dẫn đến file data seed | `../opendata/traffic.json` |
 | `DATABASE_URL` | SQLite database URL | `sqlite:///./traffic.db` |
 
 ## Cấu trúc thư mục

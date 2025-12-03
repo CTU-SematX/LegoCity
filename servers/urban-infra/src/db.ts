@@ -12,7 +12,7 @@ import type {
   InfrastructureData,
 } from "./models";
 
-const DATA_PATH = process.env.DATA_PATH || "/data/infrastructure.json";
+const DATA_PATH = process.env.DATA_PATH || "/opendata/infrastructure.json";
 
 export const db = new Database("infrastructure.db");
 

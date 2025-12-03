@@ -31,7 +31,7 @@ func main() {
 
 	dataPath := os.Getenv("DATA_PATH")
 	if dataPath == "" {
-		dataPath = "/data/environment.json"
+		dataPath = "/opendata/environment.json"
 	}
 
 	// Initialize database

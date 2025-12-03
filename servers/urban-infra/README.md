@@ -77,9 +77,9 @@ bun run start
 ## Biến môi trường
 
 | Biến | Mô tả | Mặc định |
-|------|-------|----------|
+|------|-------|---------|
 | `BROKER_URL` | URL của Context Broker | `http://localhost:1026` |
-| `DATA_PATH` | Đường dẫn đến file data seed | `/data/infrastructure.json` |
+| `DATA_PATH` | Đường dẫn đến file data seed | `/opendata/infrastructure.json` |
 | `PORT` | Port của server | `8004` |
 
 ## Cấu trúc thư mục

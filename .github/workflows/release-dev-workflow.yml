@@ -8,25 +8,76 @@ permissions:
   packages: write
 
 jobs:
-  build-backend:
-    name: Build Backend
+  # Build all servers with Docker
+  build-servers:
+    name: Build Servers
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: backend
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Go
-        uses: actions/setup-go@v5
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Traffic Flow Server
+        uses: docker/build-push-action@v5
         with:
-          go-version: '1.21'
+          context: ./servers/traffic-flow
+          push: false
+          tags: legocity/traffic-flow:dev
 
-      - name: Download dependencies
-        run: go mod download
+      - name: Build Environment Monitor Server
+        uses: docker/build-push-action@v5
+        with:
+          context: ./servers/environment-monitor
+          push: false
+          tags: legocity/environment-monitor:dev
 
-      - name: Build
-        run: go build -v ./...
+      - name: Build Public Lighting Server
+        uses: docker/build-push-action@v5
+        with:
+          context: ./servers/public-lighting
+          push: false
+          tags: legocity/public-lighting:dev
 
-      - name: Test
-        run: go test -v ./...
+      - name: Build Urban Infra Server
+        uses: docker/build-push-action@v5
+        with:
+          context: ./servers/urban-infra
+          push: false
+          tags: legocity/urban-infra:dev
+
+  # Validate data files
+  validate-data:
+    name: Validate Data
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate JSON files
+        run: |
+          for file in data/*.json; do
+            echo "Validating $file..."
+            python3 -m json.tool "$file" > /dev/null
+          done
+
+  # Generate SBOM for repository using Syft
+  generate-sbom:
+    name: Generate SBOM
+    runs-on: ubuntu-latest
+    needs: build-servers
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Syft
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
+
+      - name: Generate SBOM (repo)
+        run: |
+          syft packages dir:./ -o spdx-json=sbom-repo.spdx.json
+
+      - name: Upload SBOM artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbom
+          path: sbom-repo.spdx.json

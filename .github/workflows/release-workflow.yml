@@ -14,34 +14,58 @@ concurrency:
 
 permissions:
   contents: write
+  packages: write
 
 jobs:
-  build:
-    name: Build Release
+  # Build and push Docker images
+  build-images:
+    name: Build Docker Images
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: backend
+    strategy:
+      matrix:
+        include:
+          - name: traffic-flow
+            context: ./servers/traffic-flow
+          - name: environment-monitor
+            context: ./servers/environment-monitor
+          - name: public-lighting
+            context: ./servers/public-lighting
+          - name: urban-infra
+            context: ./servers/urban-infra
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Go
-        uses: actions/setup-go@v5
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
         with:
-          go-version: '1.21'
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Download dependencies
-        run: go mod download
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/${{ github.repository }}/${{ matrix.name }}
+          tags: |
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
 
-      - name: Build
-        run: go build -v ./...
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: ${{ matrix.context }}
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
 
-      - name: Test
-        run: go test -v ./...
-
+  # Create GitHub Release
   release:
     name: Create Release
-    needs: build
+    needs: build-images
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

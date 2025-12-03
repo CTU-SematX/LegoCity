@@ -2,7 +2,7 @@ import { Database } from "bun:sqlite";
 import { readFileSync, existsSync } from "fs";
 import type { Streetlight, SeedData } from "./models";
 
-const DATA_PATH = process.env.DATA_PATH || "/data/lighting.json";
+const DATA_PATH = process.env.DATA_PATH || "/opendata/lighting.json";
 
 export const db = new Database("lighting.db");
 

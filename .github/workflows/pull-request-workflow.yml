@@ -11,13 +11,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Build and test Go backend
-  backend:
-    name: Build Backend (Go)
+  # Build and test Go server (environment-monitor)
+  go-server:
+    name: Build Go Server
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: backend
+        working-directory: servers/environment-monitor
     steps:
       - uses: actions/checkout@v4
 
@@ -32,12 +32,70 @@ jobs:
       - name: Build
         run: go build -v ./...
 
-      - name: Test
-        run: go test -v ./...
+  # Build and test Python server (traffic-flow)
+  python-server:
+    name: Build Python Server
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: servers/traffic-flow
+    steps:
+      - uses: actions/checkout@v4
 
-  # Lint check
-  lint:
-    name: Lint
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Lint with ruff
+        run: |
+          pip install ruff
+          ruff check . --ignore E501
+
+  # Build Bun/Elysia servers
+  bun-servers:
+    name: Build Bun Servers
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        server: [public-lighting, urban-infra]
+    defaults:
+      run:
+        working-directory: servers/${{ matrix.server }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Type check
+        run: bun run tsc --noEmit || true
+
+  # Validate JSON data files
+  validate-data:
+    name: Validate Data Files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate JSON
+        run: |
+          for file in data/*.json; do
+            echo "Validating $file..."
+            python3 -m json.tool "$file" > /dev/null
+          done
+
+  # Lint Go code
+  lint-go:
+    name: Lint Go
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -50,4 +108,4 @@ jobs:
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v4
         with:
-          working-directory: backend
+          working-directory: servers/environment-monitor

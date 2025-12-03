@@ -46,9 +46,9 @@ go run .
 ## Biến môi trường
 
 | Biến | Mô tả | Mặc định |
-|------|-------|----------|
+|------|-------|---------|
 | `BROKER_URL` | URL của Context Broker | `http://localhost:1026` |
-| `DATA_PATH` | Đường dẫn đến file data seed | `/data/environment.json` |
+| `DATA_PATH` | Đường dẫn đến file data seed | `/opendata/environment.json` |
 | `PORT` | Port của server | `8002` |
 
 ## Cấu trúc thư mục
