@@ -17,6 +17,10 @@ LegoCity is a lightweight Smart City template designed for rapid experimentation
 
 Documentation: https://ctu-sematx.github.io/Lego-Doc/
 
+Lego-Dashboard repo (Updating): https://github.com/CTU-SematX/Lego-Dashboard 
+
+Orion-Nginx repo: https://github.com/CTU-SematX/Orion-Nginx
+
 
 ## Table of Contents
 
