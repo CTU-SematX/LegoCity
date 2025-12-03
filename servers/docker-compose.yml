@@ -1,0 +1,87 @@
+services:
+  # Traffic Flow Server (FastAPI + Python)
+  traffic-flow:
+    build:
+      context: ./traffic-flow
+      dockerfile: Dockerfile
+    container_name: legocity-traffic-flow
+    ports:
+      - "8001:8001"
+    environment:
+      - BROKER_URL=${BROKER_URL:-http://orion:1026}
+      - DATA_PATH=/data/traffic.json
+      - DATABASE_URL=sqlite:///./traffic.db
+    volumes:
+      - ../data:/data:ro
+      - traffic-data:/app
+    networks:
+      - legocity-network
+    restart: unless-stopped
+
+  # Environment Monitor Server (Gin + Go)
+  environment-monitor:
+    build:
+      context: ./environment-monitor
+      dockerfile: Dockerfile
+    container_name: legocity-environment-monitor
+    ports:
+      - "8002:8002"
+    environment:
+      - BROKER_URL=${BROKER_URL:-http://orion:1026}
+      - DATA_PATH=/data/environment.json
+      - PORT=8002
+    volumes:
+      - ../data:/data:ro
+      - environment-data:/app
+    networks:
+      - legocity-network
+    restart: unless-stopped
+
+  # Public Lighting Server (Elysia + Bun)
+  public-lighting:
+    build:
+      context: ./public-lighting
+      dockerfile: Dockerfile
+    container_name: legocity-public-lighting
+    ports:
+      - "8003:8003"
+    environment:
+      - BROKER_URL=${BROKER_URL:-http://orion:1026}
+      - DATA_PATH=/data/lighting.json
+      - PORT=8003
+    volumes:
+      - ../data:/data:ro
+      - lighting-data:/app
+    networks:
+      - legocity-network
+    restart: unless-stopped
+
+  # Urban Infrastructure Server (Elysia + Bun)
+  urban-infra:
+    build:
+      context: ./urban-infra
+      dockerfile: Dockerfile
+    container_name: legocity-urban-infra
+    ports:
+      - "8004:8004"
+    environment:
+      - BROKER_URL=${BROKER_URL:-http://orion:1026}
+      - DATA_PATH=/data/infrastructure.json
+      - PORT=8004
+    volumes:
+      - ../data:/data:ro
+      - infra-data:/app
+    networks:
+      - legocity-network
+    restart: unless-stopped
+
+networks:
+  legocity-network:
+    name: legocity-network
+    driver: bridge
+
+volumes:
+  traffic-data:
+  environment-data:
+  lighting-data:
+  infra-data:

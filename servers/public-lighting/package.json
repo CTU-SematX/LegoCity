@@ -1,0 +1,16 @@
+{
+  "name": "public-lighting",
+  "version": "1.0.0",
+  "description": "Server quản lý dữ liệu đèn đường thông minh (NGSI-LD Streetlight)",
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "start": "bun run src/index.ts"
+  },
+  "dependencies": {
+    "elysia": "^1.0.0",
+    "@elysiajs/swagger": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
+}
