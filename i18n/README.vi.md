@@ -1,6 +1,6 @@
- 
+ 🌐 Tiếng Việt | [English](./README.md)
 
-# LegoCity (Tiếng Việt)
+# LegoCity
 
 LegoCity là một template nhẹ để triển khai các ví dụ Smart City, phục vụ cho mục đích giảng dạy và thử nghiệm trong hệ sinh thái CTU-SematX. Dự án trình diễn cách kết nối các nguồn dữ liệu, API gateway và dashboard sử dụng NGSI-LD và FIWARE.
 

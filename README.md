@@ -1,3 +1,5 @@
+🌐 English | [Tiếng Việt](./i18n/README.vi.md)
+
 ![](./docs/assets/project_banner.png)
 
 # LegoCity
