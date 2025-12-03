@@ -11,33 +11,30 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/CTU-SematX/LegoCity.svg 'Github contributors')](https://github.com/CTU-SematX/LegoCity/graphs/contributors)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
+Short description
+
 LegoCity is a lightweight Smart City template designed for rapid experimentation and teaching within the CTU-SematX ecosystem. It provides example components to demonstrate how to connect data sources, an API gateway, and a dashboard using NGSI-LD and FIWARE enablers.
 
 Documentation: https://ctu-sematx.github.io/Lego-Doc/
 
-Key features
 
-- Broker: NGINX gateway and Orion Context Broker integration
-- Dashboard: PayloadCMS + Next.js example dashboard
-- Sample data source servers for common Smart City domains
-- Example open datasets in JSON format under `opendata/`
+## Table of Contents
 
-Repository layout
+- [Installation and Requirements](#installation-and-requirements)
+- [Quickstart Instructions](#quickstart-instructions)
+- [Usage](#usage)
+- [Known Issues](#known-issues)
+- [Support](#support)
+- [Contributing](#contributing)
+- [Development](#development)
+- [License](#license)
+- [Maintainers](#maintainers)
+- [Credits and References](#credits-and-references)
 
-```
-LegoCity/
-├── broker/           # NGINX Gateway + Orion Context Broker + MongoDB
-├── dashboard/        # PayloadCMS + Next.js Dashboard
-├── servers/          # Sample Data Source Servers
-│   ├── traffic-flow/        # FastAPI + Python (Port 8001)
-│   ├── environment-monitor/ # Gin + Go (Port 8002)
-│   ├── public-lighting/     # Elysia + Bun (Port 8003)
-│   └── urban-infra/         # Elysia + Bun (Port 8004)
-├── opendata/         # Sample datasets (JSON)
-└── docs/             # Documentation assets
-```
 
-Quick start
+## Installation and Requirements
+
+Detailed instructions on how to install, configure, and get the project running.
 
 Prerequisites
 
@@ -51,6 +48,8 @@ Clone repository
 git clone https://github.com/CTU-SematX/LegoCity.git
 cd LegoCity
 ```
+
+## Quickstart Instructions
 
 Start the broker (Orion + MongoDB)
 
@@ -74,7 +73,11 @@ pnpm install
 pnpm dev
 ```
 
-Sample data servers
+## Usage
+
+The repository contains example Data Source servers and a dashboard that demonstrate NGSI-LD integration and FIWARE enablers.
+
+### Sample servers
 
 | Server | Port | Framework | Domain |
 |--------|------|-----------|--------|
@@ -89,7 +92,7 @@ Each server includes:
 - NGSI-LD conversion endpoints
 - Health checks
 
-Open data
+### Open data
 
 The `opendata/` directory contains sample JSON datasets used to seed the example servers:
 
@@ -98,22 +101,38 @@ The `opendata/` directory contains sample JSON datasets used to seed the example
 - `lighting.json`
 - `infrastructure.json`
 
-Documentation & links
+## Known Issues
 
-- Full docs: https://ctu-sematx.github.io/Lego-Doc/
-- Contributing: `CONTRIBUTING.md`
-- License: Apache-2.0 (see `LICENSE`)
+- Docker builds for some language images may fail on musl-based distributions (Alpine). Use Debian-based images for Go (`golang:1.21-bookworm`) when building locally or in CI.
 
-Contributing
+If you encounter other issues, please open an issue with steps to reproduce.
 
-Contributions are welcome. See `CONTRIBUTING.md` for guidelines.
+## Support
 
-Maintainers
+- File issues: https://github.com/CTU-SematX/LegoCity/issues
+- Security reports: see `SECURITY.md` or use GitHub Security Advisories
+
+## Contributing
+
+Contributions are welcome. See `CONTRIBUTING.md` for guidelines on code style, commits, and reviews.
+
+## Development
+
+Refer to component READMEs in `broker/`, `servers/`, and `dashboard/` for development notes and local run instructions.
+
+
+## License
+
+This project is released under the Apache License 2.0 — see the `LICENSE` file for details.
+
+
+## Maintainers
 
 - CTU-SematX Team — https://github.com/CTU-SematX
 
-Credits
+## Credits and References
 
 - FIWARE Foundation — Orion Context Broker
 - Smart Data Models — NGSI-LD data models
 - PayloadCMS — example dashboard
+- [IEEE Open Source Maintainers Manual](https://opensource.ieee.org/community/manual/)

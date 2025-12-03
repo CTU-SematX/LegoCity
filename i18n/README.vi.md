@@ -1,63 +1,70 @@
- 🌐 Tiếng Việt | [English](./README.md)
+🌐 [English](../README.md) | Tiếng Việt
+
+![](./docs/assets/project_banner.png)
 
 # LegoCity
 
-LegoCity là một template nhẹ để triển khai các ví dụ Smart City, phục vụ cho mục đích giảng dạy và thử nghiệm trong hệ sinh thái CTU-SematX. Dự án trình diễn cách kết nối các nguồn dữ liệu, API gateway và dashboard sử dụng NGSI-LD và FIWARE.
+[![Documentation](https://img.shields.io/badge/docs-Lego--Doc-blue?logo=materialformkdocs\&logoColor=fff)](https://ctu-sematx.github.io/Lego-Doc/)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/CTU-SematX/LegoCity/badge)](https://scorecard.dev/viewer/?uri=github.com/CTU-SematX/LegoCity)
+[![Version](https://img.shields.io/github/v/release/CTU-SematX/LegoCity?label=Version)](https://github.com/CTU-SematX/LegoCity/releases)
+[![Commit activity](https://img.shields.io/github/commit-activity/m/CTU-SematX/LegoCity.svg "Commit activity")](https://github.com/CTU-SematX/LegoCity/graphs/commit-activity)
+[![GitHub contributors](https://img.shields.io/github/contributors/CTU-SematX/LegoCity.svg "Github contributors")](https://github.com/CTU-SematX/LegoCity/graphs/contributors)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
-Tài liệu: https://ctu-sematx.github.io/Lego-Doc/
+Mô tả ngắn
+**LegoCity** là một mẫu Smart City (Thành phố thông minh) nhẹ được xây dựng để phục vụ thử nghiệm nhanh và giảng dạy trong hệ sinh thái **CTU-SematX**. Dự án cung cấp các thành phần mẫu minh hoạ cách kết nối nguồn dữ liệu, API gateway và dashboard bằng NGSI-LD và các enabler trong FIWARE.
 
-Những điểm nổi bật
+Tài liệu: [https://ctu-sematx.github.io/Lego-Doc/](https://ctu-sematx.github.io/Lego-Doc/)
 
-- Broker: NGINX gateway tích hợp với Orion Context Broker
-- Dashboard: Ví dụ Dashboard bằng PayloadCMS + Next.js
-- Các server mẫu mô phỏng nguồn dữ liệu Smart City phổ biến
-- Tập dữ liệu mẫu (JSON) nằm trong `opendata/`
 
-Cấu trúc repository
+## Mục lục
 
-```
-LegoCity/
-├── broker/           # NGINX Gateway + Orion Context Broker + MongoDB
-├── dashboard/        # PayloadCMS + Next.js Dashboard
-├── servers/          # Sample Data Source Servers
-│   ├── traffic-flow/        # FastAPI + Python (Port 8001)
-│   ├── environment-monitor/ # Gin + Go (Port 8002)
-│   ├── public-lighting/     # Elysia + Bun (Port 8003)
-│   └── urban-infra/         # Elysia + Bun (Port 8004)
-├── opendata/         # Sample datasets (JSON)
-└── docs/             # Documentation assets
-```
+* [Cài đặt và yêu cầu](#cài-đặt-và-yêu-cầu)
+* [Hướng dẫn khởi động nhanh](#hướng-dẫn-khởi-động-nhanh)
+* [Cách sử dụng](#cách-sử-dụng)
+* [Các vấn đề đã biết](#các-vấn-đề-đã-biết)
+* [Hỗ trợ](#hỗ-trợ)
+* [Đóng góp](#đóng-góp)
+* [Phát triển](#phát-triển)
+* [Giấy phép](#giấy-phép)
+* [Người duy trì](#người-duy-trì)
+* [Ghi công và tài liệu tham khảo](#ghi-công-và-tài-liệu-tham-khảo)
 
-Hướng dẫn nhanh
 
-Yêu cầu
+## Cài đặt và yêu cầu
 
-- Docker & Docker Compose
-- Node.js 20+ / Bun (để phát triển dashboard)
-- Git
+Hướng dẫn chi tiết về cách cài đặt, cấu hình và chạy dự án.
 
-Clone repository
+**Yêu cầu trước khi cài**
+
+* Docker & Docker Compose
+* Node.js 20+ / Bun (dành cho dashboard)
+* Git
+
+**Clone repository**
 
 ```bash
 git clone https://github.com/CTU-SematX/LegoCity.git
 cd LegoCity
 ```
 
-Khởi động Broker (Orion + MongoDB)
+## Hướng dẫn khởi động nhanh
+
+**Khởi động broker (Orion + MongoDB)**
 
 ```bash
 cd broker
 docker compose up -d
 ```
 
-Khởi động các sample data servers
+**Khởi động các server dữ liệu mẫu**
 
 ```bash
 cd servers
 docker compose up -d --build
 ```
 
-Chạy dashboard (phát triển cục bộ)
+**Chạy dashboard (phát triển local)**
 
 ```bash
 cd dashboard
@@ -65,44 +72,72 @@ pnpm install
 pnpm dev
 ```
 
-Các server mẫu
 
-| Server | Port | Framework | Domain |
-|--------|------|-----------|--------|
-| `traffic-flow` | 8001 | FastAPI + Python | Lưu lượng giao thông |
-| `environment-monitor` | 8002 | Gin + Go | Chất lượng không khí / môi trường |
-| `public-lighting` | 8003 | Elysia + Bun | Chiếu sáng công cộng |
-| `urban-infra` | 8004 | Elysia + Bun | Hạ tầng đô thị |
+## Cách sử dụng
 
-Mỗi server cung cấp:
+Repository chứa các Data Source server mẫu và một dashboard minh họa tích hợp NGSI-LD cùng các FIWARE enabler.
 
-- REST API cho CRUD
-- Endpoint chuyển đổi sang NGSI-LD
-- Health check
+### Các server mẫu
 
-Open data
+| Server                | Port | Framework        | Lĩnh vực                          |
+| --------------------- | ---- | ---------------- | --------------------------------- |
+| `traffic-flow`        | 8001 | FastAPI + Python | Lưu lượng giao thông              |
+| `environment-monitor` | 8002 | Gin + Go         | Chất lượng không khí / môi trường |
+| `public-lighting`     | 8003 | Elysia + Bun     | Chiếu sáng công cộng              |
+| `urban-infra`         | 8004 | Elysia + Bun     | Hạ tầng đô thị                    |
 
-Thư mục `opendata/` chứa tập dữ liệu JSON mẫu để seed cho các server:
+Mỗi server bao gồm:
 
-- `traffic.json`
-- `environment.json`
-- `lighting.json`
-- `infrastructure.json`
+* REST API cho CRUD
+* Endpoint chuyển đổi NGSI-LD
+* Health check
 
-Đóng góp
+### Open Data
 
-Mọi đóng góp đều được hoan nghênh. Xem `CONTRIBUTING.md` để biết hướng dẫn.
+Thư mục `opendata/` chứa các dataset JSON mẫu dùng để seed dữ liệu cho các server:
 
-Giấy phép
+* `traffic.json`
+* `environment.json`
+* `lighting.json`
+* `infrastructure.json`
 
-Dự án được cấp phép theo Apache-2.0 (xem `LICENSE`).
 
-Người duy trì
+## Các vấn đề đã biết
 
-- CTU-SematX Team — https://github.com/CTU-SematX
+* Docker build một số image có thể lỗi trên các bản phân phối dùng musl (Alpine). Hãy dùng image Debian-based cho Go (`golang:1.21-bookworm`) khi build local hoặc trong CI.
 
-Credits
+Nếu gặp vấn đề khác, vui lòng mở issue kèm bước tái hiện lỗi.
 
-- FIWARE Foundation — Orion Context Broker
-- Smart Data Models — NGSI-LD data models
-- PayloadCMS — example dashboard
+
+## Hỗ trợ
+
+* Báo lỗi: [https://github.com/CTU-SematX/LegoCity/issues](https://github.com/CTU-SematX/LegoCity/issues)
+* Báo cáo bảo mật: xem `SECURITY.md` hoặc dùng GitHub Security Advisories
+
+
+## Đóng góp
+
+Chào mừng mọi đóng góp. Xem `CONTRIBUTING.md` để biết guideline về style, commit và review.
+
+
+## Phát triển
+
+Tham khảo README của từng thành phần trong `broker/`, `servers/`, và `dashboard/` để biết hướng dẫn phát triển và chạy local.
+
+
+## Giấy phép
+
+Dự án phát hành theo giấy phép Apache 2.0 — xem file `LICENSE` để biết chi tiết.
+
+
+## Người duy trì
+
+* **CTU-SematX Team** — [https://github.com/CTU-SematX](https://github.com/CTU-SematX)
+
+
+## Ghi công và tài liệu tham khảo
+
+* FIWARE Foundation — Orion Context Broker
+* Smart Data Models — NGSI-LD models
+* PayloadCMS — dashboard mẫu
+* [IEEE Open Source Maintainers Manual](https://opensource.ieee.org/community/manual/)
