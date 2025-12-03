@@ -1,103 +1,119 @@
+🌐 English | [Tiếng Việt](./i18n/README.vi.md)
+
 ![](./docs/assets/project_banner.png)
 
-# Lego City [![MkDocs](https://img.shields.io/badge/MkDocs-526CFE?logo=materialformkdocs&logoColor=fff)](https://ctu-sematx.github.io/LegoCity/)
+# LegoCity
 
-Project logo and badges goes here.
+[![Documentation](https://img.shields.io/badge/docs-Lego--Doc-blue?logo=materialformkdocs&logoColor=fff)](https://ctu-sematx.github.io/Lego-Doc/)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/CTU-SematX/LegoCity/badge)](https://scorecard.dev/viewer/?uri=github.com/CTU-SematX/LegoCity)
+[![Version](https://img.shields.io/github/v/release/CTU-SematX/LegoCity?label=Version)](https://github.com/CTU-SematX/LegoCity/releases)
+[![Commit activity](https://img.shields.io/github/commit-activity/m/CTU-SematX/LegoCity.svg 'Commit activity')](https://github.com/CTU-SematX/LegoCity/graphs/commit-activity)
+[![GitHub contributors](https://img.shields.io/github/contributors/CTU-SematX/LegoCity.svg 'Github contributors')](https://github.com/CTU-SematX/LegoCity/graphs/contributors)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
+LegoCity is a lightweight Smart City template designed for rapid experimentation and teaching within the CTU-SematX ecosystem. It provides example components to demonstrate how to connect data sources, an API gateway, and a dashboard using NGSI-LD and FIWARE enablers.
 
-[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/CTU-SematX/SmartCity/badge)](https://scorecard.dev/viewer/?uri=github.com/CTU-SematX/SmartCity)
-[![Version](https://img.shields.io/github/v/release/CTU-SematX/SmartCity?label=Version)](https://github.com/CTU-SematX/SmartCity/releases)
-[![Commit activity](https://img.shields.io/github/commit-activity/m/CTU-SematX/SmartCity.svg 'Commit activity')](https://github.com/CTU-SematX/SmartCity/graphs/commit-activity)
-[![GitHub contributors](https://img.shields.io/github/contributors/CTU-SematX/SmartCity.svg 'Github contributors')](https://github.com/CTU-SematX/SmartCity/graphs/contributors)
-![](./docs/images/new_banner.png)
+Documentation: https://ctu-sematx.github.io/Lego-Doc/
 
-**Description**:  Lego City is a Smart City Builder using Fiware Enablers and NGSI-LD under the hood and PayloadCMS as Wirecloud alternative with modern and fully customization UI. So you can build your Smart City platform the fastest and easiest way.
+Key features
 
-**Screenshot**: If the software has visual components, place a screenshot after the description; e.g.,
+- Broker: NGINX gateway and Orion Context Broker integration
+- Dashboard: PayloadCMS + Next.js example dashboard
+- Sample data source servers for common Smart City domains
+- Example open datasets in JSON format under `opendata/`
 
-## Table of Contents
+Repository layout
 
-- [Installation and Requirements](#installation-and-requirements)
-- [Quickstart Instructions](#quick-start-instructions)
-- [Usage](#usage)
-- [Known Issues](#known-issues)
-- [Support](#support)
-- [Contributing](#contributing)
-- [Development](#development)
-- [License](#license)
-- [Maintainers](#maintainers)
-- [Credits and References](#credits-and-references)
+```
+LegoCity/
+├── broker/           # NGINX Gateway + Orion Context Broker + MongoDB
+├── dashboard/        # PayloadCMS + Next.js Dashboard
+├── servers/          # Sample Data Source Servers
+│   ├── traffic-flow/        # FastAPI + Python (Port 8001)
+│   ├── environment-monitor/ # Gin + Go (Port 8002)
+│   ├── public-lighting/     # Elysia + Bun (Port 8003)
+│   └── urban-infra/         # Elysia + Bun (Port 8004)
+├── opendata/         # Sample datasets (JSON)
+└── docs/             # Documentation assets
+```
 
-## Installation and Requirements
+Quick start
 
-Detailed instructions on how to install, configure, and get the project running.
-This should be frequently tested to ensure reliability. Alternatively, link to
-a separate _INSTALLATION.md_ document.
+Prerequisites
 
-Simple example:
+- Docker & Docker Compose
+- Node.js 20+ / Bun (for the dashboard)
+- Git
 
-`$ pip install PROJECT`
+Clone repository
 
-`$ npm install PROJECT --save`
+```bash
+git clone https://github.com/CTU-SematX/LegoCity.git
+cd LegoCity
+```
 
-`$ any other command`
+Start the broker (Orion + MongoDB)
 
-## Quick start instructions
+```bash
+cd broker
+docker compose up -d
+```
 
-Describe the fastest possible way to get the project running.
+Start sample data servers
 
-## Usage
+```bash
+cd servers
+docker compose up -d --build
+```
 
-Show users how to use the software.
-Be specific.
-Use appropriate formatting when showing code snippets.
+Run the dashboard (local development)
 
-## Known issues
+```bash
+cd dashboard
+pnpm install
+pnpm dev
+```
 
-Document any known significant shortcomings with the software.
+Sample data servers
 
-## Support
+| Server | Port | Framework | Domain |
+|--------|------|-----------|--------|
+| `traffic-flow` | 8001 | FastAPI + Python | Traffic flow |
+| `environment-monitor` | 8002 | Gin + Go | Air quality / environment |
+| `public-lighting` | 8003 | Elysia + Bun | Street lighting |
+| `urban-infra` | 8004 | Elysia + Bun | Urban infrastructure |
 
-Instruct users how to get help with this software; this might include links to an issue tracker, wiki, mailing list, etc.
+Each server includes:
 
-Example:
+- REST API for CRUD operations
+- NGSI-LD conversion endpoints
+- Health checks
 
-_If you have questions, concerns, bug reports, etc, please file an issue in this repository's Issue Tracker._
+Open data
 
-## Contributing
+The `opendata/` directory contains sample JSON datasets used to seed the example servers:
 
-This section should detail why people should get involved and describe key areas you are
-currently focusing on; e.g., trying to get feedback on features, fixing certain bugs, building
-important pieces, etc.
+- `traffic.json`
+- `environment.json`
+- `lighting.json`
+- `infrastructure.json`
 
-General instructions on _how_ to contribute should be stated with a link to [CONTRIBUTING](CONTRIBUTING.md).
+Documentation & links
 
-## Development
+- Full docs: https://ctu-sematx.github.io/Lego-Doc/
+- Contributing: `CONTRIBUTING.md`
+- License: Apache-2.0 (see `LICENSE`)
 
-General instructions on how to Develop for the project should be stated with a link to _DEVELOPMENT.md_.
+Contributing
 
----
+Contributions are welcome. See `CONTRIBUTING.md` for guidelines.
 
-## License
+Maintainers
 
-Example:
-This project is licensed under the Creative Commons Zero v1.0 Universal License - see the [LICENSE](LICENSE) file for details
+- CTU-SematX Team — https://github.com/CTU-SematX
 
----
+Credits
 
-## Maintainers
-
-Name and git-account for primary maintainer/s:
-
-Example:
-_The_maintainers_
-
-## Credits and References
-
-Credits, references or other relevant information.
-
-Example:
-
-Special Thanks to
-
-- [IEEE Open Source Maintainers Manual](https://opensource.ieee.org/community/manual/)
+- FIWARE Foundation — Orion Context Broker
+- Smart Data Models — NGSI-LD data models
+- PayloadCMS — example dashboard
