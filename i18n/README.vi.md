@@ -9,7 +9,7 @@
 [![Version](https://img.shields.io/github/v/release/CTU-SematX/LegoCity?label=Version)](https://github.com/CTU-SematX/LegoCity/releases)
 [![Commit activity](https://img.shields.io/github/commit-activity/m/CTU-SematX/LegoCity.svg "Commit activity")](https://github.com/CTU-SematX/LegoCity/graphs/commit-activity)
 [![GitHub contributors](https://img.shields.io/github/contributors/CTU-SematX/LegoCity.svg "Github contributors")](https://github.com/CTU-SematX/LegoCity/graphs/contributors)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 Mô tả ngắn
 **LegoCity** là một mẫu Smart City (Thành phố thông minh) nhẹ được xây dựng để phục vụ thử nghiệm nhanh và giảng dạy trong hệ sinh thái **CTU-SematX**. Dự án cung cấp các thành phần mẫu minh hoạ cách kết nối nguồn dữ liệu, API gateway và dashboard bằng NGSI-LD và các enabler trong FIWARE.
@@ -132,7 +132,7 @@ Tham khảo README của từng thành phần trong `broker/`, `servers/`, và `
 
 ## Giấy phép
 
-Dự án phát hành theo giấy phép Apache 2.0 — xem file `LICENSE` để biết chi tiết.
+Dự án phát hành theo giấy phép MIT — xem file `LICENSE` để biết chi tiết.
 
 
 ## Người duy trì

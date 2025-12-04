@@ -9,7 +9,7 @@
 [![Version](https://img.shields.io/github/v/release/CTU-SematX/LegoCity?label=Version)](https://github.com/CTU-SematX/LegoCity/releases)
 [![Commit activity](https://img.shields.io/github/commit-activity/m/CTU-SematX/LegoCity.svg 'Commit activity')](https://github.com/CTU-SematX/LegoCity/graphs/commit-activity)
 [![GitHub contributors](https://img.shields.io/github/contributors/CTU-SematX/LegoCity.svg 'Github contributors')](https://github.com/CTU-SematX/LegoCity/graphs/contributors)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 Short description
 
@@ -129,7 +129,7 @@ Refer to component READMEs in `broker/`, `servers/`, and `dashboard/` for develo
 
 ## License
 
-This project is released under the Apache License 2.0 — see the `LICENSE` file for details.
+This project is released under the MIT License — see the `LICENSE` file for details.
 
 
 ## Maintainers
