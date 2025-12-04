@@ -16,6 +16,9 @@ Mô tả ngắn
 
 Tài liệu: [https://ctu-sematx.github.io/Lego-Doc/](https://ctu-sematx.github.io/Lego-Doc/)
 
+Lego-Dashboard repo (Đang cập nhật): https://github.com/CTU-SematX/Lego-Dashboard
+
+Orion-Nginx repo: https://github.com/CTU-SematX/Orion-Nginx
 
 ## Mục lục
 
@@ -93,6 +96,8 @@ Mỗi server bao gồm:
 * Health check
 
 ### Open Data
+
+**Ghi chú:** Sắp đến các sẽ cập nhật các bộ dữ liệu từ các nguồn dữ liệu mở thật. Các ví dụ dưới đây được tạo sinh từ AI.
 
 Thư mục `opendata/` chứa các dataset JSON mẫu dùng để seed dữ liệu cho các server:
 
