@@ -2,11 +2,11 @@ services:
   mongo:
     image: mongo:5.0.26  
     container_name: mongo
-    command: mongod --quiet --dbpath /data/db --replSet rs --port 27015 --bind_ip 0.0.0.0
+    command: mongod --quiet --dbpath /data/db --replSet rs --port 27017 --bind_ip 0.0.0.0
     volumes:
       - mongo_volume:/data/db
     ports:
-      - "27015:27015"
+      - "27017:27017"
 
   orion-ld:
     image: fiware/orion-ld:latest
@@ -16,7 +16,7 @@ services:
       - mongo
     environment:
       - ORIONLD_MONGO_HOST=mongo
-      - ORIONLD_MONGO_PORT=27015
+      - ORIONLD_MONGO_PORT=27017
       - ORIONLD_LOG_LEVEL=INFO
     command: >
       -dbhost mongo
