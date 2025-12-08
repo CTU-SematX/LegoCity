@@ -5,8 +5,9 @@ import { useFormFields, SelectInput, useField } from '@payloadcms/ui'
 import type { TextFieldClientComponent } from 'payload'
 import axios from 'axios'
 
-export const ServiceSelect: TextFieldClientComponent = ({ path }) => {
-  const { value, setValue } = useField<string>({ path })
+export const ServiceSelect: TextFieldClientComponent = ({ path, field }) => {
+  const fieldPath = path || field?.name || 'service'
+  const { value, setValue } = useField<string>({ path: fieldPath })
   const [options, setOptions] = useState<{ label: string; value: string }[]>([])
   const [loading, setLoading] = useState(false)
 
@@ -74,7 +75,7 @@ export const ServiceSelect: TextFieldClientComponent = ({ path }) => {
         Fiware-Service
       </label>
       <SelectInput
-        path={path}
+        path={fieldPath}
         name="service"
         options={options}
         value={value}

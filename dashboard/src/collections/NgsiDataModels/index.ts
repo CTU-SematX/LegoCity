@@ -23,20 +23,34 @@ export const NgsiDataModels: CollectionConfig = {
     useAsTitle: 'model',
     description: 'NGSI-LD data models from Smart Data Models',
     group: 'Data Connections',
-    defaultColumns: ['model', 'domains', 'contextUrl'],
+    defaultColumns: ['model', 'repoName', 'domains', 'contextUrl'],
     components: {
       afterListTable: ['@/collections/NgsiDataModels/ui/SyncButton#SyncButton'],
     },
   },
+  // Compound index for model + repoName uniqueness
+  indexes: [
+    {
+      fields: ['model', 'repoName'],
+      unique: true,
+    },
+  ],
   fields: [
     {
       name: 'model',
       type: 'text',
       required: true,
-      unique: true,
       index: true,
       admin: {
         description: 'The entity type name (e.g., "Building", "Device")',
+      },
+    },
+    {
+      name: 'repoName',
+      type: 'text',
+      index: true,
+      admin: {
+        description: 'Repository name from Smart Data Models (e.g., "dataModel.Building")',
       },
     },
     {

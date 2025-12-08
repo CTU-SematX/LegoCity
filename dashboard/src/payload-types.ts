@@ -64,6 +64,7 @@ export type SupportedTimezones =
 export interface Config {
   auth: {
     users: UserAuthOperations;
+    'payload-mcp-api-keys': PayloadMcpApiKeyAuthOperations;
   };
   blocks: {};
   collections: {
@@ -81,6 +82,7 @@ export interface Config {
     'form-submissions': FormSubmission;
     search: Search;
     'plugin-ai-instructions': PluginAiInstruction;
+    'payload-mcp-api-keys': PayloadMcpApiKey;
     'payload-kv': PayloadKv;
     'payload-jobs': PayloadJob;
     'payload-folders': FolderInterface;
@@ -108,6 +110,7 @@ export interface Config {
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
     search: SearchSelect<false> | SearchSelect<true>;
     'plugin-ai-instructions': PluginAiInstructionsSelect<false> | PluginAiInstructionsSelect<true>;
+    'payload-mcp-api-keys': PayloadMcpApiKeysSelect<false> | PayloadMcpApiKeysSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-jobs': PayloadJobsSelect<false> | PayloadJobsSelect<true>;
     'payload-folders': PayloadFoldersSelect<false> | PayloadFoldersSelect<true>;
@@ -118,6 +121,7 @@ export interface Config {
   db: {
     defaultIDType: string;
   };
+  fallbackLocale: null;
   globals: {
     header: Header;
     footer: Footer;
@@ -127,9 +131,13 @@ export interface Config {
     footer: FooterSelect<false> | FooterSelect<true>;
   };
   locale: null;
-  user: User & {
-    collection: 'users';
-  };
+  user:
+    | (User & {
+        collection: 'users';
+      })
+    | (PayloadMcpApiKey & {
+        collection: 'payload-mcp-api-keys';
+      });
   jobs: {
     tasks: {
       schedulePublish: TaskSchedulePublish;
@@ -142,6 +150,24 @@ export interface Config {
   };
 }
 export interface UserAuthOperations {
+  forgotPassword: {
+    email: string;
+    password: string;
+  };
+  login: {
+    email: string;
+    password: string;
+  };
+  registerFirstUser: {
+    email: string;
+    password: string;
+  };
+  unlock: {
+    email: string;
+    password: string;
+  };
+}
+export interface PayloadMcpApiKeyAuthOperations {
   forgotPassword: {
     email: string;
     password: string;
@@ -209,7 +235,7 @@ export interface Page {
       | null;
     media?: (string | null) | Media;
   };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock)[];
+  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock | NgsiCardBlock)[];
   meta?: {
     title?: string | null;
     /**
@@ -789,87 +815,47 @@ export interface Form {
   createdAt: string;
 }
 /**
- * Configure NGSI-LD Context Broker sources
- *
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ngsi-sources".
+ * via the `definition` "NgsiCardBlock".
  */
-export interface NgsiSource {
-  id: string;
+export interface NgsiCardBlock {
   /**
-   * A friendly name for this NGSI source
+   * Select an entity to display. Broker and tenant info are read from the entity.
    */
-  name: string;
+  dataSource: {
+    /**
+     * Select the NGSI-LD entity to display. Broker and tenant info will be read from the entity.
+     */
+    entity: string | NgsiEntity;
+    /**
+     * Auto-refresh interval in seconds. Set 0 to disable.
+     */
+    refreshInterval?: number | null;
+  };
   /**
-   * The base URL of the NGSI-LD Context Broker
+   * Use {{data.attributeName}} syntax for placeholders.
    */
-  brokerUrl: string;
-  /**
-   * Optional proxy URL if the broker requires a proxy
-   */
-  proxyUrl?: string | null;
-  /**
-   * Fiware-Service header values for multi-tenancy (add one or more)
-   */
-  serviceHeader?:
-    | {
-        value?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  /**
-   * Fiware-ServicePath header values (e.g., /city/sensors). Multiple entries allowed.
-   */
-  servicePath?:
-    | {
-        value?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * NGSI-LD data models from Smart Data Models
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ngsi-data-models".
- */
-export interface NgsiDataModel {
-  id: string;
-  /**
-   * The entity type name (e.g., "Building", "Device")
-   */
-  model: string;
-  /**
-   * The direct URL to the context.jsonld file
-   */
-  contextUrl: string;
-  /**
-   * The domains this data model belongs to
-   */
-  domains?: (string | NgsiDomain)[] | null;
-  /**
-   * Link to the GitHub repository for this data model
-   */
-  repoLink?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * NGSI-LD data model domains
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ngsi-domains".
- */
-export interface NgsiDomain {
-  id: string;
-  /**
-   * Domain name (e.g., "SmartCities", "SmartAgrifood")
-   */
-  name: string;
-  updatedAt: string;
-  createdAt: string;
+  cardContent?: {
+    /**
+     * Leave empty to use entity type as title.
+     */
+    title?: string | null;
+    /**
+     * Use {{data.xxx}} for attribute values, {{entityId}} for URN.
+     */
+    content?: string | null;
+    /**
+     * Display the full entity URN below the title.
+     */
+    showEntityId?: boolean | null;
+    /**
+     * Display when the data was last refreshed.
+     */
+    showLastUpdated?: boolean | null;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'ngsiCard';
 }
 /**
  * Manage specific NGSI-LD Entities synced with Context Broker
@@ -902,9 +888,9 @@ export interface NgsiEntity {
    */
   servicePath: string;
   /**
-   * JSON object containing properties and relationships (exclude id, type, @context)
+   * JSON object containing properties and relationships (exclude id, type, @context). Use "Fetch Example" to load sample data.
    */
-  attributes:
+  attributes?:
     | {
         [k: string]: unknown;
       }
@@ -913,10 +899,109 @@ export interface NgsiEntity {
     | number
     | boolean
     | null;
+  owner?: (string | null) | User;
   syncStatus?: ('synced' | 'error' | 'pending') | null;
   lastSyncTime?: string | null;
   lastSyncError?: string | null;
-  owner?: (string | null) | User;
+  /**
+   * Pre-computed attribute paths for autocomplete (auto-populated on sync)
+   */
+  attributePaths?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * NGSI-LD data models from Smart Data Models
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ngsi-data-models".
+ */
+export interface NgsiDataModel {
+  id: string;
+  /**
+   * The entity type name (e.g., "Building", "Device")
+   */
+  model: string;
+  /**
+   * Repository name from Smart Data Models (e.g., "dataModel.Building")
+   */
+  repoName?: string | null;
+  /**
+   * The direct URL to the context.jsonld file
+   */
+  contextUrl: string;
+  /**
+   * The domains this data model belongs to
+   */
+  domains?: (string | NgsiDomain)[] | null;
+  /**
+   * Link to the GitHub repository for this data model
+   */
+  repoLink?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * NGSI-LD data model domains
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ngsi-domains".
+ */
+export interface NgsiDomain {
+  id: string;
+  /**
+   * Domain name (e.g., "SmartCities", "SmartAgrifood")
+   */
+  name: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Configure NGSI-LD Context Broker sources
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ngsi-sources".
+ */
+export interface NgsiSource {
+  id: string;
+  /**
+   * A friendly name for this NGSI source
+   */
+  name: string;
+  /**
+   * Base URL of the NGSI-LD Context Broker
+   */
+  brokerUrl: string;
+  /**
+   * Optional proxy URL
+   */
+  proxyUrl?: string | null;
+  /**
+   * Fiware-Service header values for multi-tenancy
+   */
+  serviceHeader?:
+    | {
+        value?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Fiware-ServicePath header values (e.g., /city/sensors)
+   */
+  servicePath?:
+    | {
+        value?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -1078,6 +1163,122 @@ export interface PluginAiInstruction {
   };
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * API keys control which collections, resources, tools, and prompts MCP clients can access
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-mcp-api-keys".
+ */
+export interface PayloadMcpApiKey {
+  id: string;
+  /**
+   * The user that the API key is associated with.
+   */
+  user: string | User;
+  /**
+   * A useful label for the API key.
+   */
+  label?: string | null;
+  /**
+   * The purpose of the API key.
+   */
+  description?: string | null;
+  posts?: {
+    /**
+     * Allow clients to find posts.
+     */
+    find?: boolean | null;
+    /**
+     * Allow clients to create posts.
+     */
+    create?: boolean | null;
+    /**
+     * Allow clients to update posts.
+     */
+    update?: boolean | null;
+    /**
+     * Allow clients to delete posts.
+     */
+    delete?: boolean | null;
+  };
+  ngsiDataModels?: {
+    /**
+     * Allow clients to find ngsi-data-models.
+     */
+    find?: boolean | null;
+    /**
+     * Allow clients to create ngsi-data-models.
+     */
+    create?: boolean | null;
+    /**
+     * Allow clients to update ngsi-data-models.
+     */
+    update?: boolean | null;
+    /**
+     * Allow clients to delete ngsi-data-models.
+     */
+    delete?: boolean | null;
+  };
+  ngsiDomains?: {
+    /**
+     * Allow clients to find ngsi-domains.
+     */
+    find?: boolean | null;
+    /**
+     * Allow clients to create ngsi-domains.
+     */
+    create?: boolean | null;
+    /**
+     * Allow clients to update ngsi-domains.
+     */
+    update?: boolean | null;
+    /**
+     * Allow clients to delete ngsi-domains.
+     */
+    delete?: boolean | null;
+  };
+  ngsiEntities?: {
+    /**
+     * Allow clients to find ngsi-entities.
+     */
+    find?: boolean | null;
+    /**
+     * Allow clients to create ngsi-entities.
+     */
+    create?: boolean | null;
+    /**
+     * Allow clients to update ngsi-entities.
+     */
+    update?: boolean | null;
+    /**
+     * Allow clients to delete ngsi-entities.
+     */
+    delete?: boolean | null;
+  };
+  ngsiSources?: {
+    /**
+     * Allow clients to find ngsi-sources.
+     */
+    find?: boolean | null;
+    /**
+     * Allow clients to create ngsi-sources.
+     */
+    create?: boolean | null;
+    /**
+     * Allow clients to update ngsi-sources.
+     */
+    update?: boolean | null;
+    /**
+     * Allow clients to delete ngsi-sources.
+     */
+    delete?: boolean | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+  enableAPIKey?: boolean | null;
+  apiKey?: string | null;
+  apiKeyIndex?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1252,14 +1453,23 @@ export interface PayloadLockedDocument {
         value: string | PluginAiInstruction;
       } | null)
     | ({
+        relationTo: 'payload-mcp-api-keys';
+        value: string | PayloadMcpApiKey;
+      } | null)
+    | ({
         relationTo: 'payload-folders';
         value: string | FolderInterface;
       } | null);
   globalSlug?: string | null;
-  user: {
-    relationTo: 'users';
-    value: string | User;
-  };
+  user:
+    | {
+        relationTo: 'users';
+        value: string | User;
+      }
+    | {
+        relationTo: 'payload-mcp-api-keys';
+        value: string | PayloadMcpApiKey;
+      };
   updatedAt: string;
   createdAt: string;
 }
@@ -1269,10 +1479,15 @@ export interface PayloadLockedDocument {
  */
 export interface PayloadPreference {
   id: string;
-  user: {
-    relationTo: 'users';
-    value: string | User;
-  };
+  user:
+    | {
+        relationTo: 'users';
+        value: string | User;
+      }
+    | {
+        relationTo: 'payload-mcp-api-keys';
+        value: string | PayloadMcpApiKey;
+      };
   key?: string | null;
   value?:
     | {
@@ -1333,6 +1548,7 @@ export interface PagesSelect<T extends boolean = true> {
         mediaBlock?: T | MediaBlockSelect<T>;
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
+        ngsiCard?: T | NgsiCardBlockSelect<T>;
       };
   meta?:
     | T
@@ -1429,6 +1645,28 @@ export interface FormBlockSelect<T extends boolean = true> {
   form?: T;
   enableIntro?: T;
   introContent?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "NgsiCardBlock_select".
+ */
+export interface NgsiCardBlockSelect<T extends boolean = true> {
+  dataSource?:
+    | T
+    | {
+        entity?: T;
+        refreshInterval?: T;
+      };
+  cardContent?:
+    | T
+    | {
+        title?: T;
+        content?: T;
+        showEntityId?: T;
+        showLastUpdated?: T;
+      };
   id?: T;
   blockName?: T;
 }
@@ -1629,6 +1867,7 @@ export interface NgsiSourcesSelect<T extends boolean = true> {
  */
 export interface NgsiDataModelsSelect<T extends boolean = true> {
   model?: T;
+  repoName?: T;
   contextUrl?: T;
   domains?: T;
   repoLink?: T;
@@ -1657,10 +1896,11 @@ export interface NgsiEntitiesSelect<T extends boolean = true> {
   service?: T;
   servicePath?: T;
   attributes?: T;
+  owner?: T;
   syncStatus?: T;
   lastSyncTime?: T;
   lastSyncError?: T;
-  owner?: T;
+  attributePaths?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -1925,6 +2165,60 @@ export interface PluginAiInstructionsSelect<T extends boolean = true> {
       };
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-mcp-api-keys_select".
+ */
+export interface PayloadMcpApiKeysSelect<T extends boolean = true> {
+  user?: T;
+  label?: T;
+  description?: T;
+  posts?:
+    | T
+    | {
+        find?: T;
+        create?: T;
+        update?: T;
+        delete?: T;
+      };
+  ngsiDataModels?:
+    | T
+    | {
+        find?: T;
+        create?: T;
+        update?: T;
+        delete?: T;
+      };
+  ngsiDomains?:
+    | T
+    | {
+        find?: T;
+        create?: T;
+        update?: T;
+        delete?: T;
+      };
+  ngsiEntities?:
+    | T
+    | {
+        find?: T;
+        create?: T;
+        update?: T;
+        delete?: T;
+      };
+  ngsiSources?:
+    | T
+    | {
+        find?: T;
+        create?: T;
+        update?: T;
+        delete?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  enableAPIKey?: T;
+  apiKey?: T;
+  apiKeyIndex?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

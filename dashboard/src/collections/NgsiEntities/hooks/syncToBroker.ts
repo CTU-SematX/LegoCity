@@ -1,5 +1,5 @@
 import type { CollectionAfterChangeHook } from 'payload'
-import { createNgsiClient, NGSI_LD_CORE_CONTEXT } from '@/lib/ngsi-client'
+import { NgsiLdOperations, NGSI_LD_CORE_CONTEXT } from '@/lib/ngsi-ld'
 
 export const syncToBrokerAfterChange: CollectionAfterChangeHook = async ({
   doc,
@@ -35,38 +35,37 @@ export const syncToBrokerAfterChange: CollectionAfterChangeHook = async ({
       throw new Error('Source or DataModel not found')
     }
 
-    // Create NGSI-LD client
-    const client = createNgsiClient({
-      brokerUrl: source.brokerUrl,
-      service: doc.service,
-      servicePath: doc.servicePath,
-      authToken: source.authToken,
-    })
+    // Create NGSI-LD operations client
+    const ngsi = new NgsiLdOperations(
+      {
+        brokerUrl: source.brokerUrl,
+        service: doc.service,
+        servicePath: doc.servicePath,
+        authToken: source.authToken,
+      },
+      dataModel.contextUrl || NGSI_LD_CORE_CONTEXT,
+    )
 
-    // Build @context array
-    const contextArray = [dataModel.contextUrl, NGSI_LD_CORE_CONTEXT]
+    // Extract short type name (without URL prefix) for proper NGSI-LD format
+    let entityType = doc.type || dataModel.model
+    if (entityType && entityType.includes('/')) {
+      entityType = entityType.split('/').pop() || entityType
+    }
 
     if (operation === 'create') {
       // POST /ngsi-ld/v1/entities - Create new entity
       const entityBody = {
         id: doc.entityId,
-        type: doc.type || dataModel.model,
-        '@context': contextArray,
+        type: entityType,
         ...doc.attributes,
       }
 
-      await client.post('/ngsi-ld/v1/entities', entityBody)
+      await ngsi.createEntity(entityBody)
     } else if (operation === 'update') {
       // PATCH /ngsi-ld/v1/entities/{entityId}/attrs - Update attributes
-      const attrsBody = {
-        '@context': contextArray,
-        ...doc.attributes,
+      if (doc.attributes) {
+        await ngsi.updateEntityAttrs(doc.entityId, doc.attributes)
       }
-
-      await client.patch(
-        `/ngsi-ld/v1/entities/${encodeURIComponent(doc.entityId)}/attrs`,
-        attrsBody,
-      )
     }
 
     // Update sync status to success

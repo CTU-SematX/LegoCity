@@ -2,10 +2,12 @@
 
 import React, { useState } from 'react'
 import { toast, Button } from '@payloadcms/ui'
+import { useRouter } from 'next/navigation'
 import axios from 'axios'
 
 export const SyncButton: React.FC = () => {
   const [loading, setLoading] = useState(false)
+  const router = useRouter()
 
   const handleSync = async () => {
     setLoading(true)
@@ -15,8 +17,8 @@ export const SyncButton: React.FC = () => {
 
       toast.success(data.message || `Successfully synced ${data.count} data models`)
 
-      // Reload the page to show updated data
-      window.location.reload()
+      // Use router.refresh() to update server components without full reload
+      router.refresh()
     } catch (error) {
       const errorMessage = axios.isAxiosError(error)
         ? error.response?.data?.error || error.message

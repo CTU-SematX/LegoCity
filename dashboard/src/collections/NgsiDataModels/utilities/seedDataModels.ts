@@ -78,13 +78,11 @@ export const seedDataModels = async (payload: Payload): Promise<number> => {
           }
         }
 
-        // Check if model already exists
+        // Check if model already exists with same repoName
         const existing = await payload.find({
           collection: 'ngsi-data-models',
           where: {
-            model: {
-              equals: model,
-            },
+            and: [{ model: { equals: model } }, { repoName: { equals: repoName } }],
           },
           limit: 1,
         })
@@ -96,6 +94,7 @@ export const seedDataModels = async (payload: Payload): Promise<number> => {
             id: existing.docs[0].id,
             data: {
               model,
+              repoName,
               contextUrl,
               domains: domainIds,
               repoLink,
@@ -107,6 +106,7 @@ export const seedDataModels = async (payload: Payload): Promise<number> => {
             collection: 'ngsi-data-models',
             data: {
               model,
+              repoName,
               contextUrl,
               domains: domainIds,
               repoLink,

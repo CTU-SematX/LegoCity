@@ -1,5 +1,5 @@
 import type { CollectionAfterDeleteHook } from 'payload'
-import { createNgsiClient } from '@/lib/ngsi-client'
+import { NgsiLdOperations, NGSI_LD_CORE_CONTEXT } from '@/lib/ngsi-ld'
 
 export const deleteFromBrokerAfterDelete: CollectionAfterDeleteHook = async ({ doc, req }) => {
   try {
@@ -17,16 +17,30 @@ export const deleteFromBrokerAfterDelete: CollectionAfterDeleteHook = async ({ d
       return doc
     }
 
-    // Create NGSI-LD client
-    const client = createNgsiClient({
-      brokerUrl: source.brokerUrl,
-      service: doc.service,
-      servicePath: doc.servicePath,
-      authToken: source.authToken,
-    })
+    // Resolve dataModel for context URL
+    const dataModel =
+      typeof doc.dataModel === 'object'
+        ? doc.dataModel
+        : await req.payload.findByID({
+            collection: 'ngsi-data-models',
+            id: doc.dataModel,
+          })
+
+    const contextUrl = dataModel?.contextUrl || NGSI_LD_CORE_CONTEXT
+
+    // Create NGSI-LD operations client
+    const ngsi = new NgsiLdOperations(
+      {
+        brokerUrl: source.brokerUrl,
+        service: doc.service,
+        servicePath: doc.servicePath,
+        authToken: source.authToken,
+      },
+      contextUrl,
+    )
 
     // DELETE /ngsi-ld/v1/entities/{entityId}
-    await client.delete(`/ngsi-ld/v1/entities/${encodeURIComponent(doc.entityId)}`)
+    await ngsi.deleteEntity(doc.entityId)
 
     req.payload.logger.info(`Entity ${doc.entityId} deleted from broker successfully`)
   } catch (error) {

@@ -102,6 +102,7 @@ const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
     limit: 1,
     pagination: false,
     overrideAccess: draft,
+    depth: 3, // Populate nested relationships for NGSI blocks (source, entity, dataModel)
     where: {
       slug: {
         equals: slug,
