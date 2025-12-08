@@ -2,9 +2,9 @@
 
 import React from 'react'
 import { useFormFields } from '@payloadcms/ui'
-import type { FieldClientComponent } from 'payload'
+import type { UIFieldClientComponent } from 'payload'
 
-export const EntityIdPreview: FieldClientComponent = () => {
+export const EntityIdPreview: UIFieldClientComponent = () => {
   const shortId = useFormFields(([fields]) => fields.shortId?.value as string)
   const type = useFormFields(([fields]) => fields.type?.value as string)
 

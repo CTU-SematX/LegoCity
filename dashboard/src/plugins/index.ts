@@ -15,6 +15,8 @@ import { getServerSideURL } from '@/utilities/getURL'
 import { Posts } from '@/collections/Posts'
 import { openrouterTextModel } from '@/custom-models/openrouter'
 import { payloadAiPlugin } from '@ai-stack/payloadcms'
+import {mcpPlugin} from '@payloadcms/plugin-mcp'
+
 
 const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
   return doc?.title ? `${doc.title} | Payload Website Template` : 'Payload Website Template'
@@ -102,6 +104,23 @@ export const plugins: Plugin[] = [
         return [...defaultModels, openrouterTextModel]
       },
     }),
+  mcpPlugin({collections:{
+    posts:{
+      enabled:true
+    },
+    "ngsi-data-models":{
+      enabled:true
+    },
+    "ngsi-domains":{
+      enabled:true
+    },
+    "ngsi-entities":{
+      enabled:true
+    },
+    "ngsi-sources":{
+      enabled:true
+    },
+  }})
 ]
 
 

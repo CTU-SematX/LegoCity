@@ -1,21 +1,89 @@
-build
-dist / media
-node_modules
-.DS_Store
-.env
-.next
-.vercel
+# ================================
+# Build Output
+# ================================
+/.next/
+/build/
+/dist/
+/out/
+*.tsbuildinfo
 
-# Payload default media upload directory
+# ================================
+# Dependencies
+# ================================
+node_modules/
+.pnpm-store/
+.yarn/
+.npm/
+
+# ================================
+# Environment Variables
+# ================================
+.env
+.env.*
+!.env.example
+
+# ================================
+# IDE / Editor
+# ================================
+.vscode
+.idea/
+*.swp
+*.swo
+*~
+.github/instructions
+# ================================
+# OS Files
+# ================================
+.DS_Store
+Thumbs.db
+*.orig
+
+# ================================
+# Payload CMS
+# ================================
+# Media uploads (user-generated content)
 public/media/
 
+# Generated files
 public/robots.txt
 public/sitemap*.xml
 
-
-# Playwright
-node_modules/
+# ================================
+# Testing
+# ================================
 /test-results/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+/coverage/
+.nyc_output/
+
+# ================================
+# Logs
+# ================================
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ================================
+# Cache & Tooling
+# ================================
+.cache/
+.eslintcache
+.turbo/
+.temp/
+.tmp/
+
+# ================================
+# Deployment
+# ================================
+.vercel/
+
+# ================================
+# Misc
+# ================================
+*.local
+

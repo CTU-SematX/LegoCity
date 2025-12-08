@@ -3,7 +3,15 @@ import { authenticated } from '@/access/authenticated'
 // Import các hooks
 import { syncToBrokerAfterChange } from './hooks/syncToBroker'
 import { deleteFromBrokerAfterDelete } from './hooks/deleteFromBroker'
-import { fetchEntityEndpoint, resyncEntityEndpoint } from './endpoints/entityActions'
+import {
+  fetchEntityEndpoint,
+  resyncEntityEndpoint,
+  updateAttrsEndpoint,
+  brokerApiEndpoint,
+  appendAttrsEndpoint,
+  deleteAttrEndpoint,
+  queryEntitiesEndpoint,
+} from './endpoints/entityActions'
 
 export const NgsiEntities: CollectionConfig = {
   slug: 'ngsi-entities',
@@ -29,6 +37,31 @@ export const NgsiEntities: CollectionConfig = {
       path: '/:id/resync',
       method: 'post',
       handler: resyncEntityEndpoint,
+    },
+    {
+      path: '/:id/update-attrs',
+      method: 'post',
+      handler: updateAttrsEndpoint,
+    },
+    {
+      path: '/:id/broker',
+      method: 'post',
+      handler: brokerApiEndpoint,
+    },
+    {
+      path: '/:id/append-attrs',
+      method: 'post',
+      handler: appendAttrsEndpoint,
+    },
+    {
+      path: '/:id/delete-attr',
+      method: 'post',
+      handler: deleteAttrEndpoint,
+    },
+    {
+      path: '/:id/query',
+      method: 'get',
+      handler: queryEntitiesEndpoint,
     },
   ],
   fields: [
@@ -119,7 +152,11 @@ export const NgsiEntities: CollectionConfig = {
                         collection: 'ngsi-data-models',
                         id: data.dataModel,
                       })
-                      const type = modelDoc?.model || data.type || 'Entity'
+                      // Extract simple type name from URL if needed
+                      let type = modelDoc?.model || data.type || 'Entity'
+                      if (type.includes('/')) {
+                        type = type.split('/').pop() || type
+                      }
                       return `urn:ngsi-ld:${type}:${data.shortId}`
                     }
                     return data?.entityId
@@ -169,15 +206,52 @@ export const NgsiEntities: CollectionConfig = {
               label: 'Entity Attributes',
               admin: {
                 description:
-                  'JSON object containing properties and relationships (exclude id, type, @context)',
+                  'JSON object containing properties and relationships (exclude id, type, @context). Use "Fetch Example" to load sample data.',
+                condition: (_, siblingData) => !siblingData?.id,
+                components: {
+                  Field: '@/collections/NgsiEntities/ui/AttributesField#AttributesField',
+                },
               },
             },
           ],
         },
-        // TAB 2: Trạng thái & Logs (Sync Status)
+        // TAB 2: Interact & Guide (Developer Tools)
+        {
+          label: 'Interact & Guide',
+          fields: [
+            {
+              name: 'interactionUI',
+              type: 'ui',
+              admin: {
+                components: {
+                  Field: '@/collections/NgsiEntities/ui/EntityInteraction#EntityInteraction',
+                },
+              },
+            },
+          ],
+        },
+        // TAB 3: Sync & Ownership
         {
           label: 'Sync Status',
           fields: [
+            {
+              name: 'owner',
+              type: 'relationship',
+              relationTo: 'users',
+              admin: {
+                readOnly: true,
+              },
+              hooks: {
+                beforeChange: [
+                  ({ req, operation, value }) => {
+                    if (operation === 'create' && req.user) {
+                      return req.user.id
+                    }
+                    return value
+                  },
+                ],
+              },
+            },
             {
               type: 'row',
               fields: [
@@ -191,8 +265,8 @@ export const NgsiEntities: CollectionConfig = {
                   ],
                   defaultValue: 'pending',
                   admin: {
-                    readOnly: true, // Chỉ hook mới được sửa
-                    position: 'sidebar',
+                    readOnly: true,
+                    width: '50%',
                   },
                 },
                 {
@@ -200,6 +274,7 @@ export const NgsiEntities: CollectionConfig = {
                   type: 'date',
                   admin: {
                     readOnly: true,
+                    width: '50%',
                     date: { pickerAppearance: 'dayAndTime' },
                   },
                 },
@@ -211,48 +286,20 @@ export const NgsiEntities: CollectionConfig = {
               admin: {
                 readOnly: true,
                 rows: 3,
-                style: { color: 'red' },
               },
             },
-          ],
-        },
-        // TAB 3: Tương tác & Code (Developer Tools)
-        {
-          label: 'Interact & Guide',
-          fields: [
             {
-              name: 'interactionUI',
-              type: 'ui',
+              name: 'attributePaths',
+              type: 'json',
               admin: {
-                components: {
-                  // Custom Component cho các nút Test GET/PUT và Code Viewer
-                  Field: '@/collections/NgsiEntities/ui/EntityInteraction#EntityInteraction',
-                },
+                readOnly: true,
+                description:
+                  'Pre-computed attribute paths for autocomplete (auto-populated on sync)',
               },
             },
           ],
         },
       ],
-    },
-    // Field ẩn để lưu owner nếu cần phân quyền sau này
-    {
-      name: 'owner',
-      type: 'relationship',
-      relationTo: 'users',
-      admin: {
-        position: 'sidebar',
-        readOnly: true,
-      },
-      hooks: {
-        beforeChange: [
-          ({ req, operation, value }) => {
-            if (operation === 'create' && req.user) {
-              return req.user.id
-            }
-            return value
-          },
-        ],
-      },
     },
   ],
   hooks: {
