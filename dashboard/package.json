@@ -1,7 +1,9 @@
 {
-  "name": "dashboard",
+  "name": "legocity-dashboard",
   "version": "1.0.0",
-  "description": "Website template for Payload",
+  "upstreamVersion": "v0.3.0-alpha",
+  "upstreamRepo": "CTU-SematX/Lego-Dashboard",
+  "description": "LegoCity Dashboard - synced from Lego-Dashboard",
   "license": "MIT",
   "type": "module",
   "scripts": {
