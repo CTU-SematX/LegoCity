@@ -1,27 +1,27 @@
 # Sample Data (Open Datasets)
 
-Thư mục này chứa các dataset mẫu dùng để seed dữ liệu cho các Data Source servers. Dữ liệu được lưu trữ ở **định dạng JSON thuần** (plain JSON) và mô phỏng các thiết bị/cảm biến Smart City tại TP. Cần Thơ.
+This folder contains sample datasets used to seed data for the Data Source servers. Data is stored in **plain JSON format** and simulates Smart City devices/sensors in Can Tho City.
 
-> **Note**: Dữ liệu ở định dạng JSON bình thường, không phải NGSI-LD. Các servers sẽ tự động convert sang NGSI-LD khi cần thiết thông qua endpoint `/ngsi-ld`.
+> **Note**: The data is regular JSON, not NGSI-LD. Servers will automatically convert it to NGSI-LD when needed through the `/ngsi-ld` endpoint.
 
-## 📂 Danh sách Datasets
+## 📂 Dataset List
 
-| File | Domain | Entity Type | Số records | Mô tả |
-|------|--------|-------------|------------|-------|
-| `traffic.json` | Giao thông | TrafficFlowObserved | 10 | Dữ liệu lưu lượng giao thông từ các trạm đo |
-| `environment.json` | Môi trường | AirQualityObserved | 8 | Dữ liệu chất lượng không khí (AQI, PM2.5, NO2,...) |
-| `lighting.json` | Dịch vụ công cộng | Streetlight | 10 | Dữ liệu đèn đường thông minh |
-| `infrastructure.json` | Hạ tầng kỹ thuật | WaterSupply, Drainage, ElectricityGrid, Telecom | 11 | Dữ liệu hạ tầng đô thị |
+| File                  | Domain               | Entity Type                                     | Records | Description                                 |
+| --------------------- | -------------------- | ----------------------------------------------- | ------- | ------------------------------------------- |
+| `traffic.json`        | Transportation       | TrafficFlowObserved                             | 10      | Traffic flow data from measurement stations |
+| `environment.json`    | Environment          | AirQualityObserved                              | 8       | Air quality data (AQI, PM2.5, NO2, etc.)    |
+| `lighting.json`       | Public services      | Streetlight                                     | 10      | Smart streetlight data                      |
+| `infrastructure.json` | Urban Infrastructure | WaterSupply, Drainage, ElectricityGrid, Telecom | 11      | Urban infrastructure data                   |
 
-## 🗂️ Cấu trúc dữ liệu
+## 🗂️ Data Structure
 
-### Traffic Flow (Lưu lượng giao thông)
+### Traffic Flow
 
 ```json
 {
   "stationId": "cantho-station-01",
-  "name": "Trạm đo lưu lượng Nguyễn Văn Linh",
-  "description": "Trạm đo lưu lượng giao thông tại đường Nguyễn Văn Linh",
+  "name": "Nguyen Van Linh Traffic Station",
+  "description": "Traffic flow measurement station on Nguyen Van Linh street",
   "longitude": 105.7469,
   "latitude": 10.0452,
   "dateObserved": "2025-12-03T08:00:00Z",
@@ -35,13 +35,13 @@ Thư mục này chứa các dataset mẫu dùng để seed dữ liệu cho các 
 }
 ```
 
-### Air Quality (Chất lượng không khí)
+### Air Quality
 
 ```json
 {
   "stationId": "cantho-aqi-01",
-  "name": "Trạm quan trắc Ninh Kiều",
-  "description": "Trạm quan trắc chất lượng không khí tại Q. Ninh Kiều",
+  "name": "Ninh Kieu Monitoring Station",
+  "description": "Air quality monitoring station in Ninh Kieu District",
   "longitude": 105.7469,
   "latitude": 10.0452,
   "dateObserved": "2025-12-03T08:00:00Z",
@@ -59,13 +59,13 @@ Thư mục này chứa các dataset mẫu dùng để seed dữ liệu cho các 
 }
 ```
 
-### Streetlight (Đèn đường)
+### Streetlight
 
 ```json
 {
   "lampId": "cantho-sl-001",
-  "name": "Đèn đường NK-001",
-  "description": "Đèn LED thông minh tại đường Nguyễn Văn Linh",
+  "name": "Streetlight NK-001",
+  "description": "Smart LED streetlight on Nguyen Van Linh street",
   "longitude": 105.7469,
   "latitude": 10.0452,
   "status": "ok",
@@ -81,9 +81,9 @@ Thư mục này chứa các dataset mẫu dùng để seed dữ liệu cho các 
 }
 ```
 
-### Infrastructure (Hạ tầng)
+### Infrastructure
 
-File `infrastructure.json` chứa một object với 4 mảng:
+The file `infrastructure.json` contains one object with four arrays:
 
 ```json
 {
@@ -94,11 +94,12 @@ File `infrastructure.json` chứa một object với 4 mảng:
 }
 ```
 
-Ví dụ Water Supply:
+Example — Water Supply:
+
 ```json
 {
   "stationId": "cantho-ws-01",
-  "name": "Trạm cấp nước Ninh Kiều",
+  "name": "Ninh Kieu Water Supply Station",
   "longitude": 105.7469,
   "latitude": 10.0452,
   "waterPressure": 3.5,
@@ -108,29 +109,30 @@ Ví dụ Water Supply:
 }
 ```
 
-## 📍 Vị trí địa lý
+## 📍 Geographic Locations
 
-Dữ liệu mô phỏng các địa điểm thực tế tại TP. Cần Thơ:
+The data simulates real locations in Can Tho City:
 
-- **Q. Ninh Kiều**: Trung tâm thành phố
-- **Q. Cái Răng**: Chợ nổi Cái Răng
-- **Q. Bình Thủy**: Khu vực công nghiệp
-- **Q. Ô Môn**: Khu vực ngoại ô
-- **Q. Thốt Nốt**: Vùng ven
-- **H. Phong Điền**: Nông thôn
-- **KCN Trà Nóc**: Khu công nghiệp
+* **Ninh Kieu District**: City center
+* **Cai Rang District**: Cai Rang floating market
+* **Binh Thuy District**: Industrial zone
+* **O Mon District**: Suburban area
+* **Thot Not District**: Outer region
+* **Phong Dien District**: Rural area
+* **Tra Noc Industrial Park**: Industrial park
 
-## 🔗 Tham khảo
+## 🔗 References
 
-- [Smart Data Models](https://smartdatamodels.org/) - Chuẩn dữ liệu NGSI-LD
-- [FIWARE Data Models](https://github.com/FIWARE/data-models) - Mô hình dữ liệu FIWARE
+* Smart Data Models — NGSI-LD data standards
+* FIWARE Data Models — FIWARE data model repository
 
-## 📝 Sử dụng
+## 📝 Usage
 
-Dữ liệu được tự động load vào các servers khi khởi động (xem `/servers/README.md`).
+Data is automatically loaded into servers at startup (see `/servers/README.md`).
 
-Để thêm dữ liệu mới:
+To add new data:
 
-1. Tạo file JSON với format phù hợp
-2. Cập nhật biến môi trường `DATA_PATH` của server tương ứng
-3. Xóa database cũ để re-seed (hoặc dùng API để thêm thủ công)
+1. Create a JSON file with the correct format
+2. Update the server’s `DATA_PATH` environment variable
+3. Delete the old database to re-seed (or use the API to add manually)
+

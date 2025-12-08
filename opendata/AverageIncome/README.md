@@ -30,9 +30,9 @@ This dataset includes income statistics for all provinces and centrally-governed
 - Southern provinces (Đông Nam Bộ, Đồng bằng sông Cửu Long)
 
 ## License
-This dataset is part of the SmartCity project and is licensed under **CC-BY-4.0** (Creative Commons Attribution 4.0 International).
+This dataset is part of the SmartCity project and is licensed under **CC-BY-SA-4.0** (Creative Commons Attribution-ShareAlike 4.0 International).
 
-See the main [LICENSE](../../LICENSE) file and [LICENSES/CC-BY-4.0.txt](../../LICENSES/CC-BY-4.0.txt) for details.
+See [LICENSES/CC-BY-SA-4.0.txt](../../LICENSES/CC-BY-SA-4.0.txt) for details.
 
 ## Usage
 This data can be used for:
