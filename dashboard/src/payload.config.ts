@@ -11,6 +11,7 @@ import { Media } from './collections/Media'
 import { NgsiDataModels } from './collections/NgsiDataModels'
 import { NgsiDomains } from './collections/NgsiDomains'
 import { NgsiEntities } from './collections/NgsiEntities'
+import { Maps } from './collections/Maps'
 import { NgsiSources } from './collections/NgsiSources'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
@@ -72,6 +73,7 @@ export default buildConfig({
   collections: [
     Pages,
     Posts,
+    Maps,
     Media,
     Categories,
     Users,

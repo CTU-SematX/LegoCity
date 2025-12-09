@@ -70,6 +70,7 @@ export interface Config {
   collections: {
     pages: Page;
     posts: Post;
+    maps: Map;
     media: Media;
     categories: Category;
     users: User;
@@ -98,6 +99,7 @@ export interface Config {
   collectionsSelect: {
     pages: PagesSelect<false> | PagesSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
+    maps: MapsSelect<false> | MapsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
@@ -1007,6 +1009,97 @@ export interface NgsiSource {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "maps".
+ */
+export interface Map {
+  id: string;
+  title: string;
+  /**
+   * Add layers to display NGSI-LD entities on the map. Each layer can show entities from a specific data model.
+   */
+  layers?:
+    | {
+        /**
+         * Layer name for identification
+         */
+        name: string;
+        /**
+         * Select the NGSI-LD data model type to display
+         */
+        dataModel: string | NgsiDataModel;
+        /**
+         * Select the context broker source
+         */
+        source: string | NgsiSource;
+        /**
+         * Select specific entities to display. Leave empty to query all entities of the selected model type.
+         */
+        entities?: (string | NgsiEntity)[] | null;
+        /**
+         * Attribute name containing GeoProperty (e.g., "location"). Leave empty to auto-detect.
+         */
+        locationAttribute?: string | null;
+        markerStyle?: {
+          /**
+           * Marker color in hex format
+           */
+          color?: string | null;
+          /**
+           * Marker size in pixels
+           */
+          size?: number | null;
+          /**
+           * Marker icon shape
+           */
+          icon?: ('circle' | 'square' | 'triangle' | 'star' | 'pin') | null;
+        };
+        /**
+         * Template for marker popups. Use {{attribute.path}} syntax. Example: <h3>{{name}}</h3><p>Temperature: {{temperature.value}}</p>
+         */
+        popupTemplate?: string | null;
+        /**
+         * Data refresh interval in seconds. Set to 0 to disable auto-refresh.
+         */
+        refreshInterval?: number | null;
+        /**
+         * Enable or disable this layer
+         */
+        enabled?: boolean | null;
+        id?: string | null;
+      }[]
+    | null;
+  mapSettings?: {
+    /**
+     * Default center longitude
+     */
+    centerLng?: number | null;
+    /**
+     * Default center latitude
+     */
+    centerLat?: number | null;
+    /**
+     * Default zoom level (1-20)
+     */
+    zoom?: number | null;
+    /**
+     * Mapbox map style
+     */
+    mapStyle?:
+      | ('streets-v12' | 'satellite-v9' | 'satellite-streets-v12' | 'outdoors-v12' | 'light-v11' | 'dark-v11')
+      | null;
+  };
+  publishedAt?: string | null;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1274,6 +1367,24 @@ export interface PayloadMcpApiKey {
      */
     delete?: boolean | null;
   };
+  maps?: {
+    /**
+     * Allow clients to find maps.
+     */
+    find?: boolean | null;
+    /**
+     * Allow clients to create maps.
+     */
+    create?: boolean | null;
+    /**
+     * Allow clients to update maps.
+     */
+    update?: boolean | null;
+    /**
+     * Allow clients to delete maps.
+     */
+    delete?: boolean | null;
+  };
   updatedAt: string;
   createdAt: string;
   enableAPIKey?: boolean | null;
@@ -1403,6 +1514,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'posts';
         value: string | Post;
+      } | null)
+    | ({
+        relationTo: 'maps';
+        value: string | Map;
       } | null)
     | ({
         relationTo: 'media';
@@ -1695,6 +1810,47 @@ export interface PostsSelect<T extends boolean = true> {
         id?: T;
         name?: T;
       };
+  generateSlug?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "maps_select".
+ */
+export interface MapsSelect<T extends boolean = true> {
+  title?: T;
+  layers?:
+    | T
+    | {
+        name?: T;
+        dataModel?: T;
+        source?: T;
+        entities?: T;
+        locationAttribute?: T;
+        markerStyle?:
+          | T
+          | {
+              color?: T;
+              size?: T;
+              icon?: T;
+            };
+        popupTemplate?: T;
+        refreshInterval?: T;
+        enabled?: T;
+        id?: T;
+      };
+  mapSettings?:
+    | T
+    | {
+        centerLng?: T;
+        centerLat?: T;
+        zoom?: T;
+        mapStyle?: T;
+      };
+  publishedAt?: T;
   generateSlug?: T;
   slug?: T;
   updatedAt?: T;
@@ -2214,6 +2370,14 @@ export interface PayloadMcpApiKeysSelect<T extends boolean = true> {
         update?: T;
         delete?: T;
       };
+  maps?:
+    | T
+    | {
+        find?: T;
+        create?: T;
+        update?: T;
+        delete?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   enableAPIKey?: T;
@@ -2423,6 +2587,10 @@ export interface TaskSchedulePublish {
       | ({
           relationTo: 'posts';
           value: string | Post;
+        } | null)
+      | ({
+          relationTo: 'maps';
+          value: string | Map;
         } | null);
     global?: string | null;
     user?: (string | null) | User;
