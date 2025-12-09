@@ -1,5 +1,14 @@
 from sqlmodel import SQLModel, Field
 from typing import Optional
+"""
+LegoCity - Smart City Platform
+@version 1.0
+@author CTU·SematX
+@copyright (c) 2025 CTU·SematX. All rights reserved
+@license MIT License
+@see https://github.com/CTU-SematX/LegoCity The LegoCity GitHub project
+"""
+
 from datetime import datetime
 
 

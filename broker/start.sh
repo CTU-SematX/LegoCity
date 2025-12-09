@@ -1,3 +1,11 @@
+#!/bin/bash
+# LegoCity - Smart City Platform
+# @version 1.0
+# @author CTU·SematX
+# @copyright (c) 2025 CTU·SematX. All rights reserved
+# @license MIT License
+# @see https://github.com/CTU-SematX/LegoCity The LegoCity GitHub project
+
 ## Build for the first time
 # docker compose build gateway
 docker compose up -d mongo

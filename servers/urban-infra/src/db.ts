@@ -1,3 +1,12 @@
+/**
+ * LegoCity - Smart City Platform
+ * @version 1.0
+ * @author CTU·SematX
+ * @copyright (c) 2025 CTU·SematX. All rights reserved
+ * @license MIT License
+ * @see https://github.com/CTU-SematX/LegoCity The LegoCity GitHub project
+ */
+
 import { Database } from "bun:sqlite";
 import { readFileSync, existsSync } from "fs";
 import type {
