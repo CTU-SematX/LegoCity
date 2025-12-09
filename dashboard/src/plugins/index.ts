@@ -120,6 +120,9 @@ export const plugins: Plugin[] = [
     "ngsi-sources":{
       enabled:true
     },
+    maps:{
+      enabled:true
+    },
   }})
 ]
 

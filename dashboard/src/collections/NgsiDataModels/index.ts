@@ -27,6 +27,7 @@ export const NgsiDataModels: CollectionConfig = {
     components: {
       afterListTable: ['@/collections/NgsiDataModels/ui/SyncButton#SyncButton'],
     },
+    listSearchableFields: ['model', 'repoName'],
   },
   // Compound index for model + repoName uniqueness
   indexes: [
@@ -43,6 +44,12 @@ export const NgsiDataModels: CollectionConfig = {
       index: true,
       admin: {
         description: 'The entity type name (e.g., "Building", "Device")',
+      },
+      validate: (value) => {
+        if (!value || typeof value !== 'string' || value.trim() === '') {
+          return 'Model name is required'
+        }
+        return true
       },
     },
     {

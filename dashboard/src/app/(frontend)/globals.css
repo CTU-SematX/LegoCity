@@ -101,3 +101,25 @@ html[data-theme='dark'],
 html[data-theme='light'] {
   opacity: initial;
 }
+
+/* Mapbox popup styles */
+.mapboxgl-popup-content {
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ngsi-hover-popup .mapboxgl-popup-content {
+  padding: 8px 12px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.ngsi-hover-popup-content {
+  font-size: 12px;
+}
+
+.ngsi-popup {
+  font-size: 12px;
+}
+
