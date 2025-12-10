@@ -14,11 +14,11 @@
 Mô tả ngắn
 **LegoCity** là một mẫu Smart City (Thành phố thông minh) nhẹ được xây dựng để phục vụ thử nghiệm nhanh và giảng dạy trong hệ sinh thái **CTU-SematX**. Dự án cung cấp các thành phần mẫu minh hoạ cách kết nối nguồn dữ liệu, API gateway và dashboard bằng NGSI-LD và các enabler trong FIWARE.
 
-Tài liệu: [https://ctu-sematx.github.io/Lego-Doc/](https://ctu-sematx.github.io/Lego-Doc/)
+Tài liệu: https://ctu-sematx.github.io/Lego-Doc/ [![version](https://img.shields.io/github/v/release/CTU-SematX/Lego-Doc?label=Version)](https://github.com/CTU-SematX/Lego-Doc/releases)
 
-Lego-Dashboard repo (Đang cập nhật): https://github.com/CTU-SematX/Lego-Dashboard
+Lego-Dashboard: https://github.com/CTU-SematX/Lego-Dashboard [![version](https://img.shields.io/github/v/release/CTU-SematX/Lego-Dashboard?label=Version)](https://github.com/CTU-SematX/Lego-Dashboard/releases)
 
-Orion-Nginx repo: https://github.com/CTU-SematX/Orion-Nginx
+Orion-Nginx: https://github.com/CTU-SematX/Orion-Nginx [![version](https://img.shields.io/github/v/release/CTU-SematX/Orion-Nginx?label=Version)](https://github.com/CTU-SematX/Orion-Nginx/releases)
 
 ## Mục lục
 
@@ -53,26 +53,27 @@ cd LegoCity
 
 ## Hướng dẫn khởi động nhanh
 
-**Khởi động broker (Orion + MongoDB)**
+**Khởi động toàn bộ hệ thống (khuyến nghị)**
 
 ```bash
-cd broker
+# Khởi động tất cả dịch vụ với docker compose thống nhất
 docker compose up -d
+
+# Xem logs
+docker compose logs -f
+
+# Dừng toàn bộ
+docker compose down
 ```
 
-**Khởi động các server dữ liệu mẫu**
+**Hoặc khởi động từng thành phần riêng lẻ:**
 
 ```bash
-cd servers
-docker compose up -d --build
-```
+# Chỉ khởi động broker
+cd broker && docker compose up -d
 
-**Chạy dashboard (phát triển local)**
-
-```bash
-cd dashboard
-pnpm install
-pnpm dev
+# Chạy dashboard local
+cd dashboard && pnpm install && pnpm dev
 ```
 
 
@@ -82,34 +83,34 @@ Repository chứa các Data Source server mẫu và một dashboard minh họa t
 
 ### Các server mẫu
 
-| Server                | Port | Framework        | Lĩnh vực                          |
+| Server | Port | Framework | Mục đích |
 | --------------------- | ---- | ---------------- | --------------------------------- |
-| `traffic-flow`        | 8001 | FastAPI + Python | Lưu lượng giao thông              |
-| `environment-monitor` | 8002 | Gin + Go         | Chất lượng không khí / môi trường |
-| `public-lighting`     | 8003 | Elysia + Bun     | Chiếu sáng công cộng              |
-| `urban-infra`         | 8004 | Elysia + Bun     | Hạ tầng đô thị                    |
+| `demo-server` | 8004 | Elysia + Bun | Demo tương tác với Swagger UI |
+| `weather-server` | 8005 | Elysia + Bun | Dữ liệu thời tiết/AQ tự động cập nhật |
 
 Mỗi server bao gồm:
 
 * REST API cho CRUD
-* Endpoint chuyển đổi NGSI-LD
+* Tích hợp NGSI-LD với Context Broker
+* Swagger UI cho tài liệu API tương tác
 * Health check
 
 ### Open Data
 
-**Ghi chú:** Sắp đến các sẽ cập nhật các bộ dữ liệu từ các nguồn dữ liệu mở thật. Các ví dụ dưới đây được tạo sinh từ AI.
+Thư mục `opendata/` chứa dữ liệu seed cho Context Broker và các dataset địa lý thực tế.
 
-Thư mục `opendata/` chứa các dataset JSON mẫu dùng để seed dữ liệu cho các server:
+#### Dữ liệu Seed (CSV)
+Các file dữ liệu trong `opendata/seed-data/` được tự động nạp vào Context Broker khi khởi động:
+- Lưu lượng giao thông, Cảm biến lũ lụt, Vùng ngập lụt
+- Sự cố khẩn cấp, Xe cấp cứu
+- Cơ sở y tế, Trạm thời tiết, Trạm quan trắc chất lượng không khí
 
-* `traffic.json`
-* `environment.json`
-* `lighting.json`
-* `infrastructure.json`
+Xem chi tiết tại [opendata/README.md](./opendata/README.md) và README của từng thư mục.
 
 
 ## Các vấn đề đã biết
 
-* Docker build một số image có thể lỗi trên các bản phân phối dùng musl (Alpine). Hãy dùng image Debian-based cho Go (`golang:1.21-bookworm`) khi build local hoặc trong CI.
+- Orion-LD sử dụng MongoDB v5.x.x đã hết hạn hỗ trợ (end of life).
 
 Nếu gặp vấn đề khác, vui lòng mở issue kèm bước tái hiện lỗi.
 
@@ -132,7 +133,13 @@ Tham khảo README của từng thành phần trong `broker/`, `servers/`, và `
 
 ## Giấy phép
 
-Dự án phát hành theo giấy phép MIT — xem file `LICENSE` để biết chi tiết.
+Dự án này sử dụng nhiều giấy phép tùy thuộc vào nội dung:
+
+- **Mã nguồn**: Giấy phép MIT — xem file [LICENSE](./LICENSE)
+- **Open Data**: CC-BY-4.0 (Creative Commons Attribution 4.0 International) — xem [LICENSES/CC-BY-4.0.txt](./LICENSES/CC-BY-4.0.txt)
+- **Tài liệu**: Nội dung có thể tuân theo các điều khoản khác
+
+Vui lòng tham khảo các file và thư mục riêng lẻ để biết thông tin giấy phép cụ thể.
 
 
 ## Người duy trì
@@ -142,7 +149,12 @@ Dự án phát hành theo giấy phép MIT — xem file `LICENSE` để biết c
 
 ## Ghi công và tài liệu tham khảo
 
-* FIWARE Foundation — Orion Context Broker
-* Smart Data Models — NGSI-LD models
-* PayloadCMS — dashboard mẫu
+* **FIWARE Foundation** — Orion Context Broker
+* **Smart Data Models** — Mô hình dữ liệu NGSI-LD
+* **PayloadCMS** — Framework dashboard mẫu
+* **Nguồn Open Data** — Các cổng dữ liệu mở của chính phủ Việt Nam và nhiều nguồn công khai khác
 * [IEEE Open Source Maintainers Manual](https://opensource.ieee.org/community/manual/)
+
+### Ghi nhận nguồn dữ liệu
+
+Khi sử dụng các dataset này, vui lòng ghi nhận nguồn phù hợp theo [giấy phép CC-BY-4.0](./LICENSES/CC-BY-4.0.txt).

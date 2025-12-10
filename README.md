@@ -15,11 +15,11 @@ Short description
 
 LegoCity is a lightweight Smart City template designed for rapid experimentation and teaching within the CTU-SematX ecosystem. It provides example components to demonstrate how to connect data sources, an API gateway, and a dashboard using NGSI-LD and FIWARE enablers.
 
-Documentation: https://ctu-sematx.github.io/Lego-Doc/
+Documentation: https://ctu-sematx.github.io/Lego-Doc/ [![version](https://img.shields.io/github/v/release/CTU-SematX/Lego-Doc?label=Version)](https://github.com/CTU-SematX/Lego-Doc/releases)
 
-Lego-Dashboard: https://github.com/CTU-SematX/Lego-Dashboard 
+Lego-Dashboard: https://github.com/CTU-SematX/Lego-Dashboard [![version](https://img.shields.io/github/v/release/CTU-SematX/Lego-Dashboard?label=Version)](https://github.com/CTU-SematX/Lego-Dashboard/releases)
 
-Orion-Nginx: https://github.com/CTU-SematX/Orion-Nginx
+Orion-Nginx: https://github.com/CTU-SematX/Orion-Nginx [![version](https://img.shields.io/github/v/release/CTU-SematX/Orion-Nginx?label=Version)](https://github.com/CTU-SematX/Orion-Nginx/releases)
 
 
 ## Table of Contents
@@ -106,24 +106,11 @@ Data files in `opendata/seed-data/` are automatically loaded into the Context Br
 - Emergency incidents, Emergency vehicles
 - Medical facilities, Weather stations, Air quality monitors
 
-#### Geospatial Datasets (GeoJSON)
-Real-world datasets covering various aspects of Vietnam:
-
-| Dataset | Description | Format |
-|---------|-------------|--------|
-| **giaothong/** | Traffic infrastructure (highways, national roads) | GeoJSON |
-| **heritage/** | Cultural and historical heritage sites | GeoJSON |
-| **khu_bao_ton_quoc_gia/** | National conservation areas and nature reserves | GeoJSON |
-| **thunhapbinhquan/** | Provincial-level average income statistics | GeoJSON |
-| **thuydien/** | Hydroelectric power plants and facilities | GeoJSON |
-
-All geospatial datasets use **WGS84 (EPSG:4326)** coordinate system and are licensed under **CC-BY-4.0**.
-
-For detailed information about each dataset, see [opendata/README.md](./opendata/README.md) and individual folder READMEs.
+For detailed information about each dataset, see [opendata/README.md](./opendata/README.md).
 
 ## Known Issues
 
-- Docker builds for some language images may fail on musl-based distributions (Alpine). Use Debian-based images for Go (`golang:1.21-bookworm`) when building locally or in CI.
+- Orion-LD use MongoDB v5.x.x is end of life.
 
 If you encounter other issues, please open an issue with steps to reproduce.
 
@@ -165,12 +152,5 @@ Please refer to individual files and directories for specific licensing informat
 - [IEEE Open Source Maintainers Manual](https://opensource.ieee.org/community/manual/)
 
 ### Data Attribution
-
-The geospatial datasets in the `opendata/` directory are compiled from various sources including:
-- Vietnamese government open data portals
-- Energy sector data (EVN, hydroelectric companies)
-- Provincial statistics bureaus
-- Environmental protection agencies
-- Cultural heritage preservation organizations
 
 When using these datasets, please provide appropriate attribution as specified in the [CC-BY-4.0 license](./LICENSES/CC-BY-4.0.txt).
