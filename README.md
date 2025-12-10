@@ -21,6 +21,8 @@ Lego-Dashboard: https://github.com/CTU-SematX/Lego-Dashboard [![version](https:/
 
 Orion-Nginx: https://github.com/CTU-SematX/Orion-Nginx [![version](https://img.shields.io/github/v/release/CTU-SematX/Orion-Nginx?label=Version)](https://github.com/CTU-SematX/Orion-Nginx/releases)
 
+<img width="1898" height="858" alt="image" src="https://github.com/user-attachments/assets/818af258-ea4b-424b-a2a4-23d01e6fadf0" />
+
 
 ## Table of Contents
 
