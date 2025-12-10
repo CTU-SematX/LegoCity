@@ -1,0 +1,197 @@
+# LegoCity - Smart City Platform
+# Unified Docker Compose for entire stack
+# @version 1.0
+# @author CTU·SematX
+# @copyright (c) 2025 CTU·SematX. All rights reserved
+# @license MIT License
+# @see https://github.com/CTU-SematX/LegoCity
+
+services:
+  # =============================================================================
+  # LAYER 0: Database
+  # =============================================================================
+  mongo:
+    image: mongo:5.0.26
+    container_name: legocity-mongo
+    command: mongod --quiet --dbpath /data/db --replSet rs --port 27017 --bind_ip 0.0.0.0
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - legocity-network
+    healthcheck:
+      test: |
+        mongosh --quiet --eval "
+          try {
+            rs.status().ok
+          } catch(e) {
+            rs.initiate({_id:'rs', members:[{_id:0, host:'localhost:27017'}]});
+            1
+          }
+        " || exit 1
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  # =============================================================================
+  # LAYER 1: Context Broker (Orion-LD)
+  # =============================================================================
+  orion-ld:
+    image: fiware/orion-ld:1.6.0
+    platform: linux/amd64
+    container_name: legocity-orion
+    depends_on:
+      mongo:
+        condition: service_healthy
+    environment:
+      - ORIONLD_MONGO_HOST=mongo
+      - ORIONLD_MONGO_PORT=27017
+      - ORIONLD_LOG_LEVEL=INFO
+      - ORIONLD_CORS_ALLOWED_ORIGIN=*
+    command: >
+      -dbhost mongo
+      -logLevel DEBUG
+    ports:
+      - "1026:1026"
+    networks:
+      - legocity-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:1026/version"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  # =============================================================================
+  # LAYER 2: Data Loader (runs once to seed broker with CSV data)
+  # =============================================================================
+  data-loader:
+    build:
+      context: ./opendata/seed-data
+      dockerfile: Dockerfile
+    container_name: legocity-data-loader
+    depends_on:
+      orion-ld:
+        condition: service_healthy
+    environment:
+      - BROKER_URL=http://orion-ld:1026
+    volumes:
+      - ./opendata/seed-data:/data:ro
+    networks:
+      - legocity-network
+    restart: "no"
+
+  # =============================================================================
+  # LAYER 3: API Gateway (OpenResty with JWT auth)
+  # =============================================================================
+  gateway:
+    build:
+      context: ./broker
+    container_name: legocity-gateway
+    depends_on:
+      orion-ld:
+        condition: service_healthy
+      data-loader:
+        condition: service_completed_successfully
+    ports:
+      - "8080:80"
+    environment:
+      JWT_SECRET: ${JWT_SECRET:-your-secret-key}
+      TRUSTED_IP: ${TRUSTED_IP:-}
+    volumes:
+      - ./broker/nginx/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf:ro
+      - ./broker/nginx/conf.d:/usr/local/openresty/nginx/conf/conf.d:ro
+    networks:
+      - legocity-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # =============================================================================
+  # LAYER 4: Demo Server (Interactive OpenAPI for learning)
+  # =============================================================================
+  demo-server:
+    build:
+      context: ./servers/demo-server
+    container_name: legocity-demo-server
+    depends_on:
+      gateway:
+        condition: service_healthy
+    ports:
+      - "8004:8004"
+    environment:
+      - BROKER_URL=http://orion-ld:1026
+      - PORT=8004
+    networks:
+      - legocity-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8004/"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # =============================================================================
+  # LAYER 4B: Weather Data Server (Auto-update with realistic data)
+  # =============================================================================
+  weather-server:
+    build:
+      context: ./servers/weather-server
+    container_name: legocity-weather-server
+    depends_on:
+      gateway:
+        condition: service_healthy
+    ports:
+      - "8005:8005"
+    environment:
+      - BROKER_URL=http://orion-ld:1026
+      - PORT=8005
+    networks:
+      - legocity-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8005/"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # =============================================================================
+  # LAYER 5: Dashboard (PayloadCMS + Next.js)
+  # =============================================================================
+  dashboard-db:
+    image: mongo:latest
+    container_name: legocity-dashboard-db
+    command: --storageEngine=wiredTiger
+    volumes:
+      - dashboard_data:/data/db
+    networks:
+      - legocity-network
+    logging:
+      driver: none
+
+  dashboard:
+    build:
+      context: ./dashboard
+    container_name: legocity-dashboard
+    depends_on:
+      - dashboard-db
+      - gateway
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URI=mongodb://dashboard-db:27017/dashboard
+      - PAYLOAD_SECRET=${PAYLOAD_SECRET:-your-payload-secret}
+      - NEXT_PUBLIC_SERVER_URL=${NEXT_PUBLIC_SERVER_URL:-http://localhost:3000}
+      - BROKER_URL=http://gateway:80
+    networks:
+      - legocity-network
+
+volumes:
+  mongo_data:
+  dashboard_data:
+
+networks:
+  legocity-network:
+    driver: bridge

@@ -3,3 +3,4 @@
 .idea
 .env
 .github/instructions
+**/node_modules

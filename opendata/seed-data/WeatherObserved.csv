@@ -1,0 +1,11 @@
+id,type,location,name,temperature,humidity,windSpeed,windDirection,atmosphericPressure,precipitation,observedAt
+urn:ngsi-ld:WeatherObserved:HCMC:station-01,WeatherObserved,"10.7769,106.7009",District 1 Station,32.5,75,12,180,1013,0,2025-12-10T08:00:00Z
+urn:ngsi-ld:WeatherObserved:HCMC:station-02,WeatherObserved,"10.8231,106.6297",Tan Binh Station,31.8,78,10,195,1012,0,2025-12-10T08:00:00Z
+urn:ngsi-ld:WeatherObserved:HCMC:station-03,WeatherObserved,"10.7503,106.6625",District 5 Station,33.1,72,8,170,1014,0,2025-12-10T08:00:00Z
+urn:ngsi-ld:WeatherObserved:HCMC:station-04,WeatherObserved,"10.8488,106.7719",Thu Duc Station,30.2,82,15,210,1011,0.5,2025-12-10T08:00:00Z
+urn:ngsi-ld:WeatherObserved:HCMC:station-05,WeatherObserved,"10.7295,106.7217",Binh Thanh Station,32.0,76,11,185,1013,0,2025-12-10T08:00:00Z
+urn:ngsi-ld:WeatherObserved:HCMC:station-06,WeatherObserved,"10.8010,106.6443",Tan Phu Station,31.5,79,9,175,1012,0,2025-12-10T08:00:00Z
+urn:ngsi-ld:WeatherObserved:HCMC:station-07,WeatherObserved,"10.7628,106.6820",District 10 Station,32.8,74,10,190,1013,0,2025-12-10T08:00:00Z
+urn:ngsi-ld:WeatherObserved:HCMC:station-08,WeatherObserved,"10.8567,106.6063",Hoc Mon Station,29.8,85,14,220,1010,1.2,2025-12-10T08:00:00Z
+urn:ngsi-ld:WeatherObserved:HCMC:station-09,WeatherObserved,"10.6918,106.7523",District 9 Station,31.2,80,12,200,1012,0,2025-12-10T08:00:00Z
+urn:ngsi-ld:WeatherObserved:HCMC:station-10,WeatherObserved,"10.7456,106.6347",District 8 Station,32.3,77,8,165,1013,0,2025-12-10T08:00:00Z
