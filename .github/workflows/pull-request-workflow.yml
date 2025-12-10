@@ -11,57 +11,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Build and test Go server (environment-monitor)
-  go-server:
-    name: Build Go Server
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: servers/environment-monitor
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: '1.21'
-
-      - name: Download dependencies
-        run: go mod download
-
-      - name: Build
-        run: go build -v ./...
-
-  # Build and test Python server (traffic-flow)
-  python-server:
-    name: Build Python Server
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: servers/traffic-flow
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Lint with ruff
-        run: |
-          pip install ruff
-          ruff check . --ignore E501
-
-  # Build Bun/Elysia servers
+  # Build and test Bun/Elysia servers
   bun-servers:
     name: Build Bun Servers
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        server: [public-lighting, urban-infra]
+        server: [demo-server, weather-server]
     defaults:
       run:
         working-directory: servers/${{ matrix.server }}
@@ -79,33 +35,23 @@ jobs:
       - name: Type check
         run: bun run tsc --noEmit || true
 
-  # Validate JSON data files
+  # Validate CSV data files
   validate-data:
-    name: Validate Data Files
+    name: Validate Seed Data
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Validate JSON
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate CSV files
         run: |
-          for file in data/*.json; do
+          cd opendata/seed-data
+          for file in *.csv; do
             echo "Validating $file..."
-            python3 -m json.tool "$file" > /dev/null
+            python3 -c "import csv; list(csv.DictReader(open('$file')))"
+            echo "  ✓ Valid"
           done
-
-  # Lint Go code
-  lint-go:
-    name: Lint Go
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: '1.21'
-
-      - name: golangci-lint
-        uses: golangci/golangci-lint-action@v4
-        with:
-          working-directory: servers/environment-monitor
