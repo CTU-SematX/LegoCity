@@ -24,14 +24,12 @@ jobs:
     strategy:
       matrix:
         include:
-          - name: traffic-flow
-            context: ./servers/traffic-flow
-          - name: environment-monitor
-            context: ./servers/environment-monitor
-          - name: public-lighting
-            context: ./servers/public-lighting
-          - name: urban-infra
-            context: ./servers/urban-infra
+          - name: demo-server
+            context: ./servers/demo-server
+          - name: weather-server
+            context: ./servers/weather-server
+          - name: data-loader
+            context: ./opendata/seed-data
     steps:
       - uses: actions/checkout@v4
 

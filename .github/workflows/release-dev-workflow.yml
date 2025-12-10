@@ -18,33 +18,26 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Build Traffic Flow Server
+      - name: Build Demo Server
         uses: docker/build-push-action@v5
         with:
-          context: ./servers/traffic-flow
+          context: ./servers/demo-server
           push: false
-          tags: legocity/traffic-flow:dev
+          tags: legocity/demo-server:dev
 
-      - name: Build Environment Monitor Server
+      - name: Build Weather Server
         uses: docker/build-push-action@v5
         with:
-          context: ./servers/environment-monitor
+          context: ./servers/weather-server
           push: false
-          tags: legocity/environment-monitor:dev
+          tags: legocity/weather-server:dev
 
-      - name: Build Public Lighting Server
+      - name: Build Data Loader
         uses: docker/build-push-action@v5
         with:
-          context: ./servers/public-lighting
+          context: ./opendata/seed-data
           push: false
-          tags: legocity/public-lighting:dev
-
-      - name: Build Urban Infra Server
-        uses: docker/build-push-action@v5
-        with:
-          context: ./servers/urban-infra
-          push: false
-          tags: legocity/urban-infra:dev
+          tags: legocity/data-loader:dev
 
   # Validate data files
   validate-data:
@@ -53,11 +46,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Validate JSON files
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate CSV files
         run: |
-          for file in data/*.json; do
+          cd opendata/seed-data
+          for file in *.csv; do
             echo "Validating $file..."
-            python3 -m json.tool "$file" > /dev/null
+            python3 -c "import csv; list(csv.DictReader(open('$file')))"
+            echo "  ✓ Valid"
           done
 
   # Generate SBOM for repository using Syft
