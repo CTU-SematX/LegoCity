@@ -1,208 +1,132 @@
-# Data Sources (Servers)
+# LegoCity Data Servers
 
-Thư mục này chứa các server mẫu đóng vai trò là **Data Sources** trong kiến trúc Smart City. Các server này mô phỏng các hệ thống dữ liệu có sẵn trước khi triển khai hệ thống Smart City.
+Demo servers showcasing how to work with the NGSI-LD Context Broker.
 
-## 📋 Tổng quan
+## 📋 Server Overview
 
-| Server | Domain | Tech Stack | Port | Entity Types |
-|--------|--------|------------|------|--------------|
-| `traffic-flow` | Giao thông | FastAPI + Python | 8001 | TrafficFlowObserved |
-| `environment-monitor` | Môi trường | Gin + Go | 8002 | AirQualityObserved |
-| `public-lighting` | Dịch vụ công cộng | Elysia + Bun | 8003 | Streetlight |
-| `urban-infra` | Hạ tầng kỹ thuật | Elysia + Bun | 8004 | WaterSupply, Drainage, ElectricityGrid, Telecom |
+| Server | Purpose | Port | Features |
+|--------|---------|------|----------|
+| `demo-server` | Interactive learning demo | 8004 | Swagger UI, query & update entities |
+| `weather-server` | Auto-updating weather data | 8005 | Linear data generation, auto-update mode |
 
-## 🏗️ Kiến trúc
+## 🏗️ Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    Layer 1: Data Sources                     │
-├─────────────┬─────────────┬─────────────┬───────────────────┤
-│ Traffic     │ Environment │ Lighting    │ Infrastructure    │
-│ (FastAPI)   │ (Gin)       │ (Elysia)    │ (Elysia)          │
-│ :8001       │ :8002       │ :8003       │ :8004             │
-└──────┬──────┴──────┬──────┴──────┬──────┴─────────┬─────────┘
-       │             │             │                │
-       │     HTTP POST (NGSI-LD Payload)           │
-       │             │             │                │
-       └─────────────┴──────┬──────┴────────────────┘
-                            │
-                            ▼
+│                    Seed Data Loader (on startup)             │
+│                    Parses CSV → NGSI-LD                      │
+└──────────────────────────┬──────────────────────────────────┘
+                           │
+                           ▼
               ┌─────────────────────────┐
               │   Context Broker        │
               │   (Orion-LD)            │
               │   :1026                 │
-              └─────────────────────────┘
+              └───────────┬─────────────┘
+                          │
+         ┌────────────────┼────────────────┐
+         │                │                │
+         ▼                ▼                ▼
+┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
+│  Demo Server    │ │ Weather Server  │ │   Dashboard     │
+│  :8004          │ │ :8005           │ │   :3000         │
+│                 │ │                 │ │                 │
+│  • Query data   │ │ • Auto-update   │ │ • Visualize     │
+│  • Update data  │ │ • Weather/AQ    │ │ • Manage        │
+│  • Swagger UI   │ │ • Linear gen    │ │                 │
+└─────────────────┘ └─────────────────┘ └─────────────────┘
 ```
 
-## 🚀 Khởi chạy
+## 🚀 Quick Start
 
-### Sử dụng Docker Compose (Khuyến nghị)
+### Using Docker Compose (Recommended)
+
+From the **project root** directory:
 
 ```bash
-# Khởi chạy tất cả servers
+# Start the entire stack
 docker compose up -d
 
-# Xem logs
-docker compose logs -f
+# View logs
+docker compose logs -f demo-server weather-server
 
-# Dừng servers
+# Stop everything
 docker compose down
 ```
 
-### Chạy từng server riêng lẻ
-
-#### Traffic Flow Server (Python)
-```bash
-cd traffic-flow
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-uvicorn main:app --reload --port 8001
-```
-
-#### Environment Monitor Server (Go)
-```bash
-cd environment-monitor
-go mod download
-go run .
-```
-
-#### Public Lighting Server (Bun)
-```bash
-cd public-lighting
-bun install
-bun run dev
-```
-
-#### Urban Infrastructure Server (Bun)
-```bash
-cd urban-infra
-bun install
-bun run dev
-```
-
-## 📡 API Endpoints
-
-Mỗi server đều có các endpoint cơ bản:
-
-| Method | Endpoint | Mô tả |
-|--------|----------|-------|
-| GET | `/` | Health check |
-| GET | `/swagger` hoặc `/docs` | Swagger UI (OpenAPI) |
-| GET | `/{resource}` | Lấy danh sách records |
-| GET | `/{resource}/:id` | Lấy chi tiết 1 record |
-| POST | `/{resource}` | Tạo mới record |
-| PUT | `/{resource}/:id` | Cập nhật record |
-| DELETE | `/{resource}/:id` | Xóa record |
-| POST | `/{resource}/:id/push` | Đẩy 1 record lên Broker |
-| POST | `/{resource}/push-all` | Đẩy tất cả records lên Broker |
-| GET | `/{resource}/:id/ngsi-ld` | Lấy record dạng NGSI-LD |
-
-### Ví dụ
+### Running Locally
 
 ```bash
-# Lấy danh sách traffic flow
-curl http://localhost:8001/traffic-flows
+# Demo Server
+cd demo-server && bun install && bun run dev
 
-# Đẩy 1 record lên broker
-curl -X POST http://localhost:8001/traffic-flows/1/push
-
-# Đẩy tất cả records lên broker
-curl -X POST http://localhost:8001/traffic-flows/push-all
+# Weather Server (separate terminal)
+cd weather-server && bun install && bun run dev
 ```
 
-## 🔧 Biến môi trường
+## 📦 Tech Stack
 
-| Biến | Mô tả | Mặc định |
-|------|-------|----------|
-| `BROKER_URL` | URL của Context Broker | `http://localhost:1026` |
-| `DATA_PATH` | Đường dẫn đến file data seed | Tùy server |
-| `PORT` | Port của server | Tùy server |
+- **Runtime**: Bun 1.0+
+- **Framework**: ElysiaJS
+- **Docs**: Swagger UI (built-in)
 
-## 📂 Cấu trúc thư mục
+## 🔧 Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `PORT` | Server port | 8004/8005 |
+| `BROKER_URL` | NGSI-LD Context Broker URL | `http://localhost:1026` |
+
+## 📁 Folder Structure
 
 ```
 servers/
-├── docker-compose.yml      # Docker Compose orchestration
-├── .env.example            # Environment variables template
-├── README.md               # This file
-│
-├── traffic-flow/           # FastAPI + Python
-│   ├── main.py
-│   ├── models.py
-│   ├── database.py
-│   ├── ngsi.py
-│   ├── config.py
-│   ├── requirements.txt
-│   ├── Dockerfile
-│   └── README.md
-│
-├── environment-monitor/    # Gin + Go
-│   ├── main.go
-│   ├── models/
-│   ├── handlers/
-│   ├── database/
-│   ├── ngsi/
-│   ├── go.mod
-│   ├── Dockerfile
-│   └── README.md
-│
-├── public-lighting/        # Elysia + Bun
-│   ├── src/
-│   │   ├── index.ts
-│   │   ├── db.ts
-│   │   ├── models.ts
-│   │   └── ngsi.ts
+├── README.md              # This file
+├── .env.example           # Environment template
+├── demo-server/           # Interactive demo server
+│   ├── src/index.ts       # Main server code
 │   ├── package.json
-│   ├── tsconfig.json
 │   ├── Dockerfile
 │   └── README.md
-│
-└── urban-infra/            # Elysia + Bun
-    ├── src/
-    │   ├── index.ts
-    │   ├── db.ts
-    │   ├── models.ts
-    │   └── ngsi.ts
+└── weather-server/        # Weather auto-update server
+    ├── src/index.ts       # Main server code
     ├── package.json
-    ├── tsconfig.json
     ├── Dockerfile
     └── README.md
 ```
 
-## 🧪 Testing với OpenAPI
+## 📖 Server Details
 
-Mỗi server đều hỗ trợ Swagger UI để test API:
+### Demo Server (`:8004`)
 
-- Traffic Flow: http://localhost:8001/docs
-- Environment Monitor: http://localhost:8002/swagger/index.html
-- Public Lighting: http://localhost:8003/swagger
-- Urban Infrastructure: http://localhost:8004/swagger
+Interactive demo for learning NGSI-LD operations:
 
-## 🔗 Kết nối với Broker
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/swagger` | Interactive API docs |
+| GET | `/entities` | List all entities |
+| GET | `/entities/:id` | Get single entity |
+| PATCH | `/traffic/:id` | Update traffic data |
+| PATCH | `/flood-sensor/:id` | Update flood sensor |
+| PATCH | `/flood-zone/:id` | Update flood zone |
+| PATCH | `/incident/:id` | Update incident |
+| PATCH | `/vehicle/:id` | Update vehicle |
+| PATCH | `/medical/:id` | Update medical facility |
 
-Để kết nối với Context Broker, đảm bảo:
+### Weather Server (`:8005`)
 
-1. Broker đang chạy (xem `/broker/README.md`)
-2. Network `broker_legocity-network` đã được tạo
-3. Biến `BROKER_URL` được cấu hình đúng
+Auto-updating weather/air quality data:
 
-```bash
-# Kiểm tra network
-docker network ls | grep legocity
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/swagger` | Interactive API docs |
+| POST | `/auto-update/start` | Start auto-update |
+| POST | `/auto-update/stop` | Stop auto-update |
+| GET | `/auto-update/status` | Get status |
+| POST | `/auto-update/trigger` | Manual trigger |
+| GET | `/weather` | Get weather stations |
+| GET | `/air-quality` | Get AQ stations |
 
-# Nếu chưa có, chạy broker trước
-cd ../broker
-docker compose up -d
-```
+## 📜 License
 
-## 📝 Seed Data
-
-Mỗi server tự động load dữ liệu từ thư mục `/opendata` khi khởi động:
-
-- `traffic-flow` ← `/opendata/traffic.json`
-- `environment-monitor` ← `/opendata/environment.json`
-- `public-lighting` ← `/opendata/lighting.json`
-- `urban-infra` ← `/opendata/infrastructure.json`
-
-Dữ liệu chỉ được seed một lần (nếu database trống).
+MIT License - see [LICENSE](../LICENSE) for details.

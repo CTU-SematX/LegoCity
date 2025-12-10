@@ -1,0 +1,17 @@
+{
+  "name": "legocity-demo-server",
+  "version": "2.0.0",
+  "description": "Interactive demo server showing how data servers work with NGSI-LD Context Broker",
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "start": "bun run src/index.ts"
+  },
+  "dependencies": {
+    "elysia": "^1.0.0",
+    "@elysiajs/swagger": "^1.0.0",
+    "@elysiajs/cors": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
+}

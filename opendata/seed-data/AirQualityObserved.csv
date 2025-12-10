@@ -1,0 +1,11 @@
+id,type,location,name,pm25,pm10,no2,so2,co,o3,aqi,aqiCategory,observedAt
+urn:ngsi-ld:AirQualityObserved:HCMC:aq-01,AirQualityObserved,"10.7769,106.7009",District 1 AQ Station,45,68,28,12,0.8,42,85,Moderate,2025-12-10T08:00:00Z
+urn:ngsi-ld:AirQualityObserved:HCMC:aq-02,AirQualityObserved,"10.8231,106.6297",Tan Binh AQ Station,52,75,35,15,1.1,38,95,Moderate,2025-12-10T08:00:00Z
+urn:ngsi-ld:AirQualityObserved:HCMC:aq-03,AirQualityObserved,"10.7503,106.6625",District 5 AQ Station,38,55,22,10,0.6,48,72,Moderate,2025-12-10T08:00:00Z
+urn:ngsi-ld:AirQualityObserved:HCMC:aq-04,AirQualityObserved,"10.8488,106.7719",Thu Duc AQ Station,28,42,18,8,0.4,55,58,Good,2025-12-10T08:00:00Z
+urn:ngsi-ld:AirQualityObserved:HCMC:aq-05,AirQualityObserved,"10.7295,106.7217",Binh Thanh AQ Station,48,70,30,14,0.9,40,88,Moderate,2025-12-10T08:00:00Z
+urn:ngsi-ld:AirQualityObserved:HCMC:aq-06,AirQualityObserved,"10.8010,106.6443",Tan Phu AQ Station,55,82,38,18,1.2,35,102,Unhealthy for Sensitive,2025-12-10T08:00:00Z
+urn:ngsi-ld:AirQualityObserved:HCMC:aq-07,AirQualityObserved,"10.7628,106.6820",District 10 AQ Station,42,62,25,11,0.7,45,78,Moderate,2025-12-10T08:00:00Z
+urn:ngsi-ld:AirQualityObserved:HCMC:aq-08,AirQualityObserved,"10.8567,106.6063",Hoc Mon AQ Station,22,35,15,6,0.3,60,45,Good,2025-12-10T08:00:00Z
+urn:ngsi-ld:AirQualityObserved:HCMC:aq-09,AirQualityObserved,"10.6918,106.7523",District 9 AQ Station,35,52,20,9,0.5,50,65,Moderate,2025-12-10T08:00:00Z
+urn:ngsi-ld:AirQualityObserved:HCMC:aq-10,AirQualityObserved,"10.7456,106.6347",District 8 AQ Station,58,85,40,20,1.3,32,108,Unhealthy for Sensitive,2025-12-10T08:00:00Z
