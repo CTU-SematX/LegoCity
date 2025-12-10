@@ -1,0 +1,787 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.73727550143295,
+          10.6522111990689
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:d36d3ee3-9e4d-4513-8860-71eaa4344cac",
+        "type": "FloodSensor",
+        "waterLevel": 1.66,
+        "batteryLevel": 0.38,
+        "observedAt": "2025-12-09T01:09:19Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.70200051167303,
+          10.7742335018978
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:6be01f41-d3ac-452c-a5d9-b532375d648c",
+        "type": "FloodSensor",
+        "waterLevel": 1.74,
+        "batteryLevel": 0.86,
+        "observedAt": "2025-12-09T16:07:07Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.76681217082496,
+          10.689243389459
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:304db6e2-e79c-4297-a855-7b8306895e14",
+        "type": "FloodSensor",
+        "waterLevel": 1.72,
+        "batteryLevel": 0.58,
+        "observedAt": "2025-12-07T04:07:21Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.71580135865612,
+          10.818444534998688
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:84a20644-dc4c-4e0d-8d5e-f5fcb8d46687",
+        "type": "FloodSensor",
+        "waterLevel": 0.11,
+        "batteryLevel": 0.3,
+        "observedAt": "2025-12-05T17:29:14Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.7659399012417,
+          10.66357995242911
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:c9e272c3-b619-4a1e-a0ae-87de5836034f",
+        "type": "FloodSensor",
+        "waterLevel": 0.15,
+        "batteryLevel": 0.37,
+        "observedAt": "2025-12-08T01:16:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.70287714646365,
+          10.769400386188442
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:dbf249cc-0e5b-42f5-a3f3-3ea3af61c225",
+        "type": "FloodSensor",
+        "waterLevel": 1.49,
+        "batteryLevel": 0.61,
+        "observedAt": "2025-12-07T14:48:42Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.66635939806997,
+          10.762793572157237
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:1ea759a5-2ecf-47a5-814c-7950d1d9c610",
+        "type": "FloodSensor",
+        "waterLevel": 2.17,
+        "batteryLevel": 0.32,
+        "observedAt": "2025-12-09T06:56:06Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.69600712401055,
+          10.764536660714295
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:74937f00-eeb6-41ad-862b-495631166714",
+        "type": "FloodSensor",
+        "waterLevel": 2.11,
+        "batteryLevel": 0.4,
+        "observedAt": "2025-12-08T06:47:30Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.6748075751386,
+          10.767990090609196
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:f2d96574-7f60-4b83-b4ef-7c27ff9c5c9c",
+        "type": "FloodSensor",
+        "waterLevel": 0.84,
+        "batteryLevel": 0.85,
+        "observedAt": "2025-12-05T15:25:21Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.82960575156628,
+          10.942740351375571
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:a373bf41-65ba-4661-a448-881493bd295a",
+        "type": "FloodSensor",
+        "waterLevel": 0.54,
+        "batteryLevel": 0.65,
+        "observedAt": "2025-12-09T03:16:39Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.70826583575362,
+          10.81088653466758
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:b3ae2b2c-4f4b-4565-b240-3a58ed9f5440",
+        "type": "FloodSensor",
+        "waterLevel": 1.01,
+        "batteryLevel": 0.66,
+        "observedAt": "2025-12-08T20:32:34Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.87423446136712,
+          10.876148112345867
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:c03cdf26-72be-48fe-b0cb-4240e52df6b8",
+        "type": "FloodSensor",
+        "waterLevel": 0.04,
+        "batteryLevel": 0.95,
+        "observedAt": "2025-12-08T21:46:35Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.71168815765455,
+          10.737398933601115
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:80f6f450-6d65-4290-af14-c2a94c2018d5",
+        "type": "FloodSensor",
+        "waterLevel": 1.67,
+        "batteryLevel": 0.73,
+        "observedAt": "2025-12-07T10:30:36Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.66862938301229,
+          10.760470352215476
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:0802da85-3eb5-4ffc-b2cc-04f59227f6f6",
+        "type": "FloodSensor",
+        "waterLevel": 2.01,
+        "batteryLevel": 0.7,
+        "observedAt": "2025-12-04T01:34:57Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.66467333122579,
+          10.76585824417483
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:a7bf889a-4433-4504-8b66-e50ce504ab05",
+        "type": "FloodSensor",
+        "waterLevel": 1.49,
+        "batteryLevel": 0.7,
+        "observedAt": "2025-12-06T00:55:16Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.69537668884098,
+          10.765578819447322
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:45437004-ecaf-4680-8540-d151d9df23c8",
+        "type": "FloodSensor",
+        "waterLevel": 0.54,
+        "batteryLevel": 0.71,
+        "observedAt": "2025-12-05T19:21:00Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.73640596446843,
+          10.799102922040396
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:e3dc6927-0e89-43b8-9bd5-0861a3323c0d",
+        "type": "FloodSensor",
+        "waterLevel": 1.78,
+        "batteryLevel": 0.82,
+        "observedAt": "2025-12-03T05:36:18Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.84574002138933,
+          10.86402582134151
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:dd479bb2-86dc-4bd2-bdb2-692ab2e573e4",
+        "type": "FloodSensor",
+        "waterLevel": 0.4,
+        "batteryLevel": 0.87,
+        "observedAt": "2025-12-03T03:53:29Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.76534793050723,
+          10.680792599465198
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:74c4693f-99c3-46d8-9c02-5dbbd332d830",
+        "type": "FloodSensor",
+        "waterLevel": 2.27,
+        "batteryLevel": 0.76,
+        "observedAt": "2025-12-09T18:53:27Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.83597386224015,
+          10.88528850757208
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:5a61dc87-2ac2-403a-a49c-50841bb8eea1",
+        "type": "FloodSensor",
+        "waterLevel": 0.02,
+        "batteryLevel": 0.32,
+        "observedAt": "2025-12-05T18:55:30Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.68999647458978,
+          10.765918912244828
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:819967db-bc9a-47ee-bf6e-c6d159c83ac4",
+        "type": "FloodSensor",
+        "waterLevel": 1.76,
+        "batteryLevel": 0.82,
+        "observedAt": "2025-12-03T12:24:51Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.8366598484737,
+          10.770358407894621
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:fa9f0329-de74-4027-8b58-5ca255d1db89",
+        "type": "FloodSensor",
+        "waterLevel": 0.41,
+        "batteryLevel": 0.58,
+        "observedAt": "2025-12-03T13:10:59Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.85346375397165,
+          10.901653803449182
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:64661edd-d6d7-40f0-bccc-f8fe0d505b3a",
+        "type": "FloodSensor",
+        "waterLevel": 2.15,
+        "batteryLevel": 0.41,
+        "observedAt": "2025-12-06T18:32:44Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.74418995116538,
+          10.692770407127412
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:3e67f1b6-beae-491a-8613-891332563bce",
+        "type": "FloodSensor",
+        "waterLevel": 1.51,
+        "batteryLevel": 0.93,
+        "observedAt": "2025-12-04T23:51:20Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.75256563372767,
+          10.701089870642368
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:bb8041f3-69ac-4622-821b-e1d06037b410",
+        "type": "FloodSensor",
+        "waterLevel": 2.45,
+        "batteryLevel": 0.6,
+        "observedAt": "2025-12-06T21:30:52Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.79636462416399,
+          10.885441813884775
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:c76afca8-8213-4b13-84a2-8b13840ca819",
+        "type": "FloodSensor",
+        "waterLevel": 0.26,
+        "batteryLevel": 0.35,
+        "observedAt": "2025-12-05T18:11:37Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.68679884277175,
+          10.763547354086654
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:637c64cc-4a57-41c4-a903-4cc384da8f6f",
+        "type": "FloodSensor",
+        "waterLevel": 2.38,
+        "batteryLevel": 0.59,
+        "observedAt": "2025-12-08T04:44:45Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.74995453852166,
+          10.650966340171044
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:529634a3-49f9-408a-a54a-da1480039aa7",
+        "type": "FloodSensor",
+        "waterLevel": 1.25,
+        "batteryLevel": 0.48,
+        "observedAt": "2025-12-09T05:11:35Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.72634584216956,
+          10.671700839655303
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:5b05bff5-0bd0-4ad5-9fcd-1b6a6bd3539f",
+        "type": "FloodSensor",
+        "waterLevel": 2.06,
+        "batteryLevel": 0.7,
+        "observedAt": "2025-12-05T04:58:13Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.78156809402206,
+          10.798235308314588
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:ab4835cb-e074-40d4-a6a7-b64e369f50b8",
+        "type": "FloodSensor",
+        "waterLevel": 1.94,
+        "batteryLevel": 0.68,
+        "observedAt": "2025-12-03T02:09:45Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.77211735168049,
+          10.659756344406162
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:f3f15afd-eda6-46f8-a746-d746fa3c47ce",
+        "type": "FloodSensor",
+        "waterLevel": 2.03,
+        "batteryLevel": 0.72,
+        "observedAt": "2025-12-07T14:16:18Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.73349108377309,
+          10.716993659439355
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:a9acccbd-e703-4248-81c0-8b9cf5c18998",
+        "type": "FloodSensor",
+        "waterLevel": 0.03,
+        "batteryLevel": 0.44,
+        "observedAt": "2025-12-04T06:14:44Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.79208660991202,
+          10.866471327621024
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:ff09b60a-1140-4dd5-8ef7-e6f3cf30a5a4",
+        "type": "FloodSensor",
+        "waterLevel": 2.02,
+        "batteryLevel": 0.62,
+        "observedAt": "2025-12-08T23:22:06Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.71363146976405,
+          10.727691399139069
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:a42c4410-ce55-4cf2-a76e-62ac35cf2207",
+        "type": "FloodSensor",
+        "waterLevel": 0.28,
+        "batteryLevel": 0.98,
+        "observedAt": "2025-12-08T20:21:29Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.79079196855001,
+          10.870696813094819
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:ba57a0d4-be4b-49e1-a69a-d8505e163865",
+        "type": "FloodSensor",
+        "waterLevel": 0.15,
+        "batteryLevel": 0.48,
+        "observedAt": "2025-12-05T02:05:37Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.90010636397398,
+          10.413183811863638
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:34828389-bb36-4854-afde-70c360e4fca9",
+        "type": "FloodSensor",
+        "waterLevel": 1.11,
+        "batteryLevel": 0.66,
+        "observedAt": "2025-12-03T18:41:14Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.90064417256988,
+          10.407425594229856
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:203f90e2-2465-45a1-b71d-681ddd7d3c79",
+        "type": "FloodSensor",
+        "waterLevel": 1.21,
+        "batteryLevel": 0.76,
+        "observedAt": "2025-12-04T17:30:28Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.75318873005635,
+          10.831978644123545
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:df8c3813-c71b-4c46-8686-ec03c7e7adf8",
+        "type": "FloodSensor",
+        "waterLevel": 1.45,
+        "batteryLevel": 0.41,
+        "observedAt": "2025-12-07T03:23:58Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.72381705284103,
+          10.743788887321706
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:b7b211d9-4c2b-4cd0-a4e1-d56854168ce0",
+        "type": "FloodSensor",
+        "waterLevel": 0.45,
+        "batteryLevel": 0.66,
+        "observedAt": "2025-12-04T02:08:49Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.72198486653011,
+          10.74420916330318
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:356df5a3-6a66-4d04-9f05-0bb3b96716b2",
+        "type": "FloodSensor",
+        "waterLevel": 1.81,
+        "batteryLevel": 0.56,
+        "observedAt": "2025-12-03T18:10:40Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.8830450239791,
+          10.395593168644465
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:b472d82c-7440-453a-8cd9-83efbdbf5be9",
+        "type": "FloodSensor",
+        "waterLevel": 2.49,
+        "batteryLevel": 0.62,
+        "observedAt": "2025-12-08T11:41:41Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.69704440673871,
+          10.808133760966532
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:cc7defc0-ba4a-4332-927d-bb925c2d0d83",
+        "type": "FloodSensor",
+        "waterLevel": 1.54,
+        "batteryLevel": 0.51,
+        "observedAt": "2025-12-08T02:59:49Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.87916080054652,
+          10.39048144552116
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:baf7f5d4-70c0-47cc-a77f-f931c84082c3",
+        "type": "FloodSensor",
+        "waterLevel": 2.49,
+        "batteryLevel": 0.87,
+        "observedAt": "2025-12-03T06:26:22Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.76586081068004,
+          10.857906687629114
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:f1bf0a36-75c7-4da9-ab4c-1a2ea75e1c62",
+        "type": "FloodSensor",
+        "waterLevel": 1.75,
+        "batteryLevel": 0.68,
+        "observedAt": "2025-12-03T22:58:49Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.71164045522814,
+          10.813552104086797
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:703c250d-b7e0-4279-87e1-43ba693c3953",
+        "type": "FloodSensor",
+        "waterLevel": 1.78,
+        "batteryLevel": 0.72,
+        "observedAt": "2025-12-08T14:51:03Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.69886822816373,
+          10.813397403299433
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:FloodSensor:HCMC:bc079990-2b35-4bfe-a988-103c914f8e5d",
+        "type": "FloodSensor",
+        "waterLevel": 1.84,
+        "batteryLevel": 0.44,
+        "observedAt": "2025-12-05T22:07:18Z"
+      }
+    }
+  ]
+}

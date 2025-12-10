@@ -1,0 +1,725 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.67696766993747,
+          10.781997569464039
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:f852f901-8c9b-457b-ad8f-0d49d25779de",
+        "type": "EmergencyIncident",
+        "incidentType": "Flooding",
+        "severity": "Medium",
+        "status": "Resolved",
+        "observedAt": "2025-12-05T23:24:15Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.87740065154588,
+          10.395658551313078
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:143ec996-2741-4659-8847-caefb3886c28",
+        "type": "EmergencyIncident",
+        "incidentType": "TrafficAccident",
+        "severity": "Critical",
+        "status": "Resolved",
+        "observedAt": "2025-12-05T06:24:30Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.6954039769386,
+          10.80674142723877
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:255bf366-8502-49bc-ba8a-ceb6a3d44cbd",
+        "type": "EmergencyIncident",
+        "incidentType": "MedicalEmergency",
+        "severity": "Critical",
+        "status": "Resolved",
+        "observedAt": "2025-12-07T11:19:35Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.70148109196565,
+          10.812619754005233
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:0c993ad1-1a80-4e64-8fa9-8a0a4959b11d",
+        "type": "EmergencyIncident",
+        "incidentType": "TrafficAccident",
+        "severity": "Medium",
+        "status": "Dispatching",
+        "observedAt": "2025-12-07T18:35:18Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.7270050555394,
+          10.74018625172259
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:2d5b3245-95ba-45bd-b66b-6d8e8c0160b4",
+        "type": "EmergencyIncident",
+        "incidentType": "Fire",
+        "severity": "Medium",
+        "status": "Dispatching",
+        "observedAt": "2025-12-06T17:06:12Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.87906760834497,
+          10.395170668056961
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:f53daf3f-6cc6-4de5-b150-a47e55929354",
+        "type": "EmergencyIncident",
+        "incidentType": "TrafficAccident",
+        "severity": "Low",
+        "status": "Resolved",
+        "observedAt": "2025-12-09T10:33:29Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.70620697038518,
+          10.778964444293242
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:91d9b2bf-fff9-4110-a2af-bb86993c9c25",
+        "type": "EmergencyIncident",
+        "incidentType": "Flooding",
+        "severity": "Low",
+        "status": "Active",
+        "observedAt": "2025-12-06T03:10:32Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.70698540240207,
+          10.779657006553672
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:98a63d6a-848b-4e79-846a-f186cc6e46f9",
+        "type": "EmergencyIncident",
+        "incidentType": "MedicalEmergency",
+        "severity": "Critical",
+        "status": "Dispatching",
+        "observedAt": "2025-12-07T10:03:03Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.66453201786445,
+          10.835131186064253
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:0a15785d-433d-4052-8ad4-f2e4d5a39428",
+        "type": "EmergencyIncident",
+        "incidentType": "Flooding",
+        "severity": "High",
+        "status": "Dispatching",
+        "observedAt": "2025-12-06T15:13:46Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.75236598560102,
+          10.835828788815558
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:e9afc546-4db5-4125-aa4a-8cba6653bebc",
+        "type": "EmergencyIncident",
+        "incidentType": "TrafficAccident",
+        "severity": "Critical",
+        "status": "Active",
+        "observedAt": "2025-12-08T13:14:08Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.719009779087,
+          10.742224106219842
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:b5c55b2d-dcb7-4e61-b63a-db426c3acd49",
+        "type": "EmergencyIncident",
+        "incidentType": "Flooding",
+        "severity": "High",
+        "status": "Resolved",
+        "observedAt": "2025-12-07T04:04:03Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.51371082177675,
+          11.021075419955082
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:7e08189f-be6d-43c7-87e9-d5eed6c2716a",
+        "type": "EmergencyIncident",
+        "incidentType": "Fire",
+        "severity": "Medium",
+        "status": "Active",
+        "observedAt": "2025-12-03T20:50:09Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.65929626548214,
+          10.80559864682817
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:81ca9526-ef2f-45f0-a5e2-30f6c584ae00",
+        "type": "EmergencyIncident",
+        "incidentType": "Flooding",
+        "severity": "Medium",
+        "status": "Dispatching",
+        "observedAt": "2025-12-09T18:41:10Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.7462721601542,
+          10.835944838553772
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:d986d3d4-44bc-45fa-a9b2-5e056b399ec7",
+        "type": "EmergencyIncident",
+        "incidentType": "Fire",
+        "severity": "Critical",
+        "status": "Active",
+        "observedAt": "2025-12-05T01:25:02Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.71926812483223,
+          10.819883089005145
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:03bd3070-493c-4249-9dcc-ba3c0ec76392",
+        "type": "EmergencyIncident",
+        "incidentType": "Fire",
+        "severity": "Low",
+        "status": "Active",
+        "observedAt": "2025-12-06T17:12:27Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.69744619094332,
+          10.7714395963754
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:5647f303-86de-475f-a987-69e09c8b92ca",
+        "type": "EmergencyIncident",
+        "incidentType": "TrafficAccident",
+        "severity": "Critical",
+        "status": "Active",
+        "observedAt": "2025-12-04T19:37:31Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.65881366527427,
+          10.811772398520741
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:0838e933-4c1e-48fd-a2c0-1a05356c696d",
+        "type": "EmergencyIncident",
+        "incidentType": "TrafficAccident",
+        "severity": "Low",
+        "status": "Dispatching",
+        "observedAt": "2025-12-08T07:53:24Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.88086840995307,
+          10.393812036546588
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:cd78eb11-c75f-4153-b3de-463a64c0ef57",
+        "type": "EmergencyIncident",
+        "incidentType": "Flooding",
+        "severity": "Critical",
+        "status": "Active",
+        "observedAt": "2025-12-08T19:42:20Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.78280614492253,
+          10.864754086802568
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:9b76ffcf-6839-4cf4-986e-b5d27a120d20",
+        "type": "EmergencyIncident",
+        "incidentType": "Fire",
+        "severity": "Critical",
+        "status": "Resolved",
+        "observedAt": "2025-12-09T05:34:12Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.69688042449334,
+          10.802041914309232
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:01a9375f-4e2d-4c97-a8e8-4aaf3953718c",
+        "type": "EmergencyIncident",
+        "incidentType": "Flooding",
+        "severity": "Low",
+        "status": "Resolved",
+        "observedAt": "2025-12-04T12:36:03Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.693617268998,
+          10.811346031967231
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:f12101c2-862d-43eb-9320-f835be8646ed",
+        "type": "EmergencyIncident",
+        "incidentType": "Flooding",
+        "severity": "Medium",
+        "status": "Dispatching",
+        "observedAt": "2025-12-08T16:46:28Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.6657725126756,
+          10.837746117621212
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:c0e0a02c-4607-4edb-9118-d65028c75d50",
+        "type": "EmergencyIncident",
+        "incidentType": "TrafficAccident",
+        "severity": "Medium",
+        "status": "Dispatching",
+        "observedAt": "2025-12-06T14:37:48Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.6545414880269,
+          10.796884635755331
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:310008f4-9b5d-4e67-a7c2-bf6db2635068",
+        "type": "EmergencyIncident",
+        "incidentType": "Fire",
+        "severity": "Critical",
+        "status": "Dispatching",
+        "observedAt": "2025-12-04T11:17:46Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.50088613442061,
+          10.997430163532027
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:060a93e3-21fe-47d2-9a8c-9fd6b87e3c9f",
+        "type": "EmergencyIncident",
+        "incidentType": "TrafficAccident",
+        "severity": "High",
+        "status": "Active",
+        "observedAt": "2025-12-03T11:30:57Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.67281502888167,
+          10.777916733026256
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:e3c244c9-f005-4558-ac6b-268e6adf1fc6",
+        "type": "EmergencyIncident",
+        "incidentType": "Flooding",
+        "severity": "Medium",
+        "status": "Active",
+        "observedAt": "2025-12-02T22:57:31Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.69874301127716,
+          10.804873677474072
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:9bb6d494-9317-493a-9c23-f19a71af989a",
+        "type": "EmergencyIncident",
+        "incidentType": "MedicalEmergency",
+        "severity": "Low",
+        "status": "Resolved",
+        "observedAt": "2025-12-09T12:55:58Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.91418935989618,
+          10.427934657884986
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:8aeeeb26-4d30-46ad-aa9d-56db72e5b05a",
+        "type": "EmergencyIncident",
+        "incidentType": "MedicalEmergency",
+        "severity": "Medium",
+        "status": "Resolved",
+        "observedAt": "2025-12-05T07:15:17Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.89853437317842,
+          10.411103917953202
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:9a6ed23a-da4e-4b9d-8c73-607ca37e1e00",
+        "type": "EmergencyIncident",
+        "incidentType": "Fire",
+        "severity": "High",
+        "status": "Resolved",
+        "observedAt": "2025-12-04T15:12:35Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.65307788475349,
+          10.802797276451269
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:169f8d04-97f6-40c1-810c-07ce44c5ee8b",
+        "type": "EmergencyIncident",
+        "incidentType": "Fire",
+        "severity": "High",
+        "status": "Resolved",
+        "observedAt": "2025-12-04T07:41:11Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.67254856307923,
+          10.778978822468623
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:14c8de37-4d44-4db6-9b75-6c5fc1805ab3",
+        "type": "EmergencyIncident",
+        "incidentType": "Flooding",
+        "severity": "Low",
+        "status": "Resolved",
+        "observedAt": "2025-12-06T21:38:51Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.70252446355475,
+          10.774815829213122
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:4544add8-bac6-48eb-8ffa-40e06a5595fe",
+        "type": "EmergencyIncident",
+        "incidentType": "MedicalEmergency",
+        "severity": "Medium",
+        "status": "Resolved",
+        "observedAt": "2025-12-08T01:01:31Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.76575596556144,
+          10.848499525464666
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:343d8d32-37d3-4500-b8de-097dfb888213",
+        "type": "EmergencyIncident",
+        "incidentType": "Flooding",
+        "severity": "High",
+        "status": "Dispatching",
+        "observedAt": "2025-12-06T12:09:48Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.70300728873825,
+          10.81045969634311
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:69aac791-21bb-4410-bbd2-e345b7ac5085",
+        "type": "EmergencyIncident",
+        "incidentType": "TrafficAccident",
+        "severity": "Medium",
+        "status": "Active",
+        "observedAt": "2025-12-05T11:25:34Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.66333999431542,
+          10.824283122746097
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:bee4f5f4-a38d-43aa-95d5-b7d6cd53914c",
+        "type": "EmergencyIncident",
+        "incidentType": "Fire",
+        "severity": "Medium",
+        "status": "Dispatching",
+        "observedAt": "2025-12-08T09:19:17Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.52280035409886,
+          11.01578833349353
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:f1b5e50c-9b2a-449d-a499-c128da3af061",
+        "type": "EmergencyIncident",
+        "incidentType": "Fire",
+        "severity": "Low",
+        "status": "Dispatching",
+        "observedAt": "2025-12-05T22:53:16Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.67751394443744,
+          10.783776552835661
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:38917a40-8095-4c93-9498-d5cc8075845f",
+        "type": "EmergencyIncident",
+        "incidentType": "Flooding",
+        "severity": "Critical",
+        "status": "Active",
+        "observedAt": "2025-12-04T09:57:37Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.72458234906523,
+          10.740667784179882
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:6eb29056-e875-4ddf-87b6-49e3dadaaffd",
+        "type": "EmergencyIncident",
+        "incidentType": "Fire",
+        "severity": "High",
+        "status": "Resolved",
+        "observedAt": "2025-12-05T02:42:35Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.49793018581516,
+          11.001951064414921
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:f0a4cde8-8858-4cd2-80ac-34fb23e34934",
+        "type": "EmergencyIncident",
+        "incidentType": "Fire",
+        "severity": "Critical",
+        "status": "Resolved",
+        "observedAt": "2025-12-07T12:39:45Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.71684211681927,
+          10.739433911713556
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:953d0142-5906-46e1-b4f7-97988e5e076e",
+        "type": "EmergencyIncident",
+        "incidentType": "Fire",
+        "severity": "High",
+        "status": "Dispatching",
+        "observedAt": "2025-12-05T20:51:04Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.69264790913664,
+          10.767518672314182
+        ]
+      },
+      "properties": {
+        "id": "urn:ngsi-ld:EmergencyIncident:HCMC:46b4a55c-a7ea-4a04-b0c5-0a502fb5a614",
+        "type": "EmergencyIncident",
+        "incidentType": "MedicalEmergency",
+        "severity": "Low",
+        "status": "Active",
+        "observedAt": "2025-12-07T16:16:49Z"
+      }
+    }
+  ]
+}
