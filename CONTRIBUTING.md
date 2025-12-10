@@ -59,7 +59,7 @@ To contribute code, documentation, or other improvements:
 
 ## Issues and Pull Request Feedback
 
-Project maintainers aim to review and respond to issues within [INSERT_DAYS] business days.
+Project maintainers aim to review and respond to issues within 7 business days.
 
 The quality of information in your issue or pull request affects the speed of feedback.
 
@@ -114,7 +114,7 @@ For security vulnerabilities, follow the guidelines in our [Security information
 
 ## Development Guidelines
 
-For development guidance, see the [DEVELOPMENT Guide](./DEVELOPMENT.md).
+For development guidance, refer to component READMEs in `broker/`, `servers/`, and `dashboard/` for development notes and local run instructions.
 
 ## Writing Style and Translations
 

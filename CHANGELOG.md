@@ -8,16 +8,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **Unified Docker Compose** - Single `docker-compose.yml` at project root to start entire stack
+- **Seed Data Loader** - Python script to load CSV data into Context Broker on startup
+- **Demo Server** (`demo-server`) - Interactive Swagger UI for learning NGSI-LD operations
+- **Weather Server** (`weather-server`) - Auto-updating weather/air quality data with linear interpolation
 - GeoJSON datasets for Vietnam: Hydroelectric plants, Heritage sites, Conservation areas, Traffic infrastructure, Average income
 - Centralized license management in `LICENSES/` folder
 
 ### Changed
-- Reorganized opendata folder structure with English folder names
-- Updated all opendata READMEs to reference centralized CC-BY-SA-4.0 license
-- Removed duplicate LICENSE files from opendata subdirectories
+- Reorganized `servers/` folder: `data_server1` → `demo-server`, `data_server2` → `weather-server`
+- Reorganized `opendata/` folder: `generatedData` → `seed-data`
+- Updated docker-compose.yml with proper health checks and startup ordering
+- Updated all READMEs with new architecture
 
 ### Removed
-- Deprecated Makefile (protobuf generation moved to individual services)
+- Deprecated individual docker-compose files (consolidated into root)
+- Old multi-language server architecture (traffic-flow, environment-monitor, etc.)
 
 ## [0.3.0-alpha] - Unreleased
 
@@ -74,7 +80,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 |-----------|---------|-------|
 | Lego-Dashboard | 0.3.0-alpha | PayloadCMS + Next.js |
 | Orion-LD | 1.6.0 | NGSI-LD Context Broker |
-| MongoDB | 8.0 | Database |
+| MongoDB | 5.0.26 | Database (broker) |
+| Demo Server | 2.0.0 | Elysia + Bun |
+| Weather Server | 1.0.0 | Elysia + Bun |
 
 ## Links
 

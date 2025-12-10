@@ -66,7 +66,7 @@ representative at an online or offline event.
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported to the community leaders responsible for enforcement at
-[INSERT_CONTACT_METHOD].
+[GitHub Issues](https://github.com/CTU-SematX/LegoCity/issues) or via [GitHub Security Advisories](https://github.com/CTU-SematX/LegoCity/security/advisories/new) for sensitive matters.
 All complaints will be reviewed and investigated promptly and fairly.
 
 All community leaders are obligated to respect the privacy and security of the

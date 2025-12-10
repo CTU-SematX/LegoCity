@@ -55,26 +55,27 @@ cd LegoCity
 
 ## Quickstart Instructions
 
-Start the broker (Orion + MongoDB)
+Start the entire stack (recommended)
 
 ```bash
-cd broker
+# Start all services with unified docker compose
 docker compose up -d
+
+# View logs
+docker compose logs -f
+
+# Stop everything
+docker compose down
 ```
 
-Start sample data servers
+Or start components individually:
 
 ```bash
-cd servers
-docker compose up -d --build
-```
+# Start broker only
+cd broker && docker compose up -d
 
-Run the dashboard (local development)
-
-```bash
-cd dashboard
-pnpm install
-pnpm dev
+# Run dashboard locally
+cd dashboard && pnpm install && pnpm dev
 ```
 
 ## Usage
@@ -83,29 +84,27 @@ The repository contains example Data Source servers and a dashboard that demonst
 
 ### Sample servers
 
-| Server | Port | Framework | Domain |
+| Server | Port | Framework | Purpose |
 |--------|------|-----------|--------|
-| `traffic-flow` | 8001 | FastAPI + Python | Traffic flow |
-| `environment-monitor` | 8002 | Gin + Go | Air quality / environment |
-| `public-lighting` | 8003 | Elysia + Bun | Street lighting |
-| `urban-infra` | 8004 | Elysia + Bun | Urban infrastructure |
+| `demo-server` | 8004 | Elysia + Bun | Interactive demo with Swagger UI |
+| `weather-server` | 8005 | Elysia + Bun | Auto-updating weather/AQ data |
 
 Each server includes:
 
 - REST API for CRUD operations
-- NGSI-LD conversion endpoints
+- NGSI-LD integration with Context Broker
+- Swagger UI for interactive API docs
 - Health checks
 
 ### Open Data
 
-The `opendata/` directory contains both sample JSON datasets for seeding servers and real-world geospatial datasets in GeoJSON format.
+The `opendata/` directory contains seed data for the Context Broker and real-world geospatial datasets.
 
-#### Sample Data (Server Seeding)
-JSON datasets used to seed the example servers:
-- `traffic.json` - Traffic flow observation data
-- `environment.json` - Air quality monitoring data
-- `lighting.json` - Street lighting system data
-- `infrastructure.json` - Urban infrastructure data
+#### Seed Data (CSV)
+Data files in `opendata/seed-data/` are automatically loaded into the Context Broker on startup:
+- Traffic flow, Flood sensors, Flood zones
+- Emergency incidents, Emergency vehicles
+- Medical facilities, Weather stations, Air quality monitors
 
 #### Geospatial Datasets (GeoJSON)
 Real-world datasets covering various aspects of Vietnam:
