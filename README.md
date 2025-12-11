@@ -11,7 +11,7 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/CTU-SematX/LegoCity.svg 'Github contributors')](https://github.com/CTU-SematX/LegoCity/graphs/contributors)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-Short description
+## Short description
 
 LegoCity is a lightweight Smart City template designed for rapid experimentation and teaching within the CTU-SematX ecosystem. It provides example components to demonstrate how to connect data sources, an API gateway, and a dashboard using NGSI-LD and FIWARE enablers.
 
@@ -20,6 +20,13 @@ Documentation: https://ctu-sematx.github.io/Lego-Doc/ [![version](https://img.sh
 Lego-Dashboard: https://github.com/CTU-SematX/Lego-Dashboard [![version](https://img.shields.io/github/v/release/CTU-SematX/Lego-Dashboard?label=Version)](https://github.com/CTU-SematX/Lego-Dashboard/releases)
 
 Orion-Nginx: https://github.com/CTU-SematX/Orion-Nginx [![version](https://img.shields.io/github/v/release/CTU-SematX/Orion-Nginx?label=Version)](https://github.com/CTU-SematX/Orion-Nginx/releases)
+
+## Demo Services
+
+- **Dashboard:** https://dashboard.khoadev.id.vn  
+- **Server 1**(demo only): https://server1.khoadev.id.vn/swagger  
+- **Server 2**(demo only): https://server2.khoadev.id.vn/swagger
+- **Orion Grafana** (demo only): https://grafana.khoadev.id.vn
 
 <img width="1898" height="858" alt="image" src="https://github.com/user-attachments/assets/818af258-ea4b-424b-a2a4-23d01e6fadf0" />
 
